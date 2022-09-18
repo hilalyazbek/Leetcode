@@ -1,7 +1,23 @@
 # CodingChallenges
 Leetcode and hackerrank coding challenges
 
+[study plan](https://leetcode.com/study-plan/leetcode-75/)
+
 Each level has its own class file (Level1.cs, Level2.cs)
+```
+public static int[] RunningSum(int[] nums)
+{
+    int current = 0;
+    int[] result = nums.ToArray();
+    for (int i = 0; i < nums.Length; i++)
+    {
+        current = current + nums[i];
+        result[i] = current;
+    }
+
+    return result;
+}
+```
 
 Program.cs calls the static functions with the appropriate arguments.
 ```
