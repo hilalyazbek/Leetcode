@@ -68,32 +68,17 @@ public static class Level1
 
     public static bool IsSubsequence(string s, string t)
     {
-        if(s.Length > t.Length || s == null || t == null)
+        if (s.Length == 0)
+            return true;
+        int j = 0;
+        for (int i = 0; i < t.Length; ++i)
         {
-            return false;
+            if (t[i] == s[j])
+                j++;
+            if (j == s.Length)
+                return true;
         }
-
-        int searchIndex = 0;
-        HashSet<int> tracker = new HashSet<int>();
-        for (int i = 0; i < s.Length; i++)
-        {
-            if (tracker.Contains(t.IndexOf(s[i])))
-            {
-                return false;
-            }
-            if (!t.Contains(s[i]))
-                return false;
-
-            else
-            {
-                if (searchIndex > t.IndexOf(s[i])) 
-                    return false;
-                searchIndex = t.IndexOf(s[i]);
-                tracker.Add(searchIndex);
-            }
-
-        }
-        return true;
+        return false;
     }
 }
 
