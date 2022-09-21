@@ -22,3 +22,7 @@ Console.WriteLine("***************************");
 
 Console.WriteLine("\n206. Reverse Linked List");
 Console.WriteLine("**************************");
+
+Console.WriteLine("\n876.Middle of the Linked List");
+Console.WriteLine("*******************************");
+Level1.MiddleNode(new Level1.ListNode(0, null));

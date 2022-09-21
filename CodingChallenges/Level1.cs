@@ -150,5 +150,19 @@ public static class Level1
         return prev;
     }
 
+    public static ListNode MiddleNode(ListNode head)
+    {
+        // 1 - 2 - 3 - 4 - 5
+        // 3 - 4 - 5
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 }
 
