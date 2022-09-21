@@ -164,5 +164,10 @@ public static class Level1
         }
         return slow;
     }
+
+    public static ListNode DetectCycle(ListNode head)
+    {
+
+    }
 }
 
