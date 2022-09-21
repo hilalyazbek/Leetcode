@@ -131,7 +131,24 @@ public static class Level1
             current.next = list2;
 
         return result.next;
-
     }
+
+    public static ListNode ReverseList(ListNode head)
+    {
+        if (head == null)
+            return null;
+        //1 - 2 - 3 - 4 - 5
+
+        ListNode prev = null;
+        while(head != null)
+        {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+
 }
 
