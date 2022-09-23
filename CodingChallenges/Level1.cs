@@ -188,5 +188,25 @@ public static class Level1
         }
         return null;
     }
+
+    public static int MaxProfit(int[] prices)
+    {
+        //[7,1,5,3,6,4]
+        var profit = 0;
+        var min = int.MaxValue;
+
+        for(int i = 0; i < prices.Length; i++)
+        {
+            if (prices[i] < min)
+            {
+                min = prices[i];
+            }
+            else
+            {
+                profit = Math.Max(prices[i] - min, profit);
+            }
+        }
+        return profit;
+    }
 }
 

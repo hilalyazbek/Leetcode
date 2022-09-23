@@ -31,3 +31,6 @@ Level1.MiddleNode(new Level1.ListNode(0, null));
 Console.WriteLine("\n142.Linked List Cycle II");
 Console.WriteLine("**************************");
 
+Console.WriteLine("\n121.Best Time to Buy and Sell Stock");
+Console.WriteLine("*************************************");
+Console.WriteLine(Level1.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
