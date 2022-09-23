@@ -167,7 +167,26 @@ public static class Level1
 
     public static ListNode DetectCycle(ListNode head)
     {
+        ListNode slow = head;
+        ListNode fast = head;
 
+        while(fast is not null && fast.next is not null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast)
+            {
+                slow = head;
+                while(slow != fast)
+                {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
     }
 }
 
