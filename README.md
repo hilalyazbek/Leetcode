@@ -3,6 +3,8 @@ Leetcode and hackerrank coding challenges
 
 [study plan](https://leetcode.com/study-plan/leetcode-75/)
 
+[Algo Practice](https://leetcode.com/study-plan/algorithm/)
+
 Each level has its own class file (Level1.cs, Level2.cs)
 ```
 public static int[] RunningSum(int[] nums)
