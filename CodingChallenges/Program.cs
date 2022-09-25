@@ -34,3 +34,7 @@ Console.WriteLine("**************************");
 Console.WriteLine("\n121.Best Time to Buy and Sell Stock");
 Console.WriteLine("*************************************");
 Console.WriteLine(Level1.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
+
+Console.WriteLine("\n409.Longest Palindrome");
+Console.WriteLine("************************");
+Console.WriteLine(Level1.LongestPalindrome("abccccdd"));

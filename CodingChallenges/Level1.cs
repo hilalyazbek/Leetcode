@@ -208,5 +208,43 @@ public static class Level1
         }
         return profit;
     }
+
+    public static int LongestPalindrome(string s)
+    {
+        Dictionary<char, int> tracker = new Dictionary<char, int>();
+
+        foreach (char c in s)
+        {
+            if (tracker.ContainsKey(c))
+            {
+                tracker[c]++;
+            }
+            else
+            {
+                tracker.Add(c, 1);
+            }
+        }
+
+        int result = 0;
+
+        foreach (var key in tracker.Keys)
+        {
+            var count = tracker[key];
+            if (count % 2 == 0)
+            {
+                result += count;
+                tracker.Remove(key);
+            }
+            else if (count % 2 != 0)
+            {
+                result += count - 1;
+                tracker[key] = 1;
+            }
+
+        }
+        result = tracker.Count > 0 ? result += 1 : result;
+
+        return result;
+    }
 }
 
