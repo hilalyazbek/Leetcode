@@ -38,3 +38,6 @@ Console.WriteLine(Level1.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 }));
 Console.WriteLine("\n409.Longest Palindrome");
 Console.WriteLine("************************");
 Console.WriteLine(Level1.LongestPalindrome("abccccdd"));
+
+Console.WriteLine("\n589.N - ary Tree Preorder Traversal");
+Console.WriteLine("*************************************");

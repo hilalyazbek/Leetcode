@@ -14,6 +14,26 @@ public static class Level1
             this.next = next;
         }
     }
+
+    // TreeNode Class
+    public class Node
+    {
+        public int val;
+        public IList<Node> children;
+
+        public Node() { }
+
+        public Node(int _val)
+        {
+            val = _val;
+        }
+
+        public Node(int _val, IList<Node> _children)
+        {
+            val = _val;
+            children = _children;
+        }
+    }
     #endregion
 
     public static int[] RunningSum(int[] nums)
@@ -246,5 +266,32 @@ public static class Level1
 
         return result;
     }
+
+    public static IList<int> Preorder(Node root)
+    {
+        List<int> result = new List<int>();
+        if(root is null)
+        {
+            return result;
+        }
+        if(root != null)
+        {
+            helper(root, result);
+        }
+        return result;
+    }
+    public static void helper(Node node, List<int> result)
+    {
+        if(node.children == null)
+        {
+            return;
+        }
+        result.Add(node.val);
+        foreach(var nde in node.children)
+        {
+            helper(nde, result);
+        }
+    }
+
 }
 
