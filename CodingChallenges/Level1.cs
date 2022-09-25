@@ -314,12 +314,12 @@ public static class Level1
         if (root == null) return result;
         Stack<Node> tracker = new Stack<Node>();
         tracker.Push(root);
-        while(tracker.Count > 0)
+        while (tracker.Count > 0)
         {
             Node curr = tracker.Pop();
             result.Add(curr.val);
-            
-            for(int i=curr.children.Count-1; i >= 0; i--)
+
+            for (int i = curr.children.Count - 1; i >= 0; i--)
             {
                 tracker.Push(curr.children[i]);
             }
@@ -339,9 +339,39 @@ public static class Level1
         {
             int size = q.Count;
             List<int> currentLevel = new List<int>();
-        }
+            while (size > 0)
+            {
+                TreeNode curr = q.Dequeue();
+                currentLevel.Add(curr.val);
+                if (curr.left != null) q.Enqueue(curr.left);
+                if (curr.right != null) q.Enqueue(curr.right);
+                size--;
+            }
 
+            result.Add(currentLevel);
+        }
         return result;
     }
+
+    public static IList<IList<int>> LevelOrderRecursion(TreeNode root)
+    {
+        IList<IList<int>> result = new List<IList<int>>();
+        if (root == null) return result;
+        Traverse(root, 0, result);
+        return result;
+    }
+    private static void Traverse(TreeNode root, int level, IList<IList<int>> result)
+    {
+        if (root == null) return;
+        if(result.Count == level)
+        {
+            result.Add(new List<int>());
+        }
+        result[level].Add(root.val);
+        Traverse(root.left, level + 1, result);
+        Traverse(root.right, level + 1, result);
+    }
 }
+
+
 
