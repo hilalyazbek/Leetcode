@@ -1,7 +1,7 @@
 # CodingChallenges
 Leetcode and hackerrank coding challenges
 
-[study plan](https://leetcode.com/study-plan/leetcode-75/)
+[Study Plan](https://leetcode.com/study-plan/leetcode-75/)
 
 [Algo Practice](https://leetcode.com/study-plan/algorithm/)
 
