@@ -81,10 +81,11 @@ public static class Level1
         if (s.Length != t.Length)
             return false;
         Dictionary<char, char> tracker = new Dictionary<char, char>();
-        
+
         for (int i = 0; i < s.Length; i++)
         {
-            if (tracker.ContainsKey(s[i])){
+            if (tracker.ContainsKey(s[i]))
+            {
                 if (tracker[s[i]] != t[i])
                     return false;
             }
@@ -95,7 +96,7 @@ public static class Level1
                 tracker.Add(s[i], t[i]);
             }
         }
-        
+
         return true;
     }
 
@@ -126,11 +127,11 @@ public static class Level1
         if (list1 == null && list2 == null)
             return null;
 
-        
+
         ListNode result = new ListNode();
         ListNode current = result;
 
-        while(list1 != null && list2 != null)
+        while (list1 != null && list2 != null)
         {
             if (list1.val < list2.val)
             {
@@ -160,7 +161,7 @@ public static class Level1
         //1 - 2 - 3 - 4 - 5
 
         ListNode prev = null;
-        while(head != null)
+        while (head != null)
         {
             ListNode next = head.next;
             head.next = prev;
@@ -177,7 +178,7 @@ public static class Level1
         ListNode fast = head;
         ListNode slow = head;
 
-        while(fast != null && fast.next != null)
+        while (fast != null && fast.next != null)
         {
             slow = slow.next;
             fast = fast.next.next;
@@ -190,15 +191,15 @@ public static class Level1
         ListNode slow = head;
         ListNode fast = head;
 
-        while(fast is not null && fast.next is not null)
+        while (fast is not null && fast.next is not null)
         {
             slow = slow.next;
             fast = fast.next.next;
 
-            if(slow == fast)
+            if (slow == fast)
             {
                 slow = head;
-                while(slow != fast)
+                while (slow != fast)
                 {
                     slow = slow.next;
                     fast = fast.next;
@@ -215,7 +216,7 @@ public static class Level1
         var profit = 0;
         var min = int.MaxValue;
 
-        for(int i = 0; i < prices.Length; i++)
+        for (int i = 0; i < prices.Length; i++)
         {
             if (prices[i] < min)
             {
@@ -267,14 +268,14 @@ public static class Level1
         return result;
     }
 
-    public static IList<int> Preorder(Node root)
+    public static IList<int> NTreePreorderRecursive(Node root)
     {
         List<int> result = new List<int>();
-        if(root is null)
+        if (root is null)
         {
             return result;
         }
-        if(root != null)
+        if (root != null)
         {
             helper(root, result);
         }
@@ -282,16 +283,34 @@ public static class Level1
     }
     public static void helper(Node node, List<int> result)
     {
-        if(node.children == null)
+        if (node.children == null)
         {
             return;
         }
         result.Add(node.val);
-        foreach(var nde in node.children)
+        foreach (var nde in node.children)
         {
             helper(nde, result);
         }
     }
 
+    public static IList<int> NTreePreorderIterative(Node root)
+    {
+        List<int> result = new List<int>();
+        if (root == null) return result;
+        Stack<Node> tracker = new Stack<Node>();
+        tracker.Push(root);
+        while(tracker.Count > 0)
+        {
+            Node curr = tracker.Pop();
+            result.Add(curr.val);
+            
+            for(int i=curr.children.Count-1; i >= 0; i--)
+            {
+                tracker.Push(curr.children[i]);
+            }
+        }
+        return result;
+    }
 }
 
