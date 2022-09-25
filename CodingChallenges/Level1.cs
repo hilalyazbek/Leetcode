@@ -34,6 +34,20 @@ public static class Level1
             children = _children;
         }
     }
+
+    public class TreeNode
+    {
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+        {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
     #endregion
 
     public static int[] RunningSum(int[] nums)
@@ -310,6 +324,23 @@ public static class Level1
                 tracker.Push(curr.children[i]);
             }
         }
+        return result;
+    }
+
+    public static IList<IList<int>> LevelOrder(TreeNode root)
+    {
+        IList<IList<int>> result = new List<IList<int>>();
+        if (root is null) return result;
+
+        Queue<TreeNode> q = new Queue<TreeNode>();
+        q.Enqueue(root);
+
+        while (q.Count > 0)
+        {
+            int size = q.Count;
+            List<int> currentLevel = new List<int>();
+        }
+
         return result;
     }
 }
