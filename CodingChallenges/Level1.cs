@@ -456,8 +456,94 @@ public static class Level1
     }
     private static bool IsBadVersion(int mid)
     {
-        throw new NotImplementedException();
+          return true;
     }
+
+    public static bool IsValidBST(TreeNode root)
+    {
+        if (root == null) return false;
+
+        return DFS(root,int.MinValue,int.MaxValue);
+    }
+
+    private static bool DFS(TreeNode root, int min, int max)
+    {
+        if (root == null) return true;
+        if (min < root.val && root.val < max)
+        {
+            var leftResult = DFS(root.left, min, root.val);
+            var rightResult = DFS(root.right, root.val, max);
+
+            if (leftResult && rightResult)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static int[][] FloodFill(int[][] image, int sr, int sc, int color)
+    {
+        var oldColor = image[sr][sc];
+        if(oldColor != color)
+        {
+            image = DFSFloodFill(image, sr, sc, oldColor, color);
+        }
+            
+        return image;
+    }
+
+    private static int[][] DFSFloodFill(int[][] image, int sr, int sc,int oldColor, int color)
+    {
+        if (sr < 0 || sr >= image.Length || sc < 0 || sc >= image[sr].Length || image[sr][sc] != oldColor)
+        {
+            return null;
+        }
+        image[sr][sc] = color;
+        DFSFloodFill(image, sr + 1, sc, oldColor, color);
+        DFSFloodFill(image, sr - 1, sc, oldColor, color);
+        DFSFloodFill(image, sr, sc + 1, oldColor, color);
+        DFSFloodFill(image, sr, sc - 1, oldColor, color);
+        return image;
+    }
+
+    public static int NumIslands(char[][] grid)
+    {
+        int result = 0;
+
+        for(int i = 0; i < grid.Length; i++)
+        {
+            for(int j=0; j < grid[i].Length; j++)
+            {
+                if (grid[i][j] == '1')
+                {
+                    result += DFSIslands(grid, i, j);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private static int DFSIslands(char[][] grid, int i, int j)
+    {
+        if (i < 0 || i >= grid.Length || j < 0 || j >= grid[i].Length || grid[i][j] == '0')
+        {
+            return 0;
+        }
+
+        grid[i][j] = '0';
+        
+        DFSIslands(grid, i + 1, j);
+        DFSIslands(grid, i - 1, j);
+        DFSIslands(grid, i, j + 1);
+        DFSIslands(grid, i, j - 1);
+
+        return 1;
+    }
+
+
 }
 
 
