@@ -432,6 +432,32 @@ public static class Level1
             }
         }
     }
+
+    public static int FirstBadVersion(int n)
+    {
+        int low = 0;
+        int high = n - 1;
+        int mid;
+
+        while (low <= high)
+        {
+            mid = low + (high - low) / 2;
+
+            if (IsBadVersion(mid))
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+    private static bool IsBadVersion(int mid)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 
