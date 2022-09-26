@@ -94,7 +94,7 @@ public static class Level1
     {
         if (s.Length != t.Length)
             return false;
-        Dictionary<char, char> tracker = new ();
+        Dictionary<char, char> tracker = new();
 
         for (int i = 0; i < s.Length; i++)
         {
@@ -142,7 +142,7 @@ public static class Level1
             return null;
 
 
-        ListNode result = new ();
+        ListNode result = new();
         ListNode current = result;
 
         while (list1 != null && list2 != null)
@@ -246,7 +246,7 @@ public static class Level1
 
     public static int LongestPalindrome(string s)
     {
-        Dictionary<char, int> tracker = new ();
+        Dictionary<char, int> tracker = new();
 
         foreach (char c in s)
         {
@@ -284,7 +284,7 @@ public static class Level1
 
     public static IList<int> NTreePreorderRecursive(Node root)
     {
-        List<int> result = new ();
+        List<int> result = new();
         if (root is null)
         {
             return result;
@@ -310,9 +310,9 @@ public static class Level1
 
     public static IList<int> NTreePreorderIterative(Node root)
     {
-        List<int> result = new ();
+        List<int> result = new();
         if (root == null) return result;
-        Stack<Node> tracker = new ();
+        Stack<Node> tracker = new();
         tracker.Push(root);
         while (tracker.Count > 0)
         {
@@ -332,13 +332,13 @@ public static class Level1
         IList<IList<int>> result = new List<IList<int>>();
         if (root is null) return result;
 
-        Queue<TreeNode> q = new ();
+        Queue<TreeNode> q = new();
         q.Enqueue(root);
 
         while (q.Count > 0)
         {
             int size = q.Count;
-            List<int> currentLevel = new ();
+            List<int> currentLevel = new();
             while (size > 0)
             {
                 TreeNode curr = q.Dequeue();
@@ -363,7 +363,7 @@ public static class Level1
     private static void Traverse(TreeNode root, int level, IList<IList<int>> result)
     {
         if (root == null) return;
-        if(result.Count == level)
+        if (result.Count == level)
         {
             result.Add(new List<int>());
         }
@@ -372,7 +372,7 @@ public static class Level1
         Traverse(root.right, level + 1, result);
     }
 
-    public static int Search(int[] nums, int target)
+    public static int BinarySearch(int[] nums, int target)
     {
         var result = -1;
         // [-1,0,3,5,9,12], target = 9
@@ -402,6 +402,35 @@ public static class Level1
         }
 
         return result;
+    }
+
+    public static int BinarySearchRecursive(int[] nums, int target)
+    {
+        int low = 0;
+        int high = nums.Count() - 1;
+
+        return SearchHelper(nums, low, high, target);
+    }
+    private static int SearchHelper(int[] nums, int low, int high, int target)
+    {
+        if (low > high)
+            return -1;
+        else
+        {
+            int mid = (low + high) / 2;
+            if (target == nums[mid])
+            {
+                return mid;
+            }
+            else if(target > nums[mid])
+            {
+                return SearchHelper(nums,mid+1,high, target);
+            }
+            else
+            {
+                return SearchHelper(nums, low, mid - 1, target);
+            }
+        }
     }
 }
 

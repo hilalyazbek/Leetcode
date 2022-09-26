@@ -47,4 +47,8 @@ Console.WriteLine("***************************************");
 
 Console.WriteLine("\n704.Binary Search");
 Console.WriteLine("*******************");
-Console.WriteLine(Level1.Search(new[] { -1, 0, 3, 5, 9, 12 }, 9));
+Console.WriteLine(Level1.BinarySearch(new[] { -1, 0, 3, 5, 9, 12 }, 9));
+
+Console.WriteLine("\n704.Binary Search Recursive");
+Console.WriteLine("*******************");
+Console.WriteLine(Level1.BinarySearchRecursive(new[] { -1, 0, 3, 5, 9, 12 }, 9));
