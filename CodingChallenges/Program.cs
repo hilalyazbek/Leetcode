@@ -43,4 +43,8 @@ Console.WriteLine("\n589.N - ary Tree Preorder Traversal");
 Console.WriteLine("*************************************");
 
 Console.WriteLine("\n102.Binary Tree Level Order Traversal");
-Console.WriteLine("***************************************"); 
+Console.WriteLine("***************************************");
+
+Console.WriteLine("\n704.Binary Search");
+Console.WriteLine("*******************");
+Console.WriteLine(Level1.Search(new[] { -1, 0, 3, 5, 9, 12 }, 9));
