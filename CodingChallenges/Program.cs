@@ -56,3 +56,12 @@ Console.WriteLine(Level1.BinarySearchRecursive(new[] { -1, 0, 3, 5, 9, 12 }, 9))
 Console.WriteLine("\n278. First Bad Version");
 Console.WriteLine("*******************");
 Console.WriteLine(Level1.FirstBadVersion(5));
+
+Console.WriteLine("\n98. Validate Binary Search Tree");
+Console.WriteLine("*********************************");
+
+Console.WriteLine("\n733. Flood Fill");
+Console.WriteLine("*****************");
+
+Console.WriteLine("\n200. Number of Islands");
+Console.WriteLine("************************");
