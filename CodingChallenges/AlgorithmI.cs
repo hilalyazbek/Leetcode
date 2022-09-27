@@ -105,5 +105,15 @@ internal class AlgorithmI
         return i;
     }
 
+    //509. Fibonacci Number
+    public int Fib(int n)
+    {
+        if (n <= 1)
+        {
+            return n;
+        }
+
+        return Fib(n - 1) + Fib(n - 2);
+    }
 
 }
