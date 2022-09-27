@@ -454,7 +454,7 @@ public static class Level1
         }
         return low;
     }
-    private static bool IsBadVersion(int mid)
+    public static bool IsBadVersion(int mid)
     {
           return true;
     }

@@ -57,7 +57,27 @@ internal class AlgorithmI
 
         return result;
         */
-         * 
-         * 
+
+    }
+
+    public int FirstBadVersion(int n)
+    {
+        int low = 0;
+        int high = n;
+
+        while (low < high)
+        {
+            int mid = low + (high - low) / 2;
+            if (Level1.IsBadVersion(mid))
+            {
+                high = mid;
+            }
+            else
+            {
+                low = mid + 1;
+            }
+        }
+
+        return low;
     }
 }
