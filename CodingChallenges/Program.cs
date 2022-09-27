@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using CodingChallenges;
 
-Console.WriteLine("1480. Running Sum of 1d Array");
+Console.WriteLine("LEETCODE CODING CHALLENGES");
+Console.WriteLine("__________________________");
+
+Console.WriteLine("\n\n1480. Running Sum of 1d Array");
 Console.WriteLine("*****************************");
 Console.WriteLine(Level1.RunningSum(new int[] { 1, 5, 2, 6, 7, 4}));
 
