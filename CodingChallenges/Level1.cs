@@ -574,6 +574,30 @@ public static class Level1
         }
         return false;
     }
+
+    //549. Single Number
+    public static int SingleNumber(int[] nums)
+    {
+        if (nums == null) return 0;
+        if (nums.Length == 1) return nums[0];
+        Dictionary<int, int> tracker = new();
+        foreach (int n in nums)
+        {
+            if (!tracker.ContainsKey(n))
+            {
+                tracker.Add(n, 0);
+            }
+            tracker[n]++;
+        }
+        foreach(KeyValuePair<int,int> k in tracker)
+        {
+            if(k.Value == 1)
+            {
+                return k.Key;
+            }
+        }
+        return 0;
+    }
 }
 
 
