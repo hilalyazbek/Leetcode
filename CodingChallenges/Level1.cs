@@ -558,7 +558,21 @@ public static class Level1
         }
 
         return profit;
+    }
 
+    public static bool ContainsDuplicate(int[] nums)
+    {
+        int length = nums.Length;
+        if (nums == null || length < 1) return false;
+
+        HashSet<int> tracker = new();
+        foreach (int n in nums)
+        {
+            if (tracker.Contains(n))
+                return true;
+            tracker.Add(n);
+        }
+        return false;
     }
 }
 
