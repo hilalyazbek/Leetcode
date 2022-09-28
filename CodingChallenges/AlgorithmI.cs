@@ -161,4 +161,10 @@ internal class AlgorithmI
         }
         return result;
     }
+
+    //[1,2,3,4,5,6,7], k = 3
+    public void Rotate(int[] nums, int k)
+    {
+
+    }
 }
