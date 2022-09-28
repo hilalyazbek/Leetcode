@@ -162,9 +162,19 @@ internal class AlgorithmI
         return result;
     }
 
-    //[1,2,3,4,5,6,7], k = 3
+    //189. Rotate Array
     public void Rotate(int[] nums, int k)
     {
-
+        // Solution 1 -- Time: O(n), Space: O(n)
+        int[] output = new int[nums.Length];
+        int length = nums.Length;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            output[(i + k) % length] = nums[i];
+        }
+        for (int i = 0; i < nums.Length; i++)
+        {
+            nums[i] = output[i];
+        }
     }
 }
