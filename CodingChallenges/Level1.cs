@@ -422,9 +422,9 @@ public static class Level1
             {
                 return mid;
             }
-            else if(target > nums[mid])
+            else if (target > nums[mid])
             {
-                return SearchHelper(nums,mid+1,high, target);
+                return SearchHelper(nums, mid + 1, high, target);
             }
             else
             {
@@ -456,14 +456,14 @@ public static class Level1
     }
     public static bool IsBadVersion(int mid)
     {
-          return true;
+        return true;
     }
 
     public static bool IsValidBST(TreeNode root)
     {
         if (root == null) return false;
 
-        return DFS(root,int.MinValue,int.MaxValue);
+        return DFS(root, int.MinValue, int.MaxValue);
     }
 
     private static bool DFS(TreeNode root, int min, int max)
@@ -486,15 +486,15 @@ public static class Level1
     public static int[][] FloodFill(int[][] image, int sr, int sc, int color)
     {
         var oldColor = image[sr][sc];
-        if(oldColor != color)
+        if (oldColor != color)
         {
             image = DFSFloodFill(image, sr, sc, oldColor, color);
         }
-            
+
         return image;
     }
 
-    private static int[][] DFSFloodFill(int[][] image, int sr, int sc,int oldColor, int color)
+    private static int[][] DFSFloodFill(int[][] image, int sr, int sc, int oldColor, int color)
     {
         if (sr < 0 || sr >= image.Length || sc < 0 || sc >= image[sr].Length || image[sr][sc] != oldColor)
         {
@@ -512,9 +512,9 @@ public static class Level1
     {
         int result = 0;
 
-        for(int i = 0; i < grid.Length; i++)
+        for (int i = 0; i < grid.Length; i++)
         {
-            for(int j=0; j < grid[i].Length; j++)
+            for (int j = 0; j < grid[i].Length; j++)
             {
                 if (grid[i][j] == '1')
                 {
@@ -534,7 +534,7 @@ public static class Level1
         }
 
         grid[i][j] = '0';
-        
+
         DFSIslands(grid, i + 1, j);
         DFSIslands(grid, i - 1, j);
         DFSIslands(grid, i, j + 1);
@@ -543,7 +543,23 @@ public static class Level1
         return 1;
     }
 
+    //Best Time to Buy and Sell Stock II
+    public static int MaxProfitI(int[] prices)
+    {
+        //Input: prices = [7,1,5,3,6,4]
+        //Output: 7
+        int profit = 0;
+        for (int i = 1; i < prices.Length; i++)
+        {
+            if (prices[i] > prices[i - 1])
+            {
+                profit += prices[i] - prices[i - 1];
+            }
+        }
 
+        return profit;
+
+    }
 }
 
 

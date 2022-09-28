@@ -141,10 +141,10 @@ internal class AlgorithmI
         int index = nums.Length - 1;
         int right = index;
         int[] result = new int[nums.Length];
-        
+
         while (left <= right)
         {
-            
+
             var leftSquared = nums[left] * nums[left];
             var rightSquared = nums[right] * nums[right];
             if (leftSquared < rightSquared)
@@ -177,4 +177,6 @@ internal class AlgorithmI
             nums[i] = output[i];
         }
     }
+
+
 }
