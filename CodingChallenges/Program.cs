@@ -7,7 +7,7 @@ Console.WriteLine("__________________________");
 
 Console.WriteLine("\n\n1480. Running Sum of 1d Array");
 Console.WriteLine("*****************************");
-Console.WriteLine(Level1.RunningSum(new int[] { 1, 5, 2, 6, 7, 4}));
+Console.WriteLine(Level1.RunningSum(new int[] { 1, 5, 2, 6, 7, 4 }));
 
 Console.WriteLine("\n724.Find Pivot Index");
 Console.WriteLine("********************");
@@ -70,5 +70,8 @@ Console.WriteLine("\n200. Number of Islands");
 Console.WriteLine("************************");
 
 Console.WriteLine("\n977.Squares of a Sorted Array");
-Console.WriteLine("*******************************"); 
+Console.WriteLine("*******************************");
 Console.WriteLine(AlgorithmI.SortedSquares(new int[] { -4, -1, 0, 3, 10 }));
+
+Console.WriteLine("\n189. Rotate Array");
+Console.WriteLine("*******************");
