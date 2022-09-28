@@ -68,3 +68,5 @@ Console.WriteLine("*****************");
 
 Console.WriteLine("\n200. Number of Islands");
 Console.WriteLine("************************");
+
+Console.WriteLine(AlgorithmI.SortedSquares(new int[] { -4, -1, 0, 3, 10 }));

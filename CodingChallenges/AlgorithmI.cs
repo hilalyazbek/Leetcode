@@ -116,6 +116,7 @@ internal class AlgorithmI
         return Fib(n - 1) + Fib(n - 2);
     }
 
+
     public int ClimbStairs(int n)
     {
         if (n == 1) return 1;
@@ -132,4 +133,32 @@ internal class AlgorithmI
         return twoStep;
     }
 
+    //977. Squares of a Sorted Array
+    public static int[] SortedSquares(int[] nums)
+    {
+        //[-4,-1,0,3,10]
+        int left = 0;
+        int index = nums.Length - 1;
+        int right = index;
+        int[] result = new int[nums.Length];
+        
+        while (left <= right)
+        {
+            
+            var leftSquared = nums[left] * nums[left];
+            var rightSquared = nums[right] * nums[right];
+            if (leftSquared < rightSquared)
+            {
+                result[index] = rightSquared;
+                right--;
+            }
+            else
+            {
+                result[index] = leftSquared;
+                left++;
+            }
+            index--;
+        }
+        return result;
+    }
 }
