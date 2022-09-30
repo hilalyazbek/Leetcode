@@ -592,9 +592,9 @@ public static class Level1
             }
             tracker[n]++;
         }
-        foreach(KeyValuePair<int,int> k in tracker)
+        foreach (KeyValuePair<int, int> k in tracker)
         {
-            if(k.Value == 1)
+            if (k.Value == 1)
             {
                 return k.Key;
             }
@@ -640,7 +640,7 @@ public static class Level1
         int left = 0;
         int result = 0;
         int maxFrequency = 0;
-        for(int right=0; right < s.Length; right++)
+        for (int right = 0; right < s.Length; right++)
         {
             if (!tracker.ContainsKey(s[right]))
             {
@@ -649,9 +649,9 @@ public static class Level1
             tracker[s[right]]++;
 
             maxFrequency = Math.Max(maxFrequency, tracker[s[right]]);
-            
 
-            if((right-left+1) - maxFrequency > k)
+
+            if ((right - left + 1) - maxFrequency > k)
             {
                 tracker[s[left]]--;
                 left++;
@@ -663,6 +663,26 @@ public static class Level1
         }
 
         return result;
+    }
+
+    public static int[] TwoSum(int[] nums, int target)
+    {
+        //nums = [2,7,11,15], target = 9
+        var tracker = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int rem = target - nums[i];
+            if (!tracker.ContainsKey(nums[i]))
+            {
+                tracker.Add(nums[i],i);
+            }
+            else
+            {
+                return new int[] { i, tracker[rem] };
+            }
+        }
+        return new int[0];
     }
 }
 

@@ -87,3 +87,7 @@ Console.WriteLine(Level1.FindAnagrams("cbaebabacd", "abc"));
 Console.WriteLine("\n424. Longest Repeating Character Replacement");
 Console.WriteLine("**********************************************");
 Console.WriteLine(Level1.CharacterReplacement("AABABBA", 1));
+
+Console.WriteLine("\n1. Two Sum");
+Console.WriteLine("************");
+Console.WriteLine(Level1.TwoSum(new int[] { 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1 }, 11));
