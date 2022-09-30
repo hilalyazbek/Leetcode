@@ -193,5 +193,27 @@ internal class AlgorithmI
         }
     }
 
+    //Intersection of Two Arrays II
+    public static int[] Intersect(int[] nums1, int[] nums2)
+    {
+        return new int[0];
+    }
 
+    //2418. Sort the People
+    public static string[] SortPeople(string[] names, int[] heights)
+    {
+        Dictionary<int, string> tracker = new();
+        for (int i = 0; i < names.Length; i++)
+        {
+            tracker.Add(heights[i], names[i]);
+        }
+        tracker = tracker.OrderByDescending(itm => itm.Key).ToDictionary(itm => itm.Key, value => value.Value);
+        List<string> result = new();
+
+        foreach(KeyValuePair<int, string> kvp in tracker)
+        {
+            result.Add(kvp.Value);
+        }
+        return result.ToArray();
+    }
 }
