@@ -216,4 +216,6 @@ internal class AlgorithmI
         }
         return result.ToArray();
     }
+
+    
 }

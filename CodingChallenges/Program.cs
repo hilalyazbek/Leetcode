@@ -76,4 +76,10 @@ Console.WriteLine(AlgorithmI.SortedSquares(new int[] { -4, -1, 0, 3, 10 }));
 Console.WriteLine("\n189. Rotate Array");
 Console.WriteLine("*******************");
 
+Console.WriteLine("\nSort People");
+Console.WriteLine("*************");
 AlgorithmI.SortPeople(new string[] { "Mary", "John", "Emma" }, new int[] { 180, 165, 170 });
+
+Console.WriteLine("\n438. Find All Anagrams in a String");
+Console.WriteLine("************************************");
+Console.WriteLine(Level1.FindAnagrams("cbaebabacd", "abc"));

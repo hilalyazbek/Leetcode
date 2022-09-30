@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics.Metrics;
+using System.Reflection;
+
 namespace CodingChallenges;
 
 public static class Level1
@@ -599,7 +602,37 @@ public static class Level1
         return 0;
     }
 
+    //438. Find All Anagrams in a String
+    public static IList<int> FindAnagrams(string s, string p)
+    {
+        IList<int> ans = new List<int>();
+        int[] c_p = new int[26];
+        foreach (char ch in p)
+            c_p[ch - 'a']++;
+        for (int i = 0; i < s.Length - p.Length + 1; i++)
+        {
+            if (IsAnagram(s, i, i + p.Length, c_p))
+            {
+                ans.Add(i);
 
+            }
+
+        }
+        return ans;
+    }
+
+    public static bool IsAnagram(string s, int i, int n, int[] c_p)
+    {
+        int[] temp = new int[26];
+        for (int j = i; j < n; j++)
+            temp[s[j] - 'a']++;
+
+        for (int k = 0; k < 26; k++)
+            if (c_p[k] != temp[k])
+                return false;
+        return true;
+
+    }
 }
 
 
