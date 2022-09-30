@@ -83,3 +83,7 @@ AlgorithmI.SortPeople(new string[] { "Mary", "John", "Emma" }, new int[] { 180, 
 Console.WriteLine("\n438. Find All Anagrams in a String");
 Console.WriteLine("************************************");
 Console.WriteLine(Level1.FindAnagrams("cbaebabacd", "abc"));
+
+Console.WriteLine("\n424. Longest Repeating Character Replacement");
+Console.WriteLine("**********************************************");
+Console.WriteLine(Level1.CharacterReplacement("AABABBA", 1));

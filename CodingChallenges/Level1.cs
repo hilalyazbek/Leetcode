@@ -620,7 +620,6 @@ public static class Level1
         }
         return ans;
     }
-
     public static bool IsAnagram(string s, int i, int n, int[] c_p)
     {
         int[] temp = new int[26];
@@ -632,6 +631,38 @@ public static class Level1
                 return false;
         return true;
 
+    }
+
+    public static int CharacterReplacement(string s, int k)
+    {
+        if (s.Length == 1) return 1;
+        var tracker = new Dictionary<char, int>();
+        int left = 0;
+        int result = 0;
+        int maxFrequency = 0;
+        for(int right=0; right < s.Length; right++)
+        {
+            if (!tracker.ContainsKey(s[right]))
+            {
+                tracker.Add(s[right], 0);
+            }
+            tracker[s[right]]++;
+
+            maxFrequency = Math.Max(maxFrequency, tracker[s[right]]);
+            
+
+            if((right-left+1) - maxFrequency > k)
+            {
+                tracker[s[left]]--;
+                left++;
+            }
+
+            result = Math.Max(result, right - left + 1);
+
+
+        }
+
+        return result;
     }
 }
 
