@@ -268,7 +268,7 @@ internal class AlgorithmI
 
 
     //344. Reverse String
-    public static void ReverseString(char[] s)
+    public static string ReverseString(char[] s)
     {
         int left = 0;
         int right = s.Length - 1;
@@ -278,6 +278,7 @@ internal class AlgorithmI
             left++;
             right--;
         }
+        return new string(s);
     }
 
     private static void SwapString(char[] s, int left, int right)
@@ -285,5 +286,17 @@ internal class AlgorithmI
         char temp = s[right];
         s[right] = s[left];
         s[left] = temp;
+    }
+
+    //557. Reverse Words in a String III
+    public static string ReverseWords(string s)
+    {
+        StringBuilder sb = new();
+        string[] split = s.Split(' ');
+        foreach(string word in split)
+        {
+            sb.Append(ReverseString(word.ToCharArray()) + " ");
+        }
+        return sb.ToString().TrimEnd() ;
     }
 }
