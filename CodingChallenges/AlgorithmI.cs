@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CodingChallenges.Level1;
 
 namespace CodingChallenges;
 
@@ -298,5 +299,21 @@ internal class AlgorithmI
             sb.Append(ReverseString(word.ToCharArray()) + " ");
         }
         return sb.ToString().TrimEnd() ;
+    }
+
+    //876. Middle of the Linked List
+    public ListNode MiddleNode(ListNode head)
+    {
+        // 1 - 2 - 3 - 4 - 5
+        // 3 - 4 - 5
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
