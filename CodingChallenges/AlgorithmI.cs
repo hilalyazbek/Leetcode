@@ -265,4 +265,25 @@ internal class AlgorithmI
         }
         return new int[0];
     }
+
+
+    //344. Reverse String
+    public static void ReverseString(char[] s)
+    {
+        int left = 0;
+        int right = s.Length - 1;
+        while (left <= right)
+        {
+            SwapString(s, left, right);
+            left++;
+            right--;
+        }
+    }
+
+    private static void SwapString(char[] s, int left, int right)
+    {
+        char temp = s[right];
+        s[right] = s[left];
+        s[left] = temp;
+    }
 }
