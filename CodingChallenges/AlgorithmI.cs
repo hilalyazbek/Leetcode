@@ -242,4 +242,27 @@ internal class AlgorithmI
         nums[right] = nums[left];
         nums[left] = temp;
     }
+
+    //167. Two Sum II - Input Array Is Sorted
+    public static int[] TwoSum(int[] numbers, int target)
+    {
+        //[2,7,11,15], target = 9
+        var tracker = new Dictionary<int, int>();
+
+        int rem = 0;
+        for(int i = 0; i < numbers.Length; i++)
+        {
+            rem = target - numbers[i];
+            if (!tracker.ContainsKey(rem))
+            {
+                tracker.TryAdd(numbers[i], i + 1);
+                continue;
+            }
+            else
+            {
+                return new int[] { tracker[rem], i + 1 };
+            }
+        }
+        return new int[0];
+    }
 }
