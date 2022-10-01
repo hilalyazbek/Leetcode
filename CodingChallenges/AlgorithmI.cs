@@ -217,5 +217,45 @@ internal class AlgorithmI
         return result.ToArray();
     }
 
-    
+    //283. Move Zeroes
+    public static void MoveZeroes(int[] nums)
+    {
+        if(nums.Length == 1)
+        {
+            return;
+        }
+        //nums = [0,1,0,3,12]
+        int left = 0;
+        int right = 1;
+
+        for(; right < nums.Length; right++)
+        {
+            if (nums[left] != 0)
+            {
+                left++;
+                continue;
+            }
+            if (nums[right] == 0)
+            {
+                continue;
+            }
+            if (nums[left] == 0 && nums[right] != 0)
+            {
+                Swap(left, right, nums);
+                left++;
+                continue;
+            }
+            if (nums[left] != 0 && nums[right] == 0)
+            {
+                left++;
+            }
+        }
+    }
+
+    private static void Swap(int left, int right, int[] nums)
+    {
+        var temp = nums[right];
+        nums[right] = nums[left];
+        nums[left] = temp;
+    }
 }

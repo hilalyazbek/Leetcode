@@ -672,17 +672,13 @@ public static class Level1
 
         for (int i = 0; i < nums.Length; i++)
         {
-            int rem = target - nums[i];
-            if (!tracker.ContainsKey(nums[i]))
-            {
-                tracker.Add(nums[i],i);
-            }
-            else
-            {
-                return new int[] { i, tracker[rem] };
-            }
+            if (tracker.ContainsKey(target - nums[i]))
+                return new int[] { i, tracker[target - nums[i]] };
+
+            else if (!tracker.ContainsKey(nums[i]))
+                tracker.Add(nums[i], i);
         }
-        return new int[0];
+        return new int[2];
     }
 }
 

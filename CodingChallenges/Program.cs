@@ -91,3 +91,7 @@ Console.WriteLine(Level1.CharacterReplacement("AABABBA", 1));
 Console.WriteLine("\n1. Two Sum");
 Console.WriteLine("************");
 Console.WriteLine(Level1.TwoSum(new int[] { 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1 }, 11));
+
+Console.WriteLine("\n283. Move Zeroes");
+Console.WriteLine("******************");
+AlgorithmI.MoveZeroes(new int[] { 1, 0, 1 });
