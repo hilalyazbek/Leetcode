@@ -107,3 +107,10 @@ AlgorithmI.ReverseString("hello".ToCharArray());
 Console.WriteLine("\n557. Reverse Words in a String III");
 Console.WriteLine("************************************");
 Console.WriteLine(AlgorithmI.ReverseWords("Let's take LeetCode contest"));
+
+Console.WriteLine("\n876. Middle of the Linked List");
+Console.WriteLine("********************************");
+
+Console.WriteLine("\n19.Remove Nth Node From End of List");
+Console.WriteLine("********************************");
+

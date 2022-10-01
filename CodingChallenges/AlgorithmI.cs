@@ -316,4 +316,27 @@ internal class AlgorithmI
         }
         return slow;
     }
+
+    //19. Remove Nth Node From End of List
+    public ListNode RemoveNthFromEnd(ListNode head, int n)
+    {
+        //1-2-3-4-5, 2
+        //1-2-3-5
+        ListNode dummy = new ListNode(0, head);
+        ListNode left = dummy;
+        ListNode right = head;
+        while (n > 0 && right != null)
+        {
+            right = right.next;
+            n--;
+        }
+        while(right != null)
+        {
+            left = left.next;
+            right = right.next;
+        }
+        left.next = left.next.next;
+
+        return dummy.next;
+    }
 }
