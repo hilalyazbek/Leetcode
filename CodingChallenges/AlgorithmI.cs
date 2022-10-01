@@ -220,35 +220,19 @@ internal class AlgorithmI
     //283. Move Zeroes
     public static void MoveZeroes(int[] nums)
     {
-        if(nums.Length == 1)
+        int i = 0; int j = 0;
+        for (i = 0; i < nums.Length; i++)
         {
-            return;
+            if (nums[i] != 0)
+            {
+                nums[j] = nums[i];
+                j++;
+            }
         }
-        //nums = [0,1,0,3,12]
-        int left = 0;
-        int right = 1;
 
-        for(; right < nums.Length; right++)
+        for (int k = j; k < nums.Length; k++)
         {
-            if (nums[left] != 0)
-            {
-                left++;
-                continue;
-            }
-            if (nums[right] == 0)
-            {
-                continue;
-            }
-            if (nums[left] == 0 && nums[right] != 0)
-            {
-                Swap(left, right, nums);
-                left++;
-                continue;
-            }
-            if (nums[left] != 0 && nums[right] == 0)
-            {
-                left++;
-            }
+            nums[k] = 0;
         }
     }
 
