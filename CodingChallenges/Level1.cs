@@ -744,6 +744,44 @@ public static class Level1
         return true;
     }
 
+    //394. Decode String
+    public static string DecodeString(string s)
+    {
+        StringBuilder times = new();
+        StringBuilder letters = new();
+        StringBuilder result = new();
+
+        foreach(char c in s)
+        {
+            if (char.IsDigit(c))
+            {
+                times.Append(c);
+            }
+            if (char.IsLetter(c))
+            {
+                letters.Append(c);
+            }
+            if(c == ']')
+            {
+                result.Append(GenerateDecoded(times.ToString(), letters.ToString()));
+                times.Clear();
+                letters.Clear();
+            }
+        }
+        return result.ToString();
+    }
+
+    private static string GenerateDecoded(string times, string letters)
+    {
+        StringBuilder result = new();
+        int max = int.Parse(times);
+        for (int i = 0; i <= max - 1; i++)
+        {
+            result.Append(letters);
+        }
+
+        return result.ToString();
+    }
 }
 
 

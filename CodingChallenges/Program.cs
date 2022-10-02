@@ -129,3 +129,7 @@ Console.WriteLine(Level1.GetHint("1807", "7810"));
 Console.WriteLine("\n844.Backspace String Compare");
 Console.WriteLine("***************************");
 Level1.BackspaceCompare("abcd","bbcd");
+
+Console.WriteLine("\n394. Decode String");
+Console.WriteLine("*********************");
+Level1.DecodeString("3[a]2[bc]");
