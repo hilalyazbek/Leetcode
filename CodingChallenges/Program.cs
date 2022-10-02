@@ -118,3 +118,8 @@ Console.WriteLine("\n3. Longest Substring Without Repeating Characters");
 Console.WriteLine("***************************************************");
 Console.WriteLine(AlgorithmI.LengthOfLongestSubstring("pwwkew"));
 
+Console.WriteLine("\n567.Permutation in String");
+Console.WriteLine("***************************");
+AlgorithmI.CheckInclusion("adc", "dcda");
+
+

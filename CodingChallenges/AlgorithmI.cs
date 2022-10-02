@@ -368,4 +368,44 @@ internal class AlgorithmI
         }
         return result;
     }
+
+    //567. Permutation in String
+    public static bool CheckInclusion(string s1, string s2)
+    {
+        int[] s1Tracker = new int[26];
+        
+
+        foreach(char c in s1)
+        {
+            s1Tracker[c - 'a']++;
+        }
+
+        int left = 0;
+
+        while(left + s1.Length-1 < s2.Length) { 
+            bool result = CompareArrays(s1Tracker, s2.Substring(left, s1.Length));
+            if (result)
+            {
+                return result;
+            }
+            left++;
+        }
+        return false;
+    }
+
+    private static bool CompareArrays(int[] s1Tracker, string v)
+    {
+        int[] s2Tracker = new int[26];
+
+        foreach (char c in v)
+        {
+            s2Tracker[c - 'a']++;
+        }
+        
+        if(Enumerable.SequenceEqual(s1Tracker,s2Tracker))
+        {
+            return true;
+        }
+        return false;
+    }
 }
