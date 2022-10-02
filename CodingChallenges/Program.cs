@@ -114,3 +114,7 @@ Console.WriteLine("********************************");
 Console.WriteLine("\n19.Remove Nth Node From End of List");
 Console.WriteLine("********************************");
 
+Console.WriteLine("\n3. Longest Substring Without Repeating Characters");
+Console.WriteLine("***************************************************");
+Console.WriteLine(AlgorithmI.LengthOfLongestSubstring("pwwkew"));
+

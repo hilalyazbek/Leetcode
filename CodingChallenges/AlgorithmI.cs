@@ -339,4 +339,33 @@ internal class AlgorithmI
 
         return dummy.next;
     }
+
+    //3. Longest Substring Without Repeating Characters
+    public static int LengthOfLongestSubstring(string s)
+    {
+        if (s.Length == 0) return 0;
+        if (s.Length == 1) return 1;
+        int result = 0;
+        //"abcabcbb"
+        var tracker = new HashSet<char>();
+        int left = 0;
+        int right = 0;
+
+        while(right < s.Length)
+        {
+            if (!tracker.Contains(s[right]))
+            {
+                tracker.Add(s[right]);
+                right++;
+                result = Math.Max(result, right - left);
+            }
+            else
+            {
+
+                tracker.Remove(s[left]);
+                left++;
+            }
+        }
+        return result;
+    }
 }
