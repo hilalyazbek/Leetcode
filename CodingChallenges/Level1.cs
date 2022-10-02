@@ -716,6 +716,33 @@ public static class Level1
         return bulls + "A" + cows + "B";
     }
 
+    //844. Backspace String Compare
+    public static bool BackspaceCompare(string s, string t)
+    {
+        Stack<char> s1 = new Stack<char>(),
+                   s2 = new Stack<char>();
+
+        foreach (var c in s)
+            if (c != '#')
+                s1.Push(c);
+            else if (s1.Count > 0)
+                s1.Pop();
+
+        foreach (var c in t)
+            if (c != '#')
+                s2.Push(c);
+            else if (s2.Count > 0)
+                s2.Pop();
+
+        if (s1.Count != s2.Count)
+            return false;
+
+        while (s1.Count > 0)
+            if (s1.Pop() != s2.Pop())
+                return false;
+
+        return true;
+    }
 
 }
 

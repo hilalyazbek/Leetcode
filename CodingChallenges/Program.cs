@@ -125,3 +125,7 @@ AlgorithmI.CheckInclusion("adc", "dcda");
 Console.WriteLine("\n299. Bulls and Cows");
 Console.WriteLine("***************************");
 Console.WriteLine(Level1.GetHint("1807", "7810"));
+
+Console.WriteLine("\n844.Backspace String Compare");
+Console.WriteLine("***************************");
+Level1.BackspaceCompare("abcd","bbcd");
