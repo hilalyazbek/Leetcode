@@ -122,4 +122,6 @@ Console.WriteLine("\n567.Permutation in String");
 Console.WriteLine("***************************");
 AlgorithmI.CheckInclusion("adc", "dcda");
 
-
+Console.WriteLine("\n299. Bulls and Cows");
+Console.WriteLine("***************************");
+Console.WriteLine(Level1.GetHint("1807", "7810"));

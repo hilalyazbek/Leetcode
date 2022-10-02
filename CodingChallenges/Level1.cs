@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Metrics;
 using System.Reflection;
+using System.Text;
 
 namespace CodingChallenges;
 
@@ -680,6 +681,42 @@ public static class Level1
         }
         return new int[2];
     }
+
+    //299. Bulls and Cows
+    public static string GetHint(string secret, string guess)
+    {
+        List<char> sList = new();
+        List<char> gList = new();
+
+
+        int cows = 0;
+        int bulls = 0;
+        for (int i = 0; i < guess.Length; i++)
+        {
+            if (secret[i] == guess[i])
+            {
+                bulls++;
+            }
+            else
+            {
+                sList.Add(secret[i]);
+                gList.Add(guess[i]);
+            }
+        }
+
+        for (int i = 0; i < sList.Count; i++)
+        {
+            if (gList.Contains(sList[i]))
+            {
+                cows++;
+                gList.Remove(sList[i]);
+            }
+        }
+
+        return bulls + "A" + cows + "B";
+    }
+
+
 }
 
 
