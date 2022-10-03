@@ -795,16 +795,33 @@ public static class Level1
         return str; //it has the full string;
     }
 
-    private static string GenerateDecoded(int times, string letters)
+    //1046. Last Stone Weight
+    public static int LastStoneWeight(int[] stones)
     {
-        StringBuilder result = new();
+
+        PriorityQueue<int, int> pq = new();
         
-        for (int i = 0; i <= times - 1; i++)
+        for(int i = 0; i < stones.Length; i++)
         {
-            result.Append(letters);
+            pq.Enqueue(stones[i], -stones[i]);
+        }
+        
+        while(pq.Count > 1)
+        {
+            int stone1 = pq.Dequeue();
+            int stone2 = pq.Dequeue();
+
+            if (stone1 != stone2)
+            {
+                pq.Enqueue(stone1 - stone2, -(stone1 - stone2));
+            }
         }
 
-        return result.ToString();
+        if(pq.Count == 0)
+        {
+            return 0;
+        }
+        return pq.Dequeue();
     }
 }
 
