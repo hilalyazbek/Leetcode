@@ -747,35 +747,59 @@ public static class Level1
     //394. Decode String
     public static string DecodeString(string s)
     {
-        StringBuilder times = new();
-        StringBuilder letters = new();
-        StringBuilder result = new();
-
-        foreach(char c in s)
+        Stack<int> numstack = new Stack<int>();
+        Stack<string> strstack = new Stack<string>();
+        //parse the string;
+        int i = 0;
+        string str = "";
+        while (i < s.Length)
         {
-            if (char.IsDigit(c))
+            if (Char.IsDigit(s[i]))
             {
-                times.Append(c);
+                int num = 0;
+                while (i < s.Length && Char.IsDigit(s[i]))
+                {
+                    num = num * 10 + (s[i] - '0');
+                    i++;
+                }
+                numstack.Push(num);
+                strstack.Push(str);
+                str = "";
             }
-            if (char.IsLetter(c))
+            else if (Char.IsLetter(s[i]))
             {
-                letters.Append(c);
+                while (i < s.Length && Char.IsLetter(s[i]))
+                {
+                    str += s[i];
+                    i++;
+                }
             }
-            if(c == ']')
+            else if (s[i] == ']')
             {
-                result.Append(GenerateDecoded(times.ToString(), letters.ToString()));
-                times.Clear();
-                letters.Clear();
+                //take the string from the stack out,
+                StringBuilder temp = new StringBuilder(strstack.Pop());
+                int multipler = numstack.Pop();
+                //str has the current string for the multiplier
+                for (int j = 0; j < multipler; j++)
+                {
+                    temp.Append(str);
+                }
+                //switch the str with temp;
+                str = temp.ToString();
+                i++;
             }
+            else
+                i++;
+
         }
-        return result.ToString();
+        return str; //it has the full string;
     }
 
-    private static string GenerateDecoded(string times, string letters)
+    private static string GenerateDecoded(int times, string letters)
     {
         StringBuilder result = new();
-        int max = int.Parse(times);
-        for (int i = 0; i <= max - 1; i++)
+        
+        for (int i = 0; i <= times - 1; i++)
         {
             result.Append(letters);
         }

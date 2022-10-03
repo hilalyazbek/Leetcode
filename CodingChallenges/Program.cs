@@ -132,4 +132,4 @@ Level1.BackspaceCompare("abcd","bbcd");
 
 Console.WriteLine("\n394. Decode String");
 Console.WriteLine("*********************");
-Level1.DecodeString("3[a]2[bc]");
+Level1.DecodeString("3[a2[c]]");
