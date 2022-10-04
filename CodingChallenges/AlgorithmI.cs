@@ -435,4 +435,44 @@ internal class AlgorithmI
     }
 
 
+    //695. Max Area of Island
+    public static int MaxAreaOfIsland(int[][] grid)
+    {
+        int result = 0;
+        int size = 0;
+        for(int i = 0; i < grid.Length; i++)
+        {
+            for(int j = 0; j < grid[i].Length; j++)
+            {
+                if (grid[i][j] == 1)
+                {
+                    size = MaxAreaDFS(grid, i, j);
+                    result = Math.Max(size, result);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private static int MaxAreaDFS(int[][] grid, int row, int col)
+    {
+        if (row < 0 || row > grid.Length - 1 || col < 0 || col > grid[row].Length - 1 || grid[row][col] == 0)
+            return 0;
+
+        grid[row][col] = 0;
+
+        int val = MaxAreaDFS(grid, row + 1, col) +
+        MaxAreaDFS(grid, row - 1, col) +
+        MaxAreaDFS(grid, row, col + 1) +
+        MaxAreaDFS(grid, row, col - 1);
+
+        return val + 1;
+    }
+
+    //617. Merge Two Binary Trees
+    public static TreeNode MergeTrees(TreeNode root1, TreeNode root2)
+    {
+        
+    }
 }

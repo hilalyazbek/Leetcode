@@ -144,3 +144,19 @@ Level1.TopKFrequent(new string[] { "i", "love", "leetcode", "i", "love", "coding
 
 Console.WriteLine("\n733. Flood Fill");
 Console.WriteLine("*****************");
+
+Console.WriteLine("\n695. Max Area of Island");
+Console.WriteLine("*****************");
+int[][] arr = new int[8][];
+arr[0] = new int[] { 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 };
+arr[1] = new int[] { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 };
+arr[2] = new int[] { 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+arr[3] = new int[] { 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0 };
+arr[4] = new int[] { 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0 };
+arr[5] = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 };
+arr[6] = new int[] { 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 };
+arr[7] = new int[] { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 };
+Console.WriteLine(AlgorithmI.MaxAreaOfIsland(arr));
+
+Console.WriteLine("\n617.Merge Two Binary Trees");
+Console.WriteLine("*****************");
