@@ -137,3 +137,7 @@ Level1.DecodeString("3[a2[c]]");
 Console.WriteLine("\n1046. Last Stone Weight");
 Console.WriteLine("*************************");
 Console.WriteLine(Level1.LastStoneWeight(new int[] { 2, 7, 4, 1, 8, 1 }));
+
+Console.WriteLine("\n692.Top K Frequent Words");
+Console.WriteLine("**************************");
+Level1.TopKFrequent(new string[] { "i", "love", "leetcode", "i", "love", "coding" }, 2);

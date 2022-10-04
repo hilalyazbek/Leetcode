@@ -823,6 +823,30 @@ public static class Level1
         }
         return pq.Dequeue();
     }
+
+    //692. Top K Frequent Words
+    public static IList<string> TopKFrequent(string[] words, int k)
+    {
+        List<string> result = new();
+
+        Dictionary<string, int> tracker = new();
+
+        foreach(string str in words)
+        {
+            if (!tracker.ContainsKey(str))
+            {
+                tracker.Add(str, 0);
+            }
+            tracker[str]++;
+        }
+
+        var temp = tracker.OrderByDescending(itm => itm.Value).ThenBy(itm => itm.Key).Take(k);
+
+        foreach (KeyValuePair<string, int> d in tracker)
+            result.Add(d.Key);
+
+        return result;
+    }
 }
 
 
