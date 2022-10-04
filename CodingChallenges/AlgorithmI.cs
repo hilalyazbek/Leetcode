@@ -211,7 +211,7 @@ internal class AlgorithmI
         tracker = tracker.OrderByDescending(itm => itm.Key).ToDictionary(itm => itm.Key, value => value.Value);
         List<string> result = new();
 
-        foreach(KeyValuePair<int, string> kvp in tracker)
+        foreach (KeyValuePair<int, string> kvp in tracker)
         {
             result.Add(kvp.Value);
         }
@@ -251,7 +251,7 @@ internal class AlgorithmI
         var tracker = new Dictionary<int, int>();
 
         int rem = 0;
-        for(int i = 0; i < numbers.Length; i++)
+        for (int i = 0; i < numbers.Length; i++)
         {
             rem = target - numbers[i];
             if (!tracker.ContainsKey(rem))
@@ -294,11 +294,11 @@ internal class AlgorithmI
     {
         StringBuilder sb = new();
         string[] split = s.Split(' ');
-        foreach(string word in split)
+        foreach (string word in split)
         {
             sb.Append(ReverseString(word.ToCharArray()) + " ");
         }
-        return sb.ToString().TrimEnd() ;
+        return sb.ToString().TrimEnd();
     }
 
     //876. Middle of the Linked List
@@ -309,7 +309,7 @@ internal class AlgorithmI
         ListNode slow = head;
         ListNode fast = head;
 
-        while(fast != null && fast.next != null)
+        while (fast != null && fast.next != null)
         {
             slow = slow.next;
             fast = fast.next.next;
@@ -330,7 +330,7 @@ internal class AlgorithmI
             right = right.next;
             n--;
         }
-        while(right != null)
+        while (right != null)
         {
             left = left.next;
             right = right.next;
@@ -351,7 +351,7 @@ internal class AlgorithmI
         int left = 0;
         int right = 0;
 
-        while(right < s.Length)
+        while (right < s.Length)
         {
             if (!tracker.Contains(s[right]))
             {
@@ -373,16 +373,16 @@ internal class AlgorithmI
     public static bool CheckInclusion(string s1, string s2)
     {
         int[] s1Tracker = new int[26];
-        
 
-        foreach(char c in s1)
+
+        foreach (char c in s1)
         {
             s1Tracker[c - 'a']++;
         }
 
         int left = 0;
 
-        while(left + s1.Length-1 < s2.Length) { 
+        while (left + s1.Length - 1 < s2.Length) {
             bool result = CompareArrays(s1Tracker, s2.Substring(left, s1.Length));
             if (result)
             {
@@ -401,11 +401,38 @@ internal class AlgorithmI
         {
             s2Tracker[c - 'a']++;
         }
-        
-        if(Enumerable.SequenceEqual(s1Tracker,s2Tracker))
+
+        if (Enumerable.SequenceEqual(s1Tracker, s2Tracker))
         {
             return true;
         }
         return false;
     }
+
+    //733. Flood Fill
+    public static int[][] FloodFill(int[][] image, int sr, int sc, int color)
+    {
+        var oldColor = image[sr][sc];
+        if (oldColor != color)
+        {
+            image = DFS(image, sr, sc, oldColor, color);
+        }
+        return image;
+    }
+
+    private static int[][] DFS(int[][] image, int sr, int sc, int oldColor, int color)
+    {
+        if (sr < 0 || sr >= image.Length || sc < 0 || sc >= image[sr].Length || image[sr][sc] != oldColor)
+        {
+            return null;
+        }
+        image[sr][sc] = color;
+        DFS(image, sr + 1, sc, oldColor, color);
+        DFS(image, sr - 1, sc, oldColor, color);
+        DFS(image, sr, sc + 1, oldColor, color);
+        DFS(image, sr, sc - 1, oldColor, color);
+        return image;
+    }
+
+
 }
