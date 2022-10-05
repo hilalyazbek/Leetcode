@@ -473,6 +473,13 @@ internal class AlgorithmI
     //617. Merge Two Binary Trees
     public static TreeNode MergeTrees(TreeNode root1, TreeNode root2)
     {
-        
+        if (root1 is null) return root2;
+        if (root2 is null) return root1;
+
+        TreeNode node = new TreeNode(root1.val + root2.val);
+        node.left = MergeTrees(root1.left, root2.left);
+        node.right = MergeTrees(root1.right, root2.right);
+
+        return node;
     }
 }
