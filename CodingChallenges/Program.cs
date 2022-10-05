@@ -160,3 +160,7 @@ Console.WriteLine(AlgorithmI.MaxAreaOfIsland(arr));
 
 Console.WriteLine("\n617.Merge Two Binary Trees");
 Console.WriteLine("*****************");
+
+Console.WriteLine("\n202. Happy Number");
+Console.WriteLine("*******************");
+Level2.IsHappy(7);
