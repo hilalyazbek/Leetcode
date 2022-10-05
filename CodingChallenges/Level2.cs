@@ -11,7 +11,6 @@ public class Level2
         HashSet<int> tracker = new();
         return CheckHappiness(n,tracker);
     }
-
     private static bool CheckHappiness(int number, HashSet<int> tracker)
     {
         
