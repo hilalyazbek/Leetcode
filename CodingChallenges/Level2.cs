@@ -37,5 +37,32 @@ public class Level2
         tracker.Add(result);
         return CheckHappiness(result, tracker);
     }
+
+    //54. Spiral Matrix
+    public static IList<int> SpiralOrder(int[][] matrix)
+    {
+        List<int> res = new();
+
+        int left = 0;
+        int right = matrix[0].Length;
+
+        int top = 0;
+        int bottom = matrix.Length;
+
+        while(left < right && top < bottom)
+        {
+            // go right
+            for(int i = left; i < right; i++)
+            {
+                res.Add(matrix[top][i]);
+            }
+            top++;
+
+            // go down
+
+        }
+
+        return res;
+    }
 }
 
