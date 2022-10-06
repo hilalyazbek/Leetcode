@@ -41,28 +41,45 @@ public class Level2
     //54. Spiral Matrix
     public static IList<int> SpiralOrder(int[][] matrix)
     {
-        List<int> res = new();
+        IList<int> result = new List<int>();
 
-        int left = 0;
-        int right = matrix[0].Length;
+        if (matrix == null || matrix.Length == 0)
+            return result;
 
-        int top = 0;
-        int bottom = matrix.Length;
+        int maxRow = matrix.Length;
+        int maxCol = matrix[0].Length;
+        int i = 0, row = 0, col = 0;
 
-        while(left < right && top < bottom)
+        while (row < maxRow && col < maxCol)
         {
-            // go right
-            for(int i = left; i < right; i++)
+            // #Move Left to Right and #Remove row from Top
+            for (i = col; i < maxCol; i++)
+                result.Add(matrix[row][i]);
+            row++;
+
+            // #Move Top to Down and #Remove col from Right
+            for (i = row; i < maxRow; i++)
+                result.Add(matrix[i][maxCol - 1]);
+            maxCol--;
+
+            // #Move Right to Left and #Remove row from Bottom
+            if (row < maxRow)
             {
-                res.Add(matrix[top][i]);
+                for (i = maxCol - 1; i >= col; i--)
+                    result.Add(matrix[maxRow - 1][i]);
+                maxRow--;
             }
-            top++;
 
-            // go down
-
+            // #Move Down to Top and #Remove col from Left
+            if (col < maxCol)
+            {
+                for (i = maxRow - 1; i >= row; i--)
+                    result.Add(matrix[i][col]);
+                col++;
+            }
         }
 
-        return res;
+        return result;
     }
 }
 
