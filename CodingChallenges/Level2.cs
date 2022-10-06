@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace CodingChallenges;
 
@@ -80,6 +81,42 @@ public class Level2
         }
 
         return result;
+    }
+
+    //14. Longest Common Prefix
+    public static string LongestCommonPrefix(string[] strs)
+    {
+        if (strs == null || strs.Length == 0)
+        { return String.Empty; }
+
+        StringBuilder sb = new StringBuilder();
+        List<char> tracker = new List<char>();
+        foreach(char c in strs[0])
+        {
+            tracker.Add(c);
+        }
+
+
+
+        for(int i=1;i<strs.Length;i++)
+        {
+            tracker = GetPrefix(strs[i], tracker);
+        }
+
+        return sb.ToString();
+    }
+
+    private static List<char> GetPrefix(string s, List<char> tracker)
+    {
+        
+        for(int i=0;i< s.Length;i++)
+        {
+            if (s[i] != tracker[i])
+            {
+                tracker.RemoveRange(i, tracker.Count - i);
+            }
+        }
+        return tracker;
     }
 }
 

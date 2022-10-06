@@ -164,3 +164,5 @@ Console.WriteLine("*****************");
 Console.WriteLine("\n202. Happy Number");
 Console.WriteLine("*******************");
 Level2.IsHappy(7);
+
+Level2.LongestCommonPrefix(new string[] { "flower", "flow", "flight" });
