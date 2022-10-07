@@ -176,6 +176,27 @@ public class Level2
         return head;
     }
 
-}
+    //234. Palindrome Linked List
+    public bool IsPalindrome(ListNode head)
+    {
+        List<int> tracker = new();
+
+        ListNode curr = head;
+        while (curr != null)
+        {
+            tracker.Add(curr.val);
+            curr = curr.next;
+        }
+        int count = tracker.Count();
+        Console.WriteLine(count);
+        for (int i = 0; i < count / 2; i++)
+        {
+            if (tracker[i] != tracker[count - i - 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
