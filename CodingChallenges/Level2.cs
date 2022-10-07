@@ -10,24 +10,24 @@ public class Level2
     public static bool IsHappy(int n)
     {
         HashSet<int> tracker = new();
-        return CheckHappiness(n,tracker);
+        return CheckHappiness(n, tracker);
     }
     private static bool CheckHappiness(int number, HashSet<int> tracker)
     {
-        
-        if(number == 1)
+
+        if (number == 1)
         {
             return true;
         }
         int result = 0;
         int index = 0;
         string numb = number.ToString();
-        while(index < numb.Length)
+        while (index < numb.Length)
         {
             int num = numb[index] - '0';
 
             num *= num;
-               
+
             result += num;
             index++;
         }
@@ -91,25 +91,30 @@ public class Level2
 
         StringBuilder sb = new StringBuilder();
         List<char> tracker = new List<char>();
-        foreach(char c in strs[0])
+        foreach (char c in strs[0])
         {
             tracker.Add(c);
         }
 
-
-
-        for(int i=1;i<strs.Length;i++)
+        for (int i = 1; i < strs.Length; i++)
         {
             tracker = GetPrefix(strs[i], tracker);
         }
 
+        foreach (char c in tracker)
+        {
+            sb.Append(c);
+        }
         return sb.ToString();
     }
 
     private static List<char> GetPrefix(string s, List<char> tracker)
     {
-        
-        for(int i=0;i< s.Length;i++)
+        if (s.Length < tracker.Count)
+        {
+            tracker.RemoveRange(s.Length, tracker.Count - s.Length);
+        }
+        for (int i = 0; i < tracker.Count; i++)
         {
             if (s[i] != tracker[i])
             {
@@ -117,6 +122,11 @@ public class Level2
             }
         }
         return tracker;
+    }
+
+    public static int[] FindBall(int[][] grid)
+    {
+        return new int[0];
     }
 }
 
