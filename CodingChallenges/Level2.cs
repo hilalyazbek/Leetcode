@@ -198,5 +198,22 @@ public class Level2
         }
         return true;
     }
+
+    // TODO: Reverse linked list
+    private ListNode Reverse(ListNode head)
+    {
+        ListNode prev = null;
+        ListNode next = null;
+        ListNode curr = head;
+        while (curr != null)
+        {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
+    }
 }
 
