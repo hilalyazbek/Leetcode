@@ -98,7 +98,7 @@ AlgorithmI.MoveZeroes(new int[] { 1, 0, 1 });
 
 Console.WriteLine("\n167.Two Sum II - Input Array Is Sorted");
 Console.WriteLine("****************************************");
-AlgorithmI.TwoSum(new int[] {2, 7, 11, 15 }, 9);
+AlgorithmI.TwoSum(new int[] { 2, 7, 11, 15 }, 9);
 
 Console.WriteLine("\n344. Reverse String");
 Console.WriteLine("*********************");
@@ -128,7 +128,7 @@ Console.WriteLine(Level1.GetHint("1807", "7810"));
 
 Console.WriteLine("\n844.Backspace String Compare");
 Console.WriteLine("***************************");
-Level1.BackspaceCompare("abcd","bbcd");
+Level1.BackspaceCompare("abcd", "bbcd");
 
 Console.WriteLine("\n394. Decode String");
 Console.WriteLine("*********************");
@@ -165,4 +165,10 @@ Console.WriteLine("\n202. Happy Number");
 Console.WriteLine("*******************");
 Level2.IsHappy(7);
 
+Console.WriteLine("\n14. Longest Common Prefix");
+Console.WriteLine("***************************");
 Level2.LongestCommonPrefix(new string[] { "flower", "flow", "flight" });
+
+Console.WriteLine("\n43. Multiply Strings");
+Console.WriteLine("**********************");
+Console.WriteLine(Level2.Multiply("123456789", "987654321"));

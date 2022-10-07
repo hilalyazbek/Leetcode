@@ -128,5 +128,25 @@ public class Level2
     {
         return new int[0];
     }
+
+    //43. Multiply Strings
+    public static string Multiply(string num1, string num2)
+    {
+        if (num1 == "0" || num2 == "0")
+        {
+            return "0";
+        }
+        return string.Empty;
+    }
+
+    private static int ConvertToInt(string num)
+    {
+        int numb = 0;
+        foreach (char c in num)
+        {
+            numb += numb * 10 + c - '0';
+        }
+        return numb;
+    }
 }
 
