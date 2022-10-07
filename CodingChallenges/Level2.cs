@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using static CodingChallenges.Level1;
 
 namespace CodingChallenges;
 
@@ -148,5 +149,33 @@ public class Level2
         }
         return numb;
     }
+
+    //19. Remove Nth Node From End of List
+    public ListNode RemoveNthFromEnd(ListNode head, int n)
+    {
+        //1-2-3-4-5, 2
+        //1-2-3-5
+        ListNode right = head;
+        ListNode left = head;
+
+        int i = 0;
+        while (i < n)
+        {
+            right = right.next;
+            i++;
+        }
+        if (right == null) return head.next;
+        while (right.next != null)
+        {
+            right = right.next;
+
+            left = left.next;
+        }
+        left.next = left.next.next;
+
+        return head;
+    }
+
+}
 }
 
