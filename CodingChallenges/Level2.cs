@@ -199,6 +199,25 @@ public class Level2
         return true;
     }
 
+    //328. Odd Even Linked List
+    public ListNode OddEvenList(ListNode head)
+    {
+        if (head is null) return null;
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = even;
+
+        while (even != null && even.next != null)
+        {
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+            odd = odd.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+
+        return head;
+    }
     // TODO: Reverse linked list
     private ListNode Reverse(ListNode head)
     {
