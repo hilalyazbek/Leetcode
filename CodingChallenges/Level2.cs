@@ -288,5 +288,11 @@ public class Level2
 
         return Math.Max(left, right) + 1; // depth of current root node
     }
+
+    //543. Diameter of Binary Tree
+    public int DiameterOfBinaryTree(TreeNode root)
+    {
+        return 1;
+    }
 }
 
