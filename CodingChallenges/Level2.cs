@@ -252,5 +252,17 @@ public class Level2
         return root;
     }
 
+
+    //148. Sort List
+    public ListNode SortList(ListNode head)
+    {
+        return new ListNode();
+    }
+
+    //2131. Longest Palindrome by Concatenating Two Letter Words
+    public int LongestPalindrome(string[] words)
+    {
+
+    }
 }
 
