@@ -800,13 +800,13 @@ public static class Level1
     {
 
         PriorityQueue<int, int> pq = new();
-        
-        for(int i = 0; i < stones.Length; i++)
+
+        for (int i = 0; i < stones.Length; i++)
         {
             pq.Enqueue(stones[i], -stones[i]);
         }
-        
-        while(pq.Count > 1)
+
+        while (pq.Count > 1)
         {
             int stone1 = pq.Dequeue();
             int stone2 = pq.Dequeue();
@@ -817,7 +817,7 @@ public static class Level1
             }
         }
 
-        if(pq.Count == 0)
+        if (pq.Count == 0)
         {
             return 0;
         }
@@ -831,7 +831,7 @@ public static class Level1
 
         Dictionary<string, int> tracker = new();
 
-        foreach(string str in words)
+        foreach (string str in words)
         {
             if (!tracker.ContainsKey(str))
             {
@@ -845,6 +845,14 @@ public static class Level1
         foreach (KeyValuePair<string, int> d in tracker)
             result.Add(d.Key);
 
+        return result;
+    }
+
+    //238. Product of Array Except Self
+    public int[] ProductExceptSelf(int[] nums)
+    {
+
+        int[] result = new int[nums.Length];
         return result;
     }
 }
