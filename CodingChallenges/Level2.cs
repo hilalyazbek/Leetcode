@@ -262,7 +262,31 @@ public class Level2
     //2131. Longest Palindrome by Concatenating Two Letter Words
     public int LongestPalindrome(string[] words)
     {
+        return 0;
+    }
 
+    //110. Balanced Binary Tree
+    public bool isBalanced = true;
+    public bool IsBalanced(TreeNode root)
+    {
+        if (root == null)
+            return true;
+
+        GetDepth(root);
+        return isBalanced;
+    }
+    public int GetDepth(TreeNode root)
+    {
+        if (root == null)
+            return 0;
+
+        int left = GetDepth(root.left);   // depth of left subtree of current root
+        int right = GetDepth(root.right); // depth of right subtree of current root
+
+        if (Math.Abs(left - right) > 1)   // check whether the current (sub)tree is balanced or not
+            isBalanced = false;
+
+        return Math.Max(left, right) + 1; // depth of current root node
     }
 }
 
