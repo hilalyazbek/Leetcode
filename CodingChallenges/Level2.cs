@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using static CodingChallenges.Level1;
@@ -234,5 +235,22 @@ public class Level2
 
         return prev;
     }
+
+    //226. Invert Binary Tree
+    public TreeNode InvertTree(TreeNode root)
+    {
+        if (root == null)
+            return root;
+
+        TreeNode temp = root.right;
+        root.right = root.left;
+        root.left = temp;
+
+        InvertTree(root.left);
+        InvertTree(root.right);
+
+        return root;
+    }
+
 }
 
