@@ -849,7 +849,7 @@ public static class Level1
     }
 
     //238. Product of Array Except Self
-    public int[] ProductExceptSelf(int[] nums)
+    public static int[] ProductExceptSelf(int[] nums)
     {
 
         int[] result = new int[nums.Length];

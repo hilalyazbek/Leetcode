@@ -42,11 +42,23 @@ internal class Blind75
             if (sum > maxSum)
             {
                 maxSum = sum;
-            }
-            
+            }   
+        }
+        return maxSum;
+    }
+
+    //152. Maximum Product Subarray
+    public int MaxProduct(int[] nums)
+    {
+        int[] product = new int[nums.Length];
+        int prod = nums[0];
+        product[0] = prod;
+
+        for(int i = 1; i < nums.Length; i++)
+        {
+            product[i] = product[i - 1] * nums[i];
         }
 
-        return maxSum;
-
+        return product.Max();
     }
 }
