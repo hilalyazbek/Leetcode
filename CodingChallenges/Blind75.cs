@@ -16,9 +16,9 @@ internal class Blind75
         int[] dynamic = new int[nums.Length];
         int sum = nums[0];
         dynamic[0] = sum;
-        for(int i=1;i< nums.Length; i++)
+        for (int i = 1; i < nums.Length; i++)
         {
-            sum =  Math.Max(nums[i], dynamic[i - 1] + nums[i]);
+            sum = Math.Max(nums[i], dynamic[i - 1] + nums[i]);
             dynamic[i] = sum;
         }
 
@@ -42,7 +42,7 @@ internal class Blind75
             if (sum > maxSum)
             {
                 maxSum = sum;
-            }   
+            }
         }
         return maxSum;
     }
@@ -54,11 +54,25 @@ internal class Blind75
         int prod = nums[0];
         product[0] = prod;
 
-        for(int i = 1; i < nums.Length; i++)
+        for (int i = 1; i < nums.Length; i++)
         {
             product[i] = product[i - 1] * nums[i];
         }
 
         return product.Max();
+    }
+
+    //153. Find Minimum in Rotated Sorted Array
+    public int FindMin(int[] nums)
+    {
+        int min = nums[0];
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] < min)
+            {
+                min = Math.Min(nums[i], min);
+            }
+        }
+        return min;
     }
 }
