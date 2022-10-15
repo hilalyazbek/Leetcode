@@ -79,29 +79,33 @@ internal class Blind75
     //33. Search in Rotated Sorted Array
     public int Search(int[] nums, int target)
     {
-        //TODO: fix this, Search in a sorted array
+        //TODO: Revisit Search Rotated Sorted Array
         // must be written in O(log n) time
         int left = 0;
         int right = nums.Length - 1;
 
-        while (left < right)
+        while (left <= right)
         {
             int mid = right - left / 2;
             if (target == nums[mid])
             {
                 return mid;
             }
-            if (target <= nums[mid])
+            if (nums[left] <= nums[mid])
             {
-                right = mid;
-                continue;
+                if (target < nums[mid] && target >= nums[left])
+                    right = mid - 1;
+                else
+                    left = mid + 1;
             }
-            else
+            if (nums[mid] <= nums[right])
             {
-                left = mid + 1;
-                continue;
+                if (target > nums[mid] && target <= nums[right])
+                    left = mid + 1;
+                else
+                    right = mid - 1;
             }
         }
-        return nums[left] == target ? left : -1;
+        return -1;
     }
 }
