@@ -29,7 +29,6 @@ internal class Blind75
     public int MaxSubArray(int[] nums)
     {
         //nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-
         int sum = 0;
         int maxSum = nums[0];
         for (int i = 0; i < nums.Length; i++)
@@ -107,5 +106,46 @@ internal class Blind75
             }
         }
         return -1;
+    }
+
+    //15. 3Sum
+    public IList<IList<int>> ThreeSum(int[] nums)
+    {
+        //TODO: Revisit 3SUM
+        List<IList<int>> result = new();
+        Array.Sort(nums);
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (i > 0 && nums[i] == nums[i - 1])
+            {
+                continue;
+            }
+            int left = i + 1;
+            int right = nums.Length - 1;
+            while (left < right)
+            {
+                int threeSum = nums[i] + nums[left] + nums[right];
+                if (threeSum > 0)
+                {
+                    right--;
+                }
+                else if (threeSum < 0)
+                {
+                    left++;
+                }
+                else if (threeSum == 0)
+                {
+                    result.Add(new List<int> { nums[i], nums[left], nums[right] });
+                    left++;
+                    while (nums[left] == nums[left - 1] && left < right)
+                    {
+                        left++;
+                    }
+                }
+            }
+
+        }
+
+        return result;
     }
 }
