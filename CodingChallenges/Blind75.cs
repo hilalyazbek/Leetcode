@@ -148,4 +148,10 @@ internal class Blind75
 
         return result;
     }
+
+    //11. Container With Most Water
+    public int MaxArea(int[] height)
+    {
+
+    }
 }
