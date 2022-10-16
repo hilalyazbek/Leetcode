@@ -266,4 +266,48 @@ internal class Blind75
 
         return head.next;
     }
+
+    //143. Reorder List
+    public void ReorderList(ListNode head)
+    {
+        //1-2-3-4-5
+        //1-5-2-4-3
+
+        // get mid of the list
+        ListNode prev = null, slow = head, fast = head, l1 = head;
+
+        while (fast != null && fast.next != null)
+        {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        while (fast.next != null && fast.next.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // reverse second part
+        ListNode prev = null;
+        while (slow != null)
+        {
+            ListNode node = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = node;
+        }
+
+        // get 1 item from original list and 1 item from reversed list
+        while (head != null && slow != null)
+        {
+            ListNode temp1 = head.next;
+            ListNode temp2 = slow.next;
+            slow.next = head.next;
+            head.next = temp2;
+            head = temp;
+        }
+
+    }
 }
