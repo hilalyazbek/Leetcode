@@ -238,4 +238,32 @@ internal class Blind75
         }
         return dummy.next;
     }
+
+    //23. Merge k Sorted Lists
+    public ListNode MergeKLists(ListNode[] lists)
+    {
+        HashSet<ListNode> tracker = new();
+
+        foreach (ListNode node in lists)
+        {
+            ListNode item = node;
+            while (item != null)
+            {
+                tracker.Add(item);
+                item = item.next;
+            }
+        }
+
+        ListNode head = new ListNode(0);
+        ListNode curr = head;
+
+        tracker = tracker.OrderBy(itm => itm.val).ToHashSet<ListNode>();
+        foreach (ListNode node in tracker)
+        {
+            curr.next = node;
+            curr = curr.next;
+        }
+
+        return head.next;
+    }
 }
