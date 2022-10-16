@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CodingChallenges.Level1;
 
 namespace CodingChallenges;
 
@@ -171,7 +172,25 @@ internal class Blind75
                 right--;
             }
         }
-
         return max;
+    }
+
+    //206. Reverse Linked List
+    public ListNode ReverseList(ListNode head)
+    {
+        ListNode right = head.next;
+        ListNode left = head.next;
+
+        while(right != null)
+        {
+            ListNode curr = right;
+            right = right.next;
+            curr.next = left;
+            left = curr;
+            curr = right;
+            right = right.next;
+        }
+
+        return head;
     }
 }
