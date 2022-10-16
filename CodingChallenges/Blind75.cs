@@ -152,6 +152,26 @@ internal class Blind75
     //11. Container With Most Water
     public int MaxArea(int[] height)
     {
+        //TODO: to be revisited.
+        int left = 0;
+        int right = height.Length - 1;
+        int max = 0;
+        while (left < right)
+        {
+            int width = right - left;
+            int minHeight = Math.Min(height[right], height[left]);
+            int currentWater = width * minHeight;
+            max = Math.Max(max, currentWater);
+            if (height[left] <= height[right])
+            {
+                left++;
+            }
+            else
+            {
+                right--;
+            }
+        }
 
+        return max;
     }
 }

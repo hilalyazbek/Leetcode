@@ -183,3 +183,4 @@ Blind75 b = new Blind75();
 b.MaxProduct(new int[] { -2, 3, -4 });
 b.Search(new int[] { 3, 1 }, 3);
 b.ThreeSum(new int[] { -3, 1, 2, 3, -3, 4 });
+b.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
