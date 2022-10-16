@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections.Generic;
+using static CodingChallenges.Level1;
 using CodingChallenges;
 
 Console.WriteLine("LEETCODE CODING CHALLENGES");
@@ -184,3 +185,6 @@ b.MaxProduct(new int[] { -2, 3, -4 });
 b.Search(new int[] { 3, 1 }, 3);
 b.ThreeSum(new int[] { -3, 1, 2, 3, -3, 4 });
 b.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
+
+ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+b.ReverseList(head);

@@ -178,19 +178,16 @@ internal class Blind75
     //206. Reverse Linked List
     public ListNode ReverseList(ListNode head)
     {
-        ListNode right = head.next;
-        ListNode left = head.next;
+        ListNode prev = null;
 
-        while(right != null)
+        while (head != null)
         {
-            ListNode curr = right;
-            right = right.next;
-            curr.next = left;
-            left = curr;
-            curr = right;
-            right = right.next;
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
         }
 
-        return head;
+        return prev;
     }
 }
