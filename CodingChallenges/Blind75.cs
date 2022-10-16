@@ -205,4 +205,41 @@ internal class Blind75
         }
         return false;
     }
+
+    //21. Merge Two Sorted Lists
+    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+    {
+        // 1 - 2 - 4
+        // 1 - 3 - 4
+
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+        ListNode dummy = null;
+        if (list1.val <= list2.val)
+        {
+            dummy = list1;
+        }
+        else
+        {
+            dummy = list2;
+        }
+        while (list1.next != null)
+        {
+            if (list1.val <= list2.val)
+            {
+                ListNode l1Next = list1.next;
+                list1.next = list2;
+                list1 = l1Next;
+                continue;
+            }
+            if (list1.val >= list2.val)
+            {
+                ListNode l2Next = list2.next;
+                list2.next = list1;
+                list2 = l2Next.next;
+                continue;
+            }
+        }
+        return dummy;
+    }
 }
