@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static CodingChallenges.Level1;
@@ -268,46 +270,52 @@ internal class Blind75
     }
 
     //143. Reorder List
-    public void ReorderList(ListNode head)
+    public void ReorderList(ListNode head1)
     {
         //1-2-3-4-5
         //1-5-2-4-3
-
-        // get mid of the list
-        ListNode prev = null, slow = head, fast = head, l1 = head;
+        if (head1 == null || head1.next == null) { return; }
+        // find middle of the list
+        ListNode fast = head1;
+        ListNode slow = head1;
+        ListNode tail = null;
 
         while (fast != null && fast.next != null)
         {
-            prev = slow;
-            slow = slow.next;
             fast = fast.next.next;
+            tail = slow;
+            slow = slow.next;
+            
         }
 
-        while (fast.next != null && fast.next.next != null)
-        {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
+        tail.next = null;
 
-        // reverse second part
         ListNode prev = null;
+
         while (slow != null)
         {
-            ListNode node = slow.next;
+            ListNode next = slow.next;
             slow.next = prev;
             prev = slow;
-            slow = node;
+            slow = next;
+        }
+        ListNode l2 = prev;
+        ListNode l1 = head1;
+        
+        while(l1 != null)
+        {
+            ListNode n1 = l1.next;
+            ListNode n2 = l2.next;
+            l1.next = l2;
+            if (n1 == null)
+            {
+                break;
+            }
+            l2.next = n1;
+            l1 = n1;
+            l2 = n2;
         }
 
-        // get 1 item from original list and 1 item from reversed list
-        while (head != null && slow != null)
-        {
-            ListNode temp1 = head.next;
-            ListNode temp2 = slow.next;
-            slow.next = head.next;
-            head.next = temp2;
-            head = temp;
-        }
 
     }
 }

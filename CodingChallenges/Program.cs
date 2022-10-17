@@ -188,3 +188,6 @@ b.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
 
 ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 b.ReverseList(head);
+
+ListNode reorder = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+b.ReorderList(reorder);
