@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography;
@@ -318,4 +319,42 @@ internal class Blind75
 
 
     }
+
+    //73. Set Matrix Zeroes
+    public void SetZeroes(int[][] matrix)
+    {
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            for (int j = 0; j < matrix[i].Length; j++)
+            {
+                if (matrix[i][j] == 0)
+                {
+                    SetRowColToNeg(matrix, i, j);
+                }
+            }
+        }
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            for (int j = 0; j < matrix[i].Length; j++)
+            {
+                if(matrix[i][j] == -1)
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    private void SetRowColToNeg(int[][] matrix, int x, int y) //1,2
+    {
+        for(int i=0; i<matrix.Length; i++)
+        {
+            matrix[i][y] = -1;
+        }
+        for(int j = 0; j < matrix[0].Length; j++)
+        {
+            matrix[x][j] = -1;
+        }
+    }
+
 }
