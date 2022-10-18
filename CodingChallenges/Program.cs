@@ -197,3 +197,9 @@ matrix[0] = new int[] { 0, 1, 2, 0 };
 matrix[1] = new int[] { 3, 4, 5, 2 };
 matrix[2] = new int[] { 1, 3, 1, 5 };
 b.SetZeroes(matrix);
+
+int[][] spiral = new int[3][];
+spiral[0] = new int[] { 1, 2, 3, 4 };
+spiral[1] = new int[] { 5, 6, 7, 8 };
+spiral[2] = new int[] { 9, 10, 11, 12 };
+b.SpiralOrder(spiral);

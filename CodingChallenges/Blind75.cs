@@ -286,7 +286,7 @@ internal class Blind75
             fast = fast.next.next;
             tail = slow;
             slow = slow.next;
-            
+
         }
 
         tail.next = null;
@@ -302,8 +302,8 @@ internal class Blind75
         }
         ListNode l2 = prev;
         ListNode l1 = head1;
-        
-        while(l1 != null)
+
+        while (l1 != null)
         {
             ListNode n1 = l1.next;
             ListNode n2 = l2.next;
@@ -324,7 +324,7 @@ internal class Blind75
     //73. Set Matrix Zeroes
     public void SetZeroes(int[][] matrix)
     {
-        for(int i=0;i<matrix.Length; i++)
+        for (int i = 0; i < matrix.Length; i++)
         {
             for (int j = 0; j < matrix[i].Length; j++)
             {
@@ -339,7 +339,7 @@ internal class Blind75
     private void SetZeroesToColAndRow(int[][] matrix, int i, int j)
     {
         // replace col with 0
-        for(int c = 0; c < matrix[0].Length; c++)
+        for (int c = 0; c < matrix[0].Length; c++)
         {
             if (matrix[i][c] != 0)
             {
@@ -349,7 +349,7 @@ internal class Blind75
         }
 
         // replace row with 0
-        for(int r = 0; r < matrix.Length; r++)
+        for (int r = 0; r < matrix.Length; r++)
         {
             if (matrix[r][j] != 0)
             {
@@ -357,6 +357,56 @@ internal class Blind75
                 tracker.Add((r, j));
             }
         }
-        
+    }
+
+    public IList<int> SpiralOrder(int[][] matrix)
+    {
+        List<int> result = new List<int>();
+
+        if (matrix == null || matrix.Length == 0)
+            return result;
+
+        int maxRow = matrix.Length;
+        int maxCol = matrix[0].Length;
+        int i = 0, row = 0, col = 0;
+
+        while (row < maxRow && col < maxCol)
+        {
+            //move to the left
+            for (i = col; i < maxCol; i++)
+            {
+                result.Add(matrix[row][i]);
+            }
+            row++;
+            //move down
+            for (i = row; i < maxRow; i++)
+            {
+                result.Add(matrix[i][maxCol - 1]);
+
+            }
+            maxCol--;
+
+            if (row < maxRow)
+            {
+                //move left
+                for (i = maxCol - 1; i >= col; i--)
+                {
+                    result.Add(matrix[maxRow - 1][i]);
+                }
+                maxRow--;
+            }
+
+            if (col < maxCol)
+            {
+                //move up
+                for (i = maxRow - 1; i >= row; i--)
+                {
+                    result.Add(matrix[i][col]);
+                }
+                col++;
+            }
+        }
+
+        return result;
     }
 }
