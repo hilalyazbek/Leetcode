@@ -191,3 +191,9 @@ b.ReverseList(head);
 
 ListNode reorder = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 b.ReorderList(reorder);
+
+int[][] matrix = new int[3][];
+matrix[0] = new int[] { 0, 1, 2, 0 };
+matrix[1] = new int[] { 3, 4, 5, 2 };
+matrix[2] = new int[] { 1, 3, 1, 5 };
+b.SetZeroes(matrix);

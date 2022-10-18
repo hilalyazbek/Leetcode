@@ -320,41 +320,43 @@ internal class Blind75
 
     }
 
+    HashSet<(int, int)> tracker = new HashSet<(int, int)>();
     //73. Set Matrix Zeroes
     public void SetZeroes(int[][] matrix)
     {
-        for (int i = 0; i < matrix.Length; i++)
+        for(int i=0;i<matrix.Length; i++)
         {
             for (int j = 0; j < matrix[i].Length; j++)
             {
-                if (matrix[i][j] == 0)
+                if (matrix[i][j] == 0 && !tracker.Contains((i, j)))
                 {
-                    SetRowColToNeg(matrix, i, j);
-                }
-            }
-        }
-        for (int i = 0; i < matrix.Length; i++)
-        {
-            for (int j = 0; j < matrix[i].Length; j++)
-            {
-                if(matrix[i][j] == -1)
-                {
-                    matrix[i][j] = 0;
+                    SetZeroesToColAndRow(matrix, i, j);
                 }
             }
         }
     }
 
-    private void SetRowColToNeg(int[][] matrix, int x, int y) //1,2
+    private void SetZeroesToColAndRow(int[][] matrix, int i, int j)
     {
-        for(int i=0; i<matrix.Length; i++)
+        // replace col with 0
+        for(int c = 0; c < matrix[0].Length; c++)
         {
-            matrix[i][y] = -1;
+            if (matrix[i][c] != 0)
+            {
+                matrix[i][c] = 0;
+                tracker.Add((i, c));
+            }
         }
-        for(int j = 0; j < matrix[0].Length; j++)
-        {
-            matrix[x][j] = -1;
-        }
-    }
 
+        // replace row with 0
+        for(int r = 0; r < matrix.Length; r++)
+        {
+            if (matrix[r][j] != 0)
+            {
+                matrix[r][j] = 0;
+                tracker.Add((r, j));
+            }
+        }
+        
+    }
 }
