@@ -216,3 +216,5 @@ wordSearch[0] = new char[] { 'a', 'b', 'c', 'e' };
 wordSearch[1] = new char[] { 's', 'f', 'c', 's' };
 wordSearch[2] = new char[] { 'a', 'd', 'e', 'e' };
 b.Exist(wordSearch, "abcced");
+
+b.CharacterReplacement("ABBB", 2);

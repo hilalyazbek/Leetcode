@@ -417,7 +417,7 @@ internal class Blind75
         int n = matrix.Length;
 
         //turn rows into columns
-        for(int i=0;i<n; i++)
+        for (int i = 0; i < n; i++)
         {
             for (int j = i; j < n; j++)
             {
@@ -428,7 +428,7 @@ internal class Blind75
         }
 
         //swap reach row
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             int left = 0;
             int right = n - 1;
@@ -441,7 +441,7 @@ internal class Blind75
                 right--;
             }
         }
-        
+
     }
 
     //79. Word Search
@@ -481,5 +481,36 @@ internal class Blind75
         board[i][j] = word[idx]; // backtracking
 
         return find;
+    }
+
+    //424. Longest Repeating Character Replacement
+    public int CharacterReplacement(string s, int k)
+    {
+        int left = 0;
+        int result = 0;
+        List<char> tracker = new();
+        while (left < s.Length - 1)
+        {
+            tracker.Clear();
+            tracker.Add(s[left]);
+            for (int right = left + k; right < s.Length; right++)
+            {
+                if (s[right] == s[left])
+                {
+                    tracker.Add(s[right]);
+                    continue;
+                }
+                else if (k > 0)
+                {
+                    tracker.Add(s[left]);
+                    k--;
+                    continue;
+                }
+                break;
+            }
+            result = Math.Max(result, tracker.Count);
+            left++;
+        }
+        return result;
     }
 }
