@@ -210,3 +210,9 @@ rotateImage[1] = new int[] { 4, 5, 6, 5 };
 rotateImage[2] = new int[] { 7, 8, 9, 6 };
 rotateImage[3] = new int[] { 6, 5, 4, 3 };
 b.Rotate(rotateImage);
+
+char[][] wordSearch = new char[3][];
+wordSearch[0] = new char[] { 'a', 'b', 'c', 'e' };
+wordSearch[1] = new char[] { 's', 'f', 'c', 's' };
+wordSearch[2] = new char[] { 'a', 'd', 'e', 'e' };
+b.Exist(wordSearch, "abcced");
