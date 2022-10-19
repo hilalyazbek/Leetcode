@@ -203,3 +203,10 @@ spiral[0] = new int[] { 1, 2, 3, 4 };
 spiral[1] = new int[] { 5, 6, 7, 8 };
 spiral[2] = new int[] { 9, 10, 11, 12 };
 b.SpiralOrder(spiral);
+
+int[][] rotateImage = new int[4][];
+rotateImage[0] = new int[] { 1, 2, 3, 4 };
+rotateImage[1] = new int[] { 4, 5, 6, 5 };
+rotateImage[2] = new int[] { 7, 8, 9, 6 };
+rotateImage[3] = new int[] { 6, 5, 4, 3 };
+b.Rotate(rotateImage);
