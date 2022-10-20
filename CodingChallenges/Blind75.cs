@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -506,5 +507,12 @@ internal class Blind75
         }
 
         return result;
+    }
+
+    //76. Minimum Window Substring
+    public int MinWindow(string s, string t)
+    {
+       
+        
     }
 }

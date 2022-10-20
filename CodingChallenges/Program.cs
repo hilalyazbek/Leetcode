@@ -218,3 +218,5 @@ wordSearch[2] = new char[] { 'a', 'd', 'e', 'e' };
 b.Exist(wordSearch, "abcced");
 
 b.CharacterReplacement("AABABBA", 1);
+
+b.MinWindow("ADOBECODEBANC", "AABC");
