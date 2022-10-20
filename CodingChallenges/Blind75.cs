@@ -488,29 +488,23 @@ internal class Blind75
     {
         int left = 0;
         int result = 0;
-        List<char> tracker = new();
-        while (left < s.Length - 1)
+        int[] tracker = new int[26];
+        int currentMax = 0;
+        for(int right=0; right < s.Length; right++)
         {
-            tracker.Clear();
-            tracker.Add(s[left]);
-            for (int right = left + k; right < s.Length; right++)
+            char c = s[right];
+            tracker[c - 'A']++;
+            currentMax = Math.Max(currentMax, tracker[c - 'A']);
+
+            
+            while(right - left + 1 - currentMax > k)
             {
-                if (s[right] == s[left])
-                {
-                    tracker.Add(s[right]);
-                    continue;
-                }
-                else if (k > 0)
-                {
-                    tracker.Add(s[left]);
-                    k--;
-                    continue;
-                }
-                break;
+                tracker[s[left]-'A']--;
+                left++;
             }
-            result = Math.Max(result, tracker.Count);
-            left++;
+            result = Math.Max(result, right - left + 1);
         }
+
         return result;
     }
 }
