@@ -491,16 +491,16 @@ internal class Blind75
         int result = 0;
         int[] tracker = new int[26];
         int currentMax = 0;
-        for(int right=0; right < s.Length; right++)
+        for (int right = 0; right < s.Length; right++)
         {
             char c = s[right];
             tracker[c - 'A']++;
             currentMax = Math.Max(currentMax, tracker[c - 'A']);
 
-            
-            while(right - left + 1 - currentMax > k)
+
+            while (right - left + 1 - currentMax > k)
             {
-                tracker[s[left]-'A']--;
+                tracker[s[left] - 'A']--;
                 left++;
             }
             result = Math.Max(result, right - left + 1);
@@ -512,7 +512,6 @@ internal class Blind75
     //76. Minimum Window Substring
     public int MinWindow(string s, string t)
     {
-       
-        
+
     }
 }
