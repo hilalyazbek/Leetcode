@@ -512,6 +512,6 @@ internal class Blind75
     //76. Minimum Window Substring
     public int MinWindow(string s, string t)
     {
-
+        return 0;
     }
 }

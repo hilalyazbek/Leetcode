@@ -220,3 +220,5 @@ b.Exist(wordSearch, "abcced");
 b.CharacterReplacement("AABABBA", 1);
 
 b.MinWindow("ADOBECODEBANC", "AABC");
+
+DSACourse_UnionFind uf = new DSACourse_UnionFind(10);
