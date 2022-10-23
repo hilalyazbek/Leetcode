@@ -35,27 +35,27 @@ public class StackUsingLinkedList<Item>
     }
 }
 
-public class StackUsingArray
+public class StackUsingArray<Item>
 {
-    public string[] strings { get; set; }
+    public Item[] items { get; set; }
     public int N { get; set; } = 0;
     public StackUsingArray(int capacity)
     {
-        strings = new string[capacity];
+        items = new Item[capacity];
     }
 
     public bool IsEmpty()
     {
         return N == 0;
     }
-    public void Push(string str)
+    public void Push(Item item)
     {
-        strings[N] = str;
+        items[N] = item;
         N++;
     }
-    public string Pop()
+    public Item Pop()
     {
-        return strings[--N];
+        return items[--N];
     }
 }
 
