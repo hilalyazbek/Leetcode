@@ -222,3 +222,11 @@ b.CharacterReplacement("AABABBA", 1);
 b.MinWindow("ADOBECODEBANC", "AABC");
 
 DSACourse_UnionFind uf = new DSACourse_UnionFind(10);
+
+StackUsingArray stack = new(4);
+stack.Push("str 1");
+stack.Push("str 2");
+Console.WriteLine($"Stack using Array: {stack.Pop()}");
+stack.Push("str 3");
+stack.Push("str 4");
+Console.WriteLine($"Stack using Array: {stack.Pop()}");

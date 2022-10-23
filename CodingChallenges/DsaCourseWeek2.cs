@@ -34,3 +34,27 @@ public class StackUsingLinkedList
         return item;
     }
 }
+
+public class StackUsingArray
+{
+    public string[] strings { get; set; }
+    public int N { get; set; } = 0;
+    public StackUsingArray(int capacity)
+    {
+        strings = new string[capacity];
+    }
+
+    public bool IsEmpty()
+    {
+        return N == 0;
+    }
+    public void Push(string str)
+    {
+        strings[N] = str;
+        N++;
+    }
+    public string Pop()
+    {
+        return strings[--N];
+    }
+}
