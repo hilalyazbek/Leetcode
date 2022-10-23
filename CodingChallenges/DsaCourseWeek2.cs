@@ -3,12 +3,12 @@ class DsaCourseWeek2
 
 }
 
-public class StackUsingLinkedList
+public class StackUsingLinkedList<Item>
 {
     private Node first = null;
     class Node
     {
-        public string Item { get; set; }
+        public Item Item { get; set; }
         public Node Next { get; set; }
     }
 
@@ -18,7 +18,7 @@ public class StackUsingLinkedList
         return first == null;
     }
 
-    public void Push(string str)
+    public void Push(Item str)
     {
         // inserts a new node at the start of the linked list
         Node oldFirst = first;
@@ -27,9 +27,9 @@ public class StackUsingLinkedList
         first.Next = oldFirst;
     }
 
-    public string Pop()
+    public Item Pop()
     {
-        string item = first.Item;
+        Item item = first.Item;
         first = first.Next;
         return item;
     }
