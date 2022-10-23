@@ -58,3 +58,49 @@ public class StackUsingArray
         return strings[--N];
     }
 }
+
+public class QueueUsingLinkedList
+{
+    private Node first;
+    private Node last;
+
+    class Node
+    {
+        public string Item { get; set; }
+        public Node Next { get; set; }
+    }
+
+    public bool IsEmpty()
+    {
+        return first == null;
+    }
+
+    public void Enqueue(string item)
+    {
+        Node oldLast = last;
+        last = new Node();
+        last.Item = item;
+        last.Next = null;
+
+        if (IsEmpty())
+        {
+            first = last;
+        }
+        else
+        {
+            oldLast.Next = last;
+        }
+    }
+
+    public string Dequeue()
+    {
+        string item = first.Item;
+        first = first.Next;
+        if (IsEmpty())
+        {
+            last = null;
+        }
+
+        return item;
+    }
+}
