@@ -223,10 +223,12 @@ b.MinWindow("ADOBECODEBANC", "AABC");
 
 DSACourse_UnionFind uf = new DSACourse_UnionFind(10);
 
-StackUsingArray stack = new(4);
+StackUsingArray<string> stack = new(4);
 stack.Push("str 1");
 stack.Push("str 2");
 Console.WriteLine($"Stack using Array: {stack.Pop()}");
 stack.Push("str 3");
 stack.Push("str 4");
 Console.WriteLine($"Stack using Array: {stack.Pop()}");
+
+Console.WriteLine(DsaCourseWeek2.ArithmeticEvaluation("(1+((2+3)*(4*5)))"));

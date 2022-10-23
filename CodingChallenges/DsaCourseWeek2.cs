@@ -1,6 +1,39 @@
-class DsaCourseWeek2
+public static class DsaCourseWeek2
 {
+    public static int ArithmeticEvaluation(string equation)
+    {
+        Stack<int> numbers = new();
+        Stack<char> operators = new();
 
+        foreach (char c in equation)
+        {
+            if (char.IsNumber(c))
+            {
+                numbers.Push(int.Parse(c.ToString()));
+            }
+            else if (c == '(')
+            {
+                continue;
+            }
+            else if (c == ')')
+            {
+                int num1 = numbers.Pop();
+                int num2 = numbers.Pop();
+                int op = operators.Pop();
+                int res = 0;
+                if (op == '+') { res = num1 + num2; }
+                else if (op == '-') { res = num1 - num2; }
+                else if (op == '*') { res = num1 * num2; }
+                else { res = num1 / num2; }
+                numbers.Push(res);
+            }
+            else
+            {
+                operators.Push(c);
+            }
+        }
+        return numbers.Pop();
+    }
 }
 
 public class StackUsingLinkedList<Item>
@@ -103,4 +136,6 @@ public class QueueUsingLinkedList
 
         return item;
     }
+
+
 }
