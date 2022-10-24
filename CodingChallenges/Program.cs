@@ -232,3 +232,5 @@ stack.Push("str 4");
 Console.WriteLine($"Stack using Array: {stack.Pop()}");
 
 Console.WriteLine(DsaCourseWeek2.ArithmeticEvaluation("(1+((2+3)*(4*5)))"));
+
+DsaCourseWeek2.ShellSort(new int[] { 2, 1, 7, 54, 9, 3, 6, 2, 0, 9, 33, 2 });

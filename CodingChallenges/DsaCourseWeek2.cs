@@ -34,6 +34,31 @@ public static class DsaCourseWeek2
         }
         return numbers.Pop();
     }
+
+    public static void ShellSort(int[] arr)
+    {
+        int n = arr.Length;
+        int h = 1;
+
+        while (h < n / 3)
+        {
+            h = 3 * h + 1; // 3x + 1 increment sequence
+        }
+        while (h >= 1)
+        {
+            //h-sort the array
+            for (int i = h; i < n; i++)
+            {
+                for (int j = i; j >= h && arr[j] < arr[j - h]; j -= h)
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j - h];
+                    arr[j - h] = temp;
+                }
+            }
+            h = h / 3;
+        }
+    }
 }
 
 public class StackUsingLinkedList<Item>
@@ -136,6 +161,5 @@ public class QueueUsingLinkedList
 
         return item;
     }
-
-
 }
+
