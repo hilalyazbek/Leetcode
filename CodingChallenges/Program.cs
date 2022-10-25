@@ -238,3 +238,8 @@ DsaCourseWeek2.ShellSort(new int[] { 2, 1, 7, 54, 9, 3, 6, 2, 0, 9, 33, 2 });
 int[] merge = new int[] { 7, 11, 88, 99, 1, 6, 9, 22, 55 };
 int mid = merge.Length / 2;
 DsaCourseWeek3.MergeSort(merge, 0, mid, arr.Length - 1);
+
+int[] quickSort = new int[] { 90, 86, 5, 97, 16, 66, 48, 61, 78, 56, 82, 90, 50, 46, 28, 77, 0, 85, 64, 55, 69, 44, 18, 34, 80, 25, 23, 28, 66, 14 };
+int[] sorted = new int[quickSort.Length];
+sorted = DsaCourseWeek3.QuickSort(quickSort, 0, quickSort.Length - 1);
+Console.WriteLine("sorted");
