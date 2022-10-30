@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public static class DsaCourseWeek4
 {
 
@@ -64,4 +66,19 @@ public class Node
         return x;
     }
 
+    //Inorder Tree Traversal
+    public Queue<int> Keys()
+    {
+        Queue<int> q = new();
+        Inorder(root, q);
+        return q;
+    }
+
+    private void Inorder(Node root, Queue<int> q)
+    {
+        if (root == null) return;
+        Inorder(root.left, q);
+        q.Enqueue(root.key);
+        Inorder(root.right, q);
+    }
 }
