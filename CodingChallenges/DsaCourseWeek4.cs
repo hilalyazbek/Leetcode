@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 
 public static class DsaCourseWeek4
@@ -12,6 +13,7 @@ public class Node
     public string val { get; set; }
     public Node left { get; set; }
     public Node right { get; set; }
+    public int count { get; set; }
 
     public Node(int key, string val)
     {
@@ -63,6 +65,7 @@ public class Node
         {
             x.val = value;//update the value if the key exists
         }
+        x.count = 1 + Size(x.left) + Size(x.right);
         return x;
     }
 
@@ -81,4 +84,27 @@ public class Node
         q.Enqueue(root.key);
         Inorder(root.right, q);
     }
+    public int Size()
+    {
+        return Size(root);
+    }
+    public int Size(Node node)
+    {
+        if (node == null) return 0;
+        return node.count;
+    }
+    public void DeleteMin()
+    {
+        root = DeleteMin(root);
+    }
+    
+    private Node DeleteMin(Node root)
+    {
+        if (root.left == null) return root.right;
+        root.left = DeleteMin(root.left);
+        root.count = 1 + Size(root.left) + Size(root.right);
+        return root;
+    }
+
+
 }
