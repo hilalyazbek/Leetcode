@@ -19,6 +19,7 @@ public class Node
     }
 
     Node root = new Node(1, "root node");
+    // search in a BST
     public string Search(int key)
     {
         Node x = root;
@@ -38,6 +39,25 @@ public class Node
             }
         }
         return null;
+    }
+
+    // insert in a BST
+    public Node Insert(Node x, int key, string value)
+    {
+        if (x == null) return new Node(key, value);
+        if(key < x.key)
+        {
+            x.left = Insert(x.left, key, value);
+        }
+        else if (key > x.key)
+        {
+            x.right = Insert(x.right, key, value);
+        }
+        else if(key == x.key)
+        {
+            x.val = value;//update the value if the key exists
+        }
+        return x;
     }
 
 }
