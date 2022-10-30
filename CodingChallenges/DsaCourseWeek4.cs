@@ -42,16 +42,20 @@ public class Node
     }
 
     // insert in a BST
-    public Node Insert(Node x, int key, string value)
+    public void Put(int key,string value)
+    {
+        root = Put(root, key, value);
+    }
+    public Node Put(Node x, int key, string value)
     {
         if (x == null) return new Node(key, value);
         if(key < x.key)
         {
-            x.left = Insert(x.left, key, value);
+            x.left = Put(x.left, key, value);
         }
         else if (key > x.key)
         {
-            x.right = Insert(x.right, key, value);
+            x.right = Put(x.right, key, value);
         }
         else if(key == x.key)
         {
