@@ -1,7 +1,3 @@
-using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
 public static class DsaCourseWeek4
 {
 
