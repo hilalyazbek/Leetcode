@@ -138,7 +138,9 @@ public class Node
         return node;
 
     }
-
+    //TODO: Implement Floor Function
+    //TODO: Implement Ceiling Function
+    //TODO: Implement Min Function
     private void Min(Node right)
     {
         throw new NotImplementedException();
