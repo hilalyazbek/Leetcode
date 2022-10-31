@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 public static class DsaCourseWeek4
 {
@@ -106,5 +107,40 @@ public class Node
         return root;
     }
 
+    public void Delete(int key)
+    {
+        root = Delete(root, key);
+    }
 
+    private Node Delete(Node node, int key)
+    {
+        // search the tree
+        if (node == null) return null;
+        if (node.key < key) Delete(node.left, key);
+        else if (node.key > key) Delete(node.right, key);
+
+        else
+        {
+            // no right child
+            if (node.right == null) return node.left;
+
+            // no left child
+            if(node.left==null) return node.right;
+
+            // replace with successor
+            Node t = node;
+            node.Min(t.right);
+            node.right = DeleteMin(t.right);
+            node.left = t.left;
+        }
+        node.count = Size(node.left) + Size(node.right) + 1;
+
+        return node;
+
+    }
+
+    private void Min(Node right)
+    {
+        throw new NotImplementedException();
+    }
 }
