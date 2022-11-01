@@ -170,7 +170,7 @@ public class Node
         return floorVal <= key ? floorVal : root.key;
     }
 
-    //TODO: Implement Ceiling Function
+
     private int Ceiling(int key)
     {
         return Ceiling(root, key);
