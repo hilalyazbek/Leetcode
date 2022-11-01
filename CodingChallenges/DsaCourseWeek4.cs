@@ -16,8 +16,11 @@ public class Node
     {
         this.key = key;
         this.val = val;
-
     }
+}
+
+public class BST
+{
 
     Node root = new Node(1, "root node");
     // search in a BST
@@ -43,14 +46,14 @@ public class Node
     }
 
     // insert in a BST
-    public void Put(int key,string value)
+    public void Put(int key, string value)
     {
         root = Put(root, key, value);
     }
     public Node Put(Node x, int key, string value)
     {
         if (x == null) return new Node(key, value);
-        if(key < x.key)
+        if (key < x.key)
         {
             x.left = Put(x.left, key, value);
         }
@@ -58,7 +61,7 @@ public class Node
         {
             x.right = Put(x.right, key, value);
         }
-        else if(key == x.key)
+        else if (key == x.key)
         {
             x.val = value;//update the value if the key exists
         }
@@ -94,7 +97,7 @@ public class Node
     {
         root = DeleteMin(root);
     }
-    
+
     private Node DeleteMin(Node root)
     {
         if (root.left == null) return root.right;
@@ -121,7 +124,7 @@ public class Node
             if (node.right == null) return node.left;
 
             // no left child
-            if(node.left==null) return node.right;
+            if (node.left == null) return node.right;
 
             // replace with successor
             Node t = node;
@@ -136,9 +139,25 @@ public class Node
     }
     //TODO: Implement Floor Function
     //TODO: Implement Ceiling Function
-    //TODO: Implement Min Function
-    private void Min(Node right)
+
+    private int Min()
     {
-        throw new NotImplementedException();
+        return Min(root).key;
+    }
+    private Node Min(Node x)
+    {
+        if (x.left == null) return x;
+        else return Min(x.left);
+    }
+
+    private int Max()
+    {
+        return Max(root).key;
+    }
+
+    private Node Max(Node x)
+    {
+        if (root.right == null) return root;
+        else return Max(x.right);
     }
 }
