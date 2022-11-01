@@ -162,7 +162,7 @@ public class Node
 
     private int Floor(Node root, int key)
     {
-        if (root == null) return null;
+        if (root == null) return -1;
         if (root.key == key) return root.key;
         if (root.key > key) return Floor(root.left, key);
 
@@ -171,5 +171,22 @@ public class Node
     }
 
     //TODO: Implement Ceiling Function
+    private int Ceiling(int key)
+    {
+        return Ceiling(root, key);
+    }
 
+    private int Ceiling(Node root, int key)
+    {
+        if (root == null) return -1;
+
+        //if node key is smaller, they ceil must be in the right subtree
+        if (root.key < key)
+        {
+            return Ceiling(root.right, key);
+        }
+        //else, either its in left subtree or root key == key
+        int ceil = Ceiling(root.left, key);
+        return ceil >= key ? ceil : root.key;
+    }
 }
