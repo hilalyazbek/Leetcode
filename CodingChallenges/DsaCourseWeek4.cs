@@ -17,10 +17,6 @@ public class Node
         this.key = key;
         this.val = val;
     }
-}
-
-public class BST
-{
 
     Node root = new Node(1, "root node");
     // search in a BST
@@ -137,8 +133,6 @@ public class BST
         return node;
 
     }
-    //TODO: Implement Floor Function
-    //TODO: Implement Ceiling Function
 
     private int Min()
     {
@@ -160,4 +154,22 @@ public class BST
         if (root.right == null) return root;
         else return Max(x.right);
     }
+
+    private int Floor(int key)
+    {
+        return Floor(root, key);
+    }
+
+    private int Floor(Node root, int key)
+    {
+        if (root == null) return null;
+        if (root.key == key) return root.key;
+        if (root.key > key) return Floor(root.left, key);
+
+        int floorVal = Floor(root.right, key);
+        return floorVal <= key ? floorVal : root.key;
+    }
+
+    //TODO: Implement Ceiling Function
+
 }
