@@ -80,6 +80,23 @@ public class Node
         q.Enqueue(root.key);
         Inorder(root.right, q);
     }
+
+    //implement breadth first search
+    private void LevelOrder(Node root, Queue<Node> q)
+    {
+
+        q.Enqueue(root);
+        while (q.Count != 0)
+        {
+            Node temp = q.Dequeue();
+            Console.Write(temp.key + " ");
+
+            if (temp.left != null)
+                q.Enqueue(temp.left);
+            if (temp.right != null)
+                q.Enqueue(temp.right);
+        }
+    }
     public int Size()
     {
         return Size(root);
