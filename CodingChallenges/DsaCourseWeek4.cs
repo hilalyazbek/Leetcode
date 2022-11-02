@@ -128,27 +128,25 @@ public class Node
     {
         // search the tree
         if (node == null) return null;
-        if (node.key < key) Delete(node.left, key);
-        else if (node.key > key) Delete(node.right, key);
+        if (key < node.key) Delete(root.left, key);
+        else if (key > node.key) Delete(node.right, key);
 
         else
         {
             // no right child
             if (node.right == null) return node.left;
-
             // no left child
-            if (node.left == null) return node.right;
+            else if (node.left == null) return node.right;
 
-            // replace with successor
-            Node t = node;
-            node.Min(t.right);
-            node.right = DeleteMin(t.right);
-            node.left = t.left;
+            // if node has 2 children.
+            Node x = node.Min(node.right); // find min node from right subtree
+            node.key = x.key; node.val = x.val; //replace node to be deleted with min node
+
+            node.DeleteMin(node.right); //delete the min node in the right subtree
         }
         node.count = Size(node.left) + Size(node.right) + 1;
 
         return node;
-
     }
 
     private int Min()
