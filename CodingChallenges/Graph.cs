@@ -50,7 +50,24 @@ public class DepthFirstPaths
 
         DFS(G, S);
     }
+    public bool HasPathTo(int vertex)
+    {
+        return Visited[vertex];
+    }
 
+    public Stack<int> PathTo(int vertex)
+    {
+        if (!HasPathTo(vertex)) return null;
+        Stack<int> path = new();
+        for (int i = vertex; i != S; i = EdgeTo[i])
+        {
+            path.Push(i);
+        }
+        path.Push(S);
+
+        return path;
+
+    }
     private void DFS(Graph g, int vertex)
     {
         Visited[vertex] = true;
@@ -63,4 +80,5 @@ public class DepthFirstPaths
             }
         }
     }
+
 }
