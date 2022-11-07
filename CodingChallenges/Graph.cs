@@ -26,7 +26,7 @@ public class Graph
     //DFS traversal starting from "vertex" 
     public void DFS(int vertex)
     {
-        bool[] visited = new bool[vertex];
+        bool[] visited = new bool[Vertices];
         DFSUtil(vertex, visited);
     }
 
@@ -42,6 +42,27 @@ public class Graph
         {
             if (!visited[i])
                 DFSUtil(i, visited);
+        }
+    }
+
+    public void BFS(int vertex)
+    {
+        bool[] visited = new bool[Vertices];
+        Queue<int> queue = new Queue<int>();
+
+        visited[vertex] = true;
+        queue.Enqueue(vertex);
+        while (queue.Count > 0)
+        {
+            //dequeue and print the vertex
+            Console.WriteLine(queue.Dequeue());
+
+            List<int> adjacent = AdjVertices(vertex);
+            foreach (int i in adjacent)
+            {
+                visited[i] = true;
+                queue.Enqueue(i);
+            }
         }
     }
 }
