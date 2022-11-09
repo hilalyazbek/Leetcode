@@ -40,4 +40,27 @@ public class DiGraph
                 DFSUtil(x, visited);
         }
     }
+    public void BFS(int v)
+    {
+        bool[] visited = new bool[Vertices];
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(v);
+        visited[v] = true;
+
+        while (q.Count > 0)
+        {
+            int i = q.Dequeue();
+            Console.Write($"{i} ");
+            visited[i] = true;
+            List<int> adj = AdjVertices(v);
+            foreach (int x in adj)
+            {
+                if (!visited[x])
+                {
+                    visited[x] = true;
+                    q.Enqueue(x);
+                }
+            }
+        }
+    }
 }

@@ -68,8 +68,11 @@ public class Graph
             List<int> adjacent = AdjVertices(vertex);
             foreach (int i in adjacent)
             {
-                visited[i] = true;
-                queue.Enqueue(i);
+                if (!visited[i])
+                {
+                    visited[i] = true;
+                    queue.Enqueue(i);
+                }
             }
         }
     }
