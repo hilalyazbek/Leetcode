@@ -243,3 +243,6 @@ int[] quickSort = new int[] { 90, 86, 5, 97, 16, 66, 48, 61, 78 };
 int[] sorted = new int[quickSort.Length];
 sorted = DsaCourseWeek3.QuickSort(quickSort, 0, quickSort.Length - 1);
 Console.WriteLine("sorted");
+Console.Clear();
+
+LcEasy.TwoSum(new int[] { 2, 2, 7, 11, 15 }, 9);
