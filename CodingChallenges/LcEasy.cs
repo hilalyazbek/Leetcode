@@ -1,16 +1,9 @@
+using static CodingChallenges.Level1;
+
 public static class LcEasy
 {
     #region Class Definitions
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
+
     #endregion
     //1. Two Sum
     public static int[] TwoSum(int[] nums, int target)
@@ -130,5 +123,21 @@ public static class LcEasy
         }
 
         return lo;
+    }
+
+    //94. Binary Tree Inorder Traversal
+    public static IList<int> InorderTraversal(TreeNode root)
+    {
+        List<int> result = new List<int>();
+        InOrderUtil(root, result);
+        return result;
+    }
+
+    private static void InOrderUtil(TreeNode node, List<int> result)
+    {
+        if (node == null) { return; }
+        InOrderUtil(node.left, result);
+        result.Add(node.val);
+        InOrderUtil(node.right, result);
     }
 }

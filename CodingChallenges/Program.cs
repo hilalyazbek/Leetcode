@@ -248,8 +248,8 @@ Console.Clear();
 LcEasy.TwoSum(new int[] { 2, 2, 7, 11, 15 }, 9);
 LcEasy.IsValidParentheses("(])");
 
-LcEasy.ListNode list1 = new LcEasy.ListNode(1, new LcEasy.ListNode(2, new LcEasy.ListNode(4)));
-LcEasy.ListNode list2 = new LcEasy.ListNode(1, new LcEasy.ListNode(3, new LcEasy.ListNode(4)));
+ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
 LcEasy.MergeTwoLists(list1, list2);
 
 LcEasy.SearchInsert(new int[] { 1, 3, 5, 6 }, 2);
