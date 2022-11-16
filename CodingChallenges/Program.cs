@@ -246,3 +246,4 @@ Console.WriteLine("sorted");
 Console.Clear();
 
 LcEasy.TwoSum(new int[] { 2, 2, 7, 11, 15 }, 9);
+LcEasy.IsValidParentheses("(])");
