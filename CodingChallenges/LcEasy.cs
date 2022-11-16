@@ -62,6 +62,7 @@ public static class LcEasy
         return tracker.Count == 0;
     }
 
+    //21. Merge Two Sorted Lists
     public static ListNode MergeTwoLists(ListNode list1, ListNode list2)
     {
         //1-2-4
@@ -110,5 +111,24 @@ public static class LcEasy
             dummy.next = list2;
         }
         return result.next;
+    }
+
+    //35. Search Insert Position
+    public static int SearchInsert(int[] nums, int target)
+    {
+        //nums = [1,3,5,6], target = 5 -> 2
+        //nums = [1,3,5,6], target = 2 -> 1 (where value should be)
+        int lo = 0, hi = nums.Length - 1;
+
+        while (lo <= hi)
+        {
+            int mid = lo + (hi - lo) / 2;
+
+            if (target < nums[mid]) hi = mid - 1;
+            else if (target > nums[mid]) lo = mid + 1;
+            else return mid;
+        }
+
+        return lo;
     }
 }
