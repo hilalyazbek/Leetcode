@@ -155,7 +155,6 @@ public static class LcEasy
 
         return IsSymmetric(root.left, root.right);
     }
-
     private static bool IsSymmetric(TreeNode left, TreeNode right)
     {
         if (left == null || right == null)
