@@ -132,12 +132,40 @@ public static class LcEasy
         InOrderUtil(root, result);
         return result;
     }
-
     private static void InOrderUtil(TreeNode node, List<int> result)
     {
         if (node == null) { return; }
         InOrderUtil(node.left, result);
         result.Add(node.val);
         InOrderUtil(node.right, result);
+    }
+
+    //70. Climbing Stairs
+    public static int ClimbStairs(int n)
+    {
+        int result = 0;
+        //TODO: implementation
+        return result;
+    }
+
+    //101. Symmetric Tree
+    public static bool IsSymmetric(TreeNode root)
+    {
+        if (root == null) return true;
+
+        return IsSymmetric(root.left, root.right);
+    }
+
+    private static bool IsSymmetric(TreeNode left, TreeNode right)
+    {
+        if (left == null || right == null)
+        {
+            return left == right;
+        }
+        if (left.val != right.val)
+        {
+            return false;
+        }
+        return IsSymmetric(left.left, right.right) && IsSymmetric(left.right, right.left);
     }
 }
