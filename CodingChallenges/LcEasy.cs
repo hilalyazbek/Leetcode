@@ -258,4 +258,22 @@ public static class LcEasy
         }
         return maxProfit;
     }
+
+    //136. Single Number
+    public static int SingleNumber(int[] nums)
+    {
+        HashSet<int> tracker = new();
+        foreach (int i in nums)
+        {
+            if (tracker.Contains(i))
+            {
+                tracker.Remove(i);
+            }
+            else
+            {
+                tracker.Add(i);
+            }
+        }
+        return tracker.Single();
+    }
 }

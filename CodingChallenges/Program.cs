@@ -255,3 +255,5 @@ LcEasy.MergeTwoLists(list1, list2);
 LcEasy.SearchInsert(new int[] { 1, 3, 5, 6 }, 2);
 
 LcEasy.Generate(5);
+
+LcEasy.SingleNumber(new int[] { 2, 2, 1 });
