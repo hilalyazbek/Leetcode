@@ -293,4 +293,24 @@ public static class LcEasy
         }
         return false;
     }
+
+    //160. Intersection of Two Linked Lists
+    public static ListNode GetIntersectionNode(ListNode headA, ListNode headB)
+    {
+        HashSet<ListNode> tracker = new HashSet<ListNode>();
+        while (headA != null)
+        {
+            tracker.Add(headA);
+            headA = headA.next;
+        }
+        while (headB != null)
+        {
+            if (tracker.Contains(headB))
+            {
+                return headB;
+            }
+            headB = headB.next;
+        }
+        return null;
+    }
 }
