@@ -253,7 +253,7 @@ public static class LcEasy
         //[7,1,5,3,6,4]
         for (int i = 0; i < prices.Length; i++)
         {
-            min = Math.Min(min, prices[i]);
+            if (prices[i] < min) min = prices[i];
             maxProfit = Math.Max(prices[i] - min, maxProfit);
         }
         return maxProfit;
