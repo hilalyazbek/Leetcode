@@ -144,7 +144,7 @@ public static class LcEasy
     public static int ClimbStairs(int n)
     {
         int result = 0;
-        //TODO: implementation
+        //TODO: Climb Stairs
         return result;
     }
 
@@ -210,5 +210,49 @@ public static class LcEasy
         int right = MaxDepthRecursive(root.right);
 
         return Math.Max(left, right) + 1;
+    }
+
+    //108. Convert Sorted Array to Binary Search Tree
+    public static TreeNode SortedArrayToBST(int[] nums)
+    {
+        return new TreeNode();
+        //TODO: Sorted Array to BST
+    }
+
+    //118. Pascal's Triangle
+    public static IList<IList<int>> Generate(int numRows)
+    {
+        List<IList<int>> result = new List<IList<int>>();
+
+        for (int i = 0; i < numRows; i++)
+        {
+            if (i == 0)
+            {
+                List<int> list = new List<int>();
+                list.Add(1);
+                result.Add(list);
+            }
+            if (i == 1)
+            {
+                List<int> list = new List<int>();
+                list.Add(1);
+                list.Add(1);
+                result.Add(list);
+            }
+            else if (i > 1)
+            {
+                IList<int> prev = result[i - 1];
+                List<int> newList = new();
+                newList.Add(1);
+                for (int j = 0; j < prev.Count - 1; j++)
+                {
+                    newList.Add(prev[j] + prev[j + 1]);
+                }
+                newList.Add(1);
+                result.Add(newList);
+            }
+        }
+
+        return result;
     }
 }

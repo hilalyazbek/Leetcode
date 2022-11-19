@@ -253,3 +253,5 @@ ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
 LcEasy.MergeTwoLists(list1, list2);
 
 LcEasy.SearchInsert(new int[] { 1, 3, 5, 6 }, 2);
+
+LcEasy.Generate(5);
