@@ -167,4 +167,37 @@ public static class LcEasy
         }
         return IsSymmetric(left.left, right.right) && IsSymmetric(left.right, right.left);
     }
+
+    //104. Maximum Depth of Binary Tree
+    public static int MaxDepth(TreeNode root)
+    {
+        int height = 0;
+        if (root == null) return height;
+        height = LevelOrderTraversal(root);
+
+        return height;
+    }
+    public static int LevelOrderTraversal(TreeNode node)
+    {
+        int result = 0;
+        Queue<TreeNode> queue = new();
+        queue.Enqueue(node);
+
+        while (queue.Count != 0)
+        {
+            int size = queue.Count;
+            for (int i = 0; i < size; i++)
+            {
+                TreeNode temp = queue.Dequeue();
+                if (temp.left != null)
+                    queue.Enqueue(temp.left);
+                if (temp.right != null)
+                    queue.Enqueue(temp.right);
+            }
+
+            result++;
+        }
+
+        return result;
+    }
 }
