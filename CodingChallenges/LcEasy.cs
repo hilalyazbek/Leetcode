@@ -244,4 +244,18 @@ public static class LcEasy
 
         return result;
     }
+
+    //121. Best Time to Buy and Sell Stock
+    public static int MaxProfit(int[] prices)
+    {
+        int maxProfit = 0;
+        int min = int.MaxValue;
+        //[7,1,5,3,6,4]
+        for (int i = 0; i < prices.Length; i++)
+        {
+            min = Math.Min(min, prices[i]);
+            maxProfit = Math.Max(prices[i] - min, maxProfit);
+        }
+        return maxProfit;
+    }
 }
