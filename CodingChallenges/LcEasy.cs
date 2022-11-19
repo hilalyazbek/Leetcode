@@ -224,33 +224,22 @@ public static class LcEasy
     {
         List<IList<int>> result = new List<IList<int>>();
 
-        for (int i = 0; i < numRows; i++)
+        List<int> list = new List<int>();
+        list.Add(1);
+        result.Add(list);
+
+        for (int i = 1; i < numRows; i++)
         {
-            if (i == 0)
+            IList<int> prev = result[i - 1];
+            List<int> newList = new();
+            newList.Add(1);
+            for (int j = 0; j < prev.Count - 1; j++)
             {
-                List<int> list = new List<int>();
-                list.Add(1);
-                result.Add(list);
+                newList.Add(prev[j] + prev[j + 1]);
             }
-            if (i == 1)
-            {
-                List<int> list = new List<int>();
-                list.Add(1);
-                list.Add(1);
-                result.Add(list);
-            }
-            else if (i > 1)
-            {
-                IList<int> prev = result[i - 1];
-                List<int> newList = new();
-                newList.Add(1);
-                for (int j = 0; j < prev.Count - 1; j++)
-                {
-                    newList.Add(prev[j] + prev[j + 1]);
-                }
-                newList.Add(1);
-                result.Add(newList);
-            }
+            newList.Add(1);
+            result.Add(newList);
+
         }
 
         return result;
