@@ -200,4 +200,15 @@ public static class LcEasy
 
         return result;
     }
+
+    //104. Maximum Depth of Binary Tree
+    public static int MaxDepthRecursive(TreeNode root)
+    {
+        if (root == null) return 0;
+
+        int left = MaxDepthRecursive(root.left);
+        int right = MaxDepthRecursive(root.right);
+
+        return Math.Max(left, right) + 1;
+    }
 }
