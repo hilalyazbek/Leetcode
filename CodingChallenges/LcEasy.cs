@@ -319,4 +319,19 @@ public static class LcEasy
         }
         return a;
     }
+
+    //169. Majority Element
+    public static int MajorityElement(int[] nums)
+    {
+        Dictionary<int, int> tracker = new();
+        foreach (int i in nums)
+        {
+            if (!tracker.ContainsKey(i))
+                tracker.Add(i, 0);
+            tracker[i]++;
+        }
+
+        int val = tracker.OrderByDescending(itm => itm.Value).ToList()[0].Key;
+        return val;
+    }
 }
