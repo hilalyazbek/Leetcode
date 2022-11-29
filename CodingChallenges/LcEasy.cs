@@ -353,4 +353,17 @@ public static class LcEasy
         head.next = prev;
         return head;
     }
+    //226. Invert Binary Tree
+    public static TreeNode InvertTree(TreeNode root)
+    {
+        if (root == null) return null;
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        InvertTree(root.left);
+        InvertTree(root.right);
+
+        return root;
+    }
 }
