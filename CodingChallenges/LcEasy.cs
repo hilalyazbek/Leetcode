@@ -368,7 +368,7 @@ public static class LcEasy
     }
 
     //234. Palindrome Linked List
-    public bool IsPalindromeLinkedList(ListNode head)
+    public static bool IsPalindromeLinkedList(ListNode head)
     {
         if (head == null || head.next == null) return true;
         ListNode fast = head;
@@ -394,6 +394,23 @@ public static class LcEasy
             reversed = reversed.next;
         }
         return true;
+    }
+
+    //283. Move Zeroes
+    public static void MoveZeroes(int[] nums)
+    {
+        int left = 0;
+
+        for (int right = 0; right < nums.Length; right++)
+        {
+            if (nums[right] != 0)
+            {
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+                left++;
+            }
+        }
     }
 
 }

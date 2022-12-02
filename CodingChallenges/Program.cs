@@ -257,3 +257,5 @@ LcEasy.SearchInsert(new int[] { 1, 3, 5, 6 }, 2);
 LcEasy.Generate(5);
 
 LcEasy.SingleNumber(new int[] { 2, 2, 1 });
+
+LcEasy.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
