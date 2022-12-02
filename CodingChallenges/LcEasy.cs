@@ -366,4 +366,34 @@ public static class LcEasy
 
         return root;
     }
+
+    //234. Palindrome Linked List
+    public bool IsPalindromeLinkedList(ListNode head)
+    {
+        if (head == null || head.next == null) return true;
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast.next != null && fast.next.next != null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        slow = slow.next;
+
+        ListNode reversed = ReverseList(slow);
+
+        while (reversed != null)
+        {
+            if (head.val != reversed.val)
+            {
+                return false;
+            }
+            head = head.next;
+            reversed = reversed.next;
+        }
+        return true;
+    }
+
 }
