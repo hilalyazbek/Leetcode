@@ -212,13 +212,6 @@ public static class LcEasy
         return Math.Max(left, right) + 1;
     }
 
-    //108. Convert Sorted Array to Binary Search Tree
-    public static TreeNode SortedArrayToBST(int[] nums)
-    {
-        return new TreeNode();
-        //TODO: Sorted Array to BST
-    }
-
     //118. Pascal's Triangle
     public static IList<IList<int>> Generate(int numRows)
     {
@@ -411,6 +404,30 @@ public static class LcEasy
                 left++;
             }
         }
+    }
+
+    //108. Convert Sorted Array to Binary Search Tree
+    public static TreeNode SortedArrayToBST(int[] nums)
+    {
+        if (nums == null || nums.Length == 0)
+        {
+            return null;
+        }
+
+        return CreateBST(nums, 0, nums.Length - 1);
+    }
+    private static TreeNode CreateBST(int[] nums, int left, int right)
+    {
+        if (left > right)
+        {
+            return null;
+        }
+        int mid = (right + left) / 2;
+        TreeNode current = new TreeNode(nums[mid]);
+        current.left = CreateBST(nums, left, mid - 1);
+        current.right = CreateBST(nums, mid + 1, right);
+
+        return current;
     }
 
 }
