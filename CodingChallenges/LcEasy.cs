@@ -457,7 +457,25 @@ public static class LcEasy
     //3. Longest Substring Without Repeating Characters
     public static int LengthOfLongestSubstring(string s)
     {
-        //abcabcbb
+        int result = 0;
+        int left = 0;
+        int right = 0;
+        HashSet<char> map = new HashSet<char>();
 
+        while (right < s.Length)
+        {
+            if (!map.Contains(s[right]))
+            {
+                map.Add(s[right]);
+                right++;
+                result = Math.Max(map.Count, result);
+            }
+            else
+            {
+                map.Remove(s[left]);
+                left++;
+            }
+        }
+        return result;
     }
 }

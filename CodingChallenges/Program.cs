@@ -259,3 +259,5 @@ LcEasy.Generate(5);
 LcEasy.SingleNumber(new int[] { 2, 2, 1 });
 
 LcEasy.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
+
+LcEasy.LengthOfLongestSubstring("aab");
