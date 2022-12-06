@@ -430,4 +430,34 @@ public static class LcEasy
         return current;
     }
 
+    //328. Odd Even Linked List
+    public static ListNode OddEvenList(ListNode head)
+    {
+        ListNode dummyOdd = head;
+        ListNode dummyEven = head.next;
+        ListNode odd = head;
+        ListNode even = head.next;
+
+        while (odd.next.next != null || even.next.next != null)
+        {
+            ListNode oddNext = odd.next.next;
+            odd.next = oddNext;
+            odd = oddNext;
+            if (even.next.next != null)
+            {
+                ListNode evenNext = even.next.next;
+                even.next = evenNext;
+                even = evenNext;
+            }
+        }
+        odd.next = dummyEven;
+        return dummyOdd;
+    }
+
+    //3. Longest Substring Without Repeating Characters
+    public static int LengthOfLongestSubstring(string s)
+    {
+        //abcabcbb
+
+    }
 }
