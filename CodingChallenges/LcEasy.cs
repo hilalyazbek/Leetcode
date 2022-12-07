@@ -478,4 +478,30 @@ public static class LcEasy
         }
         return result;
     }
+
+    //938. Range Sum of BST
+    public static int RangeSumBST(TreeNode node, int low, int high)
+    {
+        int sum = 0;
+        Queue<TreeNode> q = new();
+
+        q.Enqueue(node);
+
+        while (q.Count > 0)
+        {
+            TreeNode temp = q.Dequeue();
+            if (temp.val >= low && temp.val <= high)
+            {
+                sum += temp.val;
+            }
+            if (temp.left != null && temp.val > low)
+                q.Enqueue(temp.left);
+            if (temp.right != null && temp.val < high)
+            {
+                q.Enqueue(temp.right);
+            }
+        }
+
+        return sum;
+    }
 }
