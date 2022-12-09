@@ -527,4 +527,38 @@ public static class LcEasy
         }
         return max;
     }
+
+    //872. Leaf-Similar Trees
+    public static bool LeafSimilar(TreeNode root1, TreeNode root2)
+    {
+
+        List<int> tree1 = new();
+        TraverseTree(root1, tree1);
+        List<int> tree2 = new();
+        TraverseTree(root2, tree2);
+
+        Console.Write(tree1.Count + "|" + tree2.Count);
+        if (tree1.Count != tree2.Count)
+        {
+            return false;
+        }
+
+        return tree1.SequenceEqual(tree2);
+    }
+
+    private static void TraverseTree(TreeNode root, List<int> tree)
+    {
+        if (root == null) return;
+
+        if (root.left == null && root.right == null)
+        {
+            tree.Add(root.val);
+            return;
+        }
+        if (root.left != null)
+            TraverseTree(root.left, tree);
+
+        if (root.right != null)
+            TraverseTree(root.right, tree);
+    }
 }
