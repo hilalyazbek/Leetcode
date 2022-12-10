@@ -531,7 +531,6 @@ public static class LcEasy
     //872. Leaf-Similar Trees
     public static bool LeafSimilar(TreeNode root1, TreeNode root2)
     {
-
         List<int> tree1 = new();
         TraverseTree(root1, tree1);
         List<int> tree2 = new();
@@ -560,5 +559,27 @@ public static class LcEasy
 
         if (root.right != null)
             TraverseTree(root.right, tree);
+    }
+
+    //19. Remove Nth Node From End of List
+    public static ListNode RemoveNthFromEnd(ListNode head, int n)
+    {
+        ListNode start = new ListNode(0);
+        ListNode slow = start, fast = start;
+        start.next = head;
+
+        for (int i = 1; i <= n + 1; i++)
+        {
+            fast = fast.next;
+        }
+
+        while (fast != null)
+        {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next.next;
+        return start.next;
     }
 }
