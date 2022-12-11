@@ -582,4 +582,27 @@ public static class LcEasy
         slow.next = slow.next.next;
         return start.next;
     }
+
+    //15. 3Sum
+
+
+    //167. Two Sum II - Input Array Is Sorted
+    public static int[] TwoSumII(int[] nums, int target)
+    {
+        int left = 0;
+        int right = nums.Length - 1;
+
+        while (nums[left] + nums[right] != target)
+        {
+            if (nums[left] + nums[right] > target)
+            {
+                right--;
+            }
+            else
+            {
+                left++;
+            }
+        }
+        return new int[] { left + 1, right + 1 };
+    }
 }
