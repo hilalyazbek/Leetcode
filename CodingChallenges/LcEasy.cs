@@ -584,7 +584,42 @@ public static class LcEasy
     }
 
     //15. 3Sum
+    public static List<List<int>> ThreeSum(int[] nums)
+    {
+        List<List<int>> result = new();
+        Array.Sort(nums);
+        for (int i = 0; i < nums.Length - 2; i++)
+        {
+            if (i > 0 && nums[i] == nums[i - 1])
+            {
+                continue;
+            }
+            int left = i + 1;
+            int right = nums.Length - 1;
+            int target = 0 - nums[i];
+            while (left < right)
+            {
+                if (nums[i] + nums[left] + nums[right] == 0)
+                {
+                    result.Add(new List<int> { nums[i], nums[left], nums[right] });
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    left++;
+                    right--;
+                }
+                else if (nums[left] + nums[right] > target)
+                {
+                    right--;
+                }
+                else
+                {
+                    left++;
+                }
+            }
+        }
 
+        return result;
+    }
 
     //167. Two Sum II - Input Array Is Sorted
     public static int[] TwoSumII(int[] nums, int target)
