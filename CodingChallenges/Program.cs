@@ -267,3 +267,5 @@ LcEasy.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
 LcEasy.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
 
 LcEasy.TwoSumII(new int[] { 2, 7, 11, 15 }, 9);
+
+LcEasy.SwapPairs(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))));
