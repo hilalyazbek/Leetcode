@@ -663,5 +663,32 @@ public static class LcEasy
         return dummy.next;
     }
 
+    //931. Minimum Falling Path Sum
+    public static int MinFallingPathSum(int[][] matrix)
+    {
+        int sum = 0;
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            for (int j = 0; j < matrix[0].Length; j++)
+            {
+                sum = Math.Max(sum, Fall(matrix, i, j, sum));
+            }
+        }
+
+        return sum;
+    }
+
+    private static int Fall(int[][] matrix, int i, int j, int sum)
+    {
+        if (i < 0 || i >= matrix.Length || j < 0 || j >= matrix[0].Length)
+            return 0;
+
+        sum += matrix[i][j];
+        Fall(matrix, i + 1, j, sum);
+        Fall(matrix, i + 1, j - 1, sum);
+        Fall(matrix, i + 1, j + 1, sum);
+
+        return sum;
+    }
 
 }

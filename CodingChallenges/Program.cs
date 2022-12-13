@@ -269,3 +269,9 @@ LcEasy.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
 LcEasy.TwoSumII(new int[] { 2, 7, 11, 15 }, 9);
 
 LcEasy.SwapPairs(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))));
+
+int[][] fall = new int[3][];
+fall[0] = new int[] { 2, 1, 3 };
+fall[1] = new int[] { 6, 5, 4 };
+fall[2] = new int[] { 7, 8, 9 };
+LcEasy.MinFallingPathSum(fall);
