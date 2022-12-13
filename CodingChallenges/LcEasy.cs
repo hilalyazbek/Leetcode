@@ -664,6 +664,7 @@ public static class LcEasy
     }
 
     //931. Minimum Falling Path Sum
+    //TODO: MinFallingPathSum: Dynamic Programming
     public static int MinFallingPathSum(int[][] matrix)
     {
         int sum = 0;
@@ -671,7 +672,7 @@ public static class LcEasy
         {
             for (int j = 0; j < matrix[0].Length; j++)
             {
-                sum = Math.Max(sum, Fall(matrix, i, j, sum));
+                sum = Math.Min(sum, Fall(matrix, i, j, sum));
             }
         }
 
@@ -681,7 +682,7 @@ public static class LcEasy
     private static int Fall(int[][] matrix, int i, int j, int sum)
     {
         if (i < 0 || i >= matrix.Length || j < 0 || j >= matrix[0].Length)
-            return 0;
+            return sum;
 
         sum += matrix[i][j];
         Fall(matrix, i + 1, j, sum);
@@ -691,4 +692,42 @@ public static class LcEasy
         return sum;
     }
 
+    //33. Search in Rotated Sorted Array
+    public static int Search(int[] nums, int target)
+    {
+
+        int left = 0;
+        int right = nums.Length - 1;
+        while (left <= right)
+        {
+            int mid = right + left / 2;
+            if (target == nums[mid])
+            {
+                return mid;
+            }
+            if (nums[left] <= nums[mid])
+            {
+                if (target < nums[mid] && target >= nums[left])
+                {
+                    right = mid - 1;
+                }
+                else
+                {
+                    left = mid + 1;
+                }
+            }
+            if (nums[mid] <= nums[right])
+            {
+                if (target > nums[mid] && target <= nums[right])
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
 }
