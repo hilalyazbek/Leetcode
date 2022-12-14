@@ -730,4 +730,28 @@ public static class LcEasy
         }
         return -1;
     }
+    //198. House Robber
+    //TODO: House Robber: DP
+    public static int Rob(int[] nums)
+    {
+        int first = 0;
+        int second = 0;
+        int index = 0;
+        while (index <= nums.Length - 1)
+        {
+            first += nums[index];
+            index = index + 2;
+            Console.WriteLine(index);
+            Console.WriteLine(first);
+        }
+        Console.WriteLine(first);
+        index = 1;
+        while (index <= nums.Length - 1)
+        {
+            second += nums[index];
+            index = index + 2;
+        }
+
+        return Math.Max(first, second);
+    }
 }

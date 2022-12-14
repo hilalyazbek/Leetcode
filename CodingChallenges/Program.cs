@@ -275,3 +275,5 @@ fall[0] = new int[] { 2, 1, 3 };
 fall[1] = new int[] { 6, 5, 4 };
 fall[2] = new int[] { 7, 8, 9 };
 LcEasy.MinFallingPathSum(fall);
+
+LcEasy.Rob(new int[] { 2, 7, 9, 3, 1 });
