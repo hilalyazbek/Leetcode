@@ -754,4 +754,31 @@ public static class LcEasy
 
         return Math.Max(first, second);
     }
+
+    //34. Find First and Last Position of Element in Sorted Array
+    public int[] SearchRange(int[] nums, int target)
+    {
+        int[] result = new int[2];
+
+        int first = -1;
+        int last = -1;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] == target && first == -1)
+            {
+                first = i;
+            }
+            else if (nums[i] == target)
+            {
+                last = i;
+            }
+            if (i == nums.Length - 1 && last == -1)
+            {
+                last = first;
+            }
+        }
+        result[0] = first;
+        result[1] = last;
+        return result;
+    }
 }
