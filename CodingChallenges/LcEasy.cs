@@ -854,4 +854,35 @@ public static class LcEasy
             }
         }
     }
+
+    //49. Group Anagrams
+    public static IList<IList<string>> GroupAnagrams(string[] strs)
+    {
+        List<IList<string>> res = new List<IList<string>>();
+        Dictionary<string, List<string>> tracker = new();
+        foreach (string str in strs)
+        {
+            char[] chars = new char[26];
+            foreach (char c in str)
+            {
+                chars[c - 'a']++;
+            }
+            string key = new string(chars);
+
+            if (!tracker.ContainsKey(key))
+            {
+                tracker.Add(key, new List<string> { str });
+            }
+            else
+            {
+                tracker[key].Add(str);
+            }
+        }
+        foreach (var kv in tracker)
+        {
+            res.Add(kv.Value);
+        }
+
+        return res;
+    }
 }
