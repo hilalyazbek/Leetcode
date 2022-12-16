@@ -829,4 +829,29 @@ public static class LcEasy
             return output.Count == 0 && input.Count == 0;
         }
     }
+
+    //48. Rotate Image
+    public static void Rotate(int[][] matrix)
+    {
+        //flip horizontaly
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            for (int j = i; j < matrix[i].Length; j++)
+            {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            for (int j = 0; j < matrix.Length / 2; j++)
+            {
+                int temp = 0;
+                temp = matrix[i][j];
+                matrix[i][j] = matrix[i][matrix.Length - 1 - j];
+                matrix[i][matrix.Length - 1 - j] = temp;
+            }
+        }
+    }
 }
