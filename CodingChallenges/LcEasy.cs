@@ -756,7 +756,7 @@ public static class LcEasy
     }
 
     //34. Find First and Last Position of Element in Sorted Array
-    public int[] SearchRange(int[] nums, int target)
+    public static int[] SearchRange(int[] nums, int target)
     {
         int[] result = new int[2];
 
@@ -779,6 +779,54 @@ public static class LcEasy
         }
         result[0] = first;
         result[1] = last;
+
         return result;
+    }
+
+    //232. Implement Queue using Stacks
+    public class MyQueue
+    {
+
+        Stack<int> input { get; set; }
+        Stack<int> output { get; set; }
+        public MyQueue()
+        {
+            input = new();
+            output = new();
+        }
+
+        public void Push(int x)
+        {
+            input.Push(x);
+        }
+
+        public int Pop()
+        {
+            if (output.Count == 0)
+            {
+                while (input.Count > 0)
+                {
+                    output.Push(input.Pop());
+                }
+            }
+            return output.Pop();
+        }
+
+        public int Peek()
+        {
+            if (output.Count == 0)
+            {
+                while (input.Count > 0)
+                {
+                    output.Push(input.Pop());
+                }
+            }
+            return output.Peek();
+        }
+
+        public bool Empty()
+        {
+            return output.Count == 0 && input.Count == 0;
+        }
     }
 }
