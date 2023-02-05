@@ -885,4 +885,47 @@ public static class LcEasy
 
         return res;
     }
+
+    public static IList<int> FindAnagrams(string s, string p)
+    {
+        List<int> result = new();
+        int len = p.Length;
+        for (int i = 0; i <= s.Length - len; i++)
+        {
+            string temp = s.Substring(i, len);
+            if (IsAnagram(temp, p))
+            {
+                result.Add(i);
+            }
+        }
+        return result;
+    }
+    public static bool IsAnagram(string s, string p)
+    {
+        Dictionary<char, int> sTracker = new();
+
+        foreach (char c in s)
+        {
+            if (sTracker.ContainsKey(c))
+            {
+                sTracker[c]++;
+                continue;
+            }
+            sTracker.Add(c, 1);
+        }
+        foreach (char c in p)
+        {
+            if (!sTracker.ContainsKey(c))
+            {
+                return false;
+            }
+            if (sTracker[c] == 0)
+            {
+                return false;
+            }
+            sTracker[c]--;
+        }
+        return true;
+    }
+
 }

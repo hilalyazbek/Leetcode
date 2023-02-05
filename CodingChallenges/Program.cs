@@ -277,3 +277,6 @@ fall[2] = new int[] { 7, 8, 9 };
 LcEasy.MinFallingPathSum(fall);
 
 LcEasy.Rob(new int[] { 2, 7, 9, 3, 1 });
+
+LcEasy.FindAnagrams("abab", "ab");
+LcEasy.IsAnagram("abab", "ab");
