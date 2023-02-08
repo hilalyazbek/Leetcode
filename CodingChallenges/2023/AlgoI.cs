@@ -29,12 +29,22 @@ public static class AlgoI
     //278. First Bad Version
     public static int FirstBadVersion(int n)
     {
+        int left = 0;
+        int right = n;
 
-        while (IsBadVersion(n))
+        while (left < right)
         {
-            n--;
+            int m = left + (right - left) / 2;
+            if (IsBadVersion(m))
+            {
+                right = m;
+            }
+            else
+            {
+                left = m + 1;
+            }
         }
-        return n + 1;
+        return left;
     }
     private static bool IsBadVersion(int n)
     {
