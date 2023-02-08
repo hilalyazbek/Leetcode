@@ -25,4 +25,19 @@ public static class AlgoI
         }
         return -1;
     }
+
+    //278. First Bad Version
+    public static int FirstBadVersion(int n)
+    {
+
+        while (IsBadVersion(n))
+        {
+            n--;
+        }
+        return n + 1;
+    }
+    private static bool IsBadVersion(int n)
+    {
+        throw new NotImplementedException();
+    }
 }
