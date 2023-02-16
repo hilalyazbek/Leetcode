@@ -4,5 +4,6 @@ using System.Collections.Generic;
 Console.WriteLine("LEETCODE CODING CHALLENGES");
 Console.WriteLine("__________________________");
 
-Console.WriteLine("\n\n704. Binary Search");
-Console.WriteLine("*****************************");
+AlgoI.SearchInsert(new int[] { 1, 3, 5, 6 }, 5);
+
+DailyLeetcode.AddToArrayForm(new int[] { 1, 2, 0, 0 }, 34);
