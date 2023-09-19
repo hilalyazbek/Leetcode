@@ -117,7 +117,6 @@ internal class AlgorithmI
         return Fib(n - 1) + Fib(n - 2);
     }
 
-
     public int ClimbStairs(int n)
     {
         if (n == 1) return 1;
@@ -266,7 +265,6 @@ internal class AlgorithmI
         }
         return new int[0];
     }
-
 
     //344. Reverse String
     public static string ReverseString(char[] s)

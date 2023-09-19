@@ -11,4 +11,18 @@ public static class DailyLeetcode
         result.Reverse();
         return result;
     }
+
+    public static int FindDuplicate(int[] nums) {
+        var tracker = new HashSet<int>();
+        
+        foreach(int i in nums)
+        {
+          if(!tracker.Contains(i)){
+            tracker.Add(i);
+          }
+          else
+            return i;
+        }
+        return -1;
+    }
 }
