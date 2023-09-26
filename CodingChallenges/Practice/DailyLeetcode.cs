@@ -1,4 +1,6 @@
 
+using System.Text;
+
 public static class DailyLeetcode
 {
     public static IList<int> AddToArrayForm(int[] num, int k)
@@ -61,4 +63,37 @@ public static class DailyLeetcode
         }
         return '\0';
     }
+    public static string RemoveDuplicateLetters(string s) {
+        var lastIndex = new int[26];
+        var seen = new bool[26];
+        var stack = new Stack<int>();
+
+        for (int i = 0; i < s.Length; i++)
+        {
+          lastIndex[s[i]-'a'] = i;
+        }
+
+        for (int i = 0; i < s.Length; i++)
+        {
+          var current = s[i] - 'a';
+          if(seen[current]) continue;
+          while(stack.Count>0 && stack.Peek() > current && i<lastIndex[stack.Peek()]){
+            seen[stack.Pop()] = false;
+          }
+          stack.Push(current);
+          seen[current] = true;
+        }
+
+        var sb = new StringBuilder();
+        while(stack.Count>0){
+          sb.Append((char)(stack.Pop() + 'a'));
+        }
+        
+        var result = sb.ToString().ToCharArray();
+        Array.Reverse(result);
+        return new string(result);
+    }
+    // public static IList<string> GenerateParenthesis(int n) {
+        
+    // }
 }

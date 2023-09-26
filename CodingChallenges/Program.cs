@@ -12,3 +12,6 @@ Console.WriteLine("Failed");
 
 Console.WriteLine("September 25, 2023 - 389. Find the Difference");
 Console.WriteLine("Answer > " + DailyLeetcode.FindTheDifference("abcd","abcde"));
+
+Console.WriteLine("September 26, 2023 - RemoveDuplicateLetters");
+Console.WriteLine("Answer > " + DailyLeetcode.RemoveDuplicateLetters("cbacdcbc"));
