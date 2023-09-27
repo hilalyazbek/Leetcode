@@ -15,3 +15,6 @@ Console.WriteLine("Answer > " + DailyLeetcode.FindTheDifference("abcd","abcde"))
 
 Console.WriteLine("September 26, 2023 - RemoveDuplicateLetters");
 Console.WriteLine("Answer > " + DailyLeetcode.RemoveDuplicateLetters("cbacdcbc"));
+
+Console.WriteLine("September 27, 2023 - 880. Decoded String at Index");
+Console.WriteLine("Answer > " + DailyLeetcode.DecodeAtIndex("a2345678999999999999999",1));
