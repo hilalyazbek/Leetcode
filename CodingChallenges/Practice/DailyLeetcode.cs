@@ -136,4 +136,17 @@ public static class DailyLeetcode
         return "";
   }
 
+  public static bool IsMonotonic(int[] nums) {
+      var tracker = new List<string>();
+        
+        for(int i=1; i< nums.Length ; i++){
+            if(nums[i] > nums[i-1]){
+              tracker.Add("true");
+          }
+          else if(nums[i] < nums[i-1]){
+              tracker.Add("false");
+          }
+        }
+        return tracker.Contains("true") && tracker.Contains("false")? false:true;
+  }
 }

@@ -18,3 +18,6 @@ Console.WriteLine("Answer > " + DailyLeetcode.RemoveDuplicateLetters("cbacdcbc")
 
 Console.WriteLine("September 27, 2023 - 880. Decoded String at Index");
 Console.WriteLine("Answer > " + DailyLeetcode.DecodeAtIndex("a2345678999999999999999",1));
+
+Console.WriteLine("September 29, 2023 - 896. Monotonic Array");
+Console.WriteLine(DailyLeetcode.IsMonotonic(new int[]{6,5,4,4}));
