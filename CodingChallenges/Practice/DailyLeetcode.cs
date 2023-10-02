@@ -1,6 +1,7 @@
 
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Microsoft.VisualBasic;
 
 public static class DailyLeetcode
 {
@@ -149,4 +150,32 @@ public static class DailyLeetcode
         }
         return tracker.Contains("true") && tracker.Contains("false")? false:true;
   }
+
+    internal static string ReverseWords(string s)
+    {
+        var arr = s.Split(" ");
+        var sb = new StringBuilder();
+
+        foreach(var str in arr){
+          sb.Append(Reverse(str)+" ");
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    private static string Reverse(string str)
+    {
+      var word = str.ToCharArray();
+        int left = 0;
+        int right = word.Length-1;
+        while(left<right){
+          var temp = word[left];
+          word[left] = word[right];
+          word[right]= temp;
+          left++;
+          right--;
+        }
+
+        return new string(word);
+    }
 }

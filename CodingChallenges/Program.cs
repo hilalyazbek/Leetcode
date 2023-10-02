@@ -21,3 +21,6 @@ Console.WriteLine("Answer > " + DailyLeetcode.DecodeAtIndex("a234567899999999999
 
 Console.WriteLine("September 29, 2023 - 896. Monotonic Array");
 Console.WriteLine(DailyLeetcode.IsMonotonic(new int[]{6,5,4,4}));
+
+Console.WriteLine("September 30,2023 - 557. Reverse Words in a String III");
+Console.WriteLine(DailyLeetcode.ReverseWords("Let's take LeetCode contest"));
