@@ -24,3 +24,6 @@ Console.WriteLine(DailyLeetcode.IsMonotonic(new int[]{6,5,4,4}));
 
 Console.WriteLine("September 30,2023 - 557. Reverse Words in a String III");
 Console.WriteLine(DailyLeetcode.ReverseWords("Let's take LeetCode contest"));
+
+Console.WriteLine("October 02,2023 - 2038. Remove Colored Pieces if Both Neighbors are the Same Color");
+Console.WriteLine(DailyLeetcode.WinnerOfGame("AA"));

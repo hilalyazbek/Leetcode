@@ -178,4 +178,22 @@ public static class DailyLeetcode
 
         return new string(word);
     }
+
+    internal static bool WinnerOfGame(string colors)
+    {
+        var tracker = new Dictionary<char,int>();
+        tracker.Add('A',0);
+        tracker.Add('B',0);
+        for(int i=1 ; i<colors.Length -1 ; i++){
+          if(colors[i] == colors[i-1] && colors[i] == colors[i+1]){
+            tracker[colors[i]]++;
+          }
+        }
+        if(tracker['B']>=tracker['A']){
+          return false;
+        }
+        else{
+          return true;
+        }
+    }
 }
