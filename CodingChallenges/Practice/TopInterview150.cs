@@ -64,4 +64,37 @@ public static class TopInterview150
 
     return result;
   }
+
+  internal static int RemoveDuplicatesII(int[] nums)
+  {
+    var tracker = new Dictionary<int, int>();
+    int index = 0;
+    for (int i = 0; i < nums.Length - 1; i++)
+    {
+      if (!tracker.ContainsKey(nums[i]))
+      {
+        tracker.Add(nums[i], 0);
+      }
+      tracker[nums[i]]++;
+
+      if (nums[i] == nums[i + 1])
+      {
+        if (tracker[nums[i]] >= 2)
+        {
+          index = i;
+        }
+        else
+        {
+          continue;
+        }
+      }
+      else
+      {
+        nums[index] = nums[i];
+        index++;
+      }
+
+    }
+    return index;
+  }
 }
