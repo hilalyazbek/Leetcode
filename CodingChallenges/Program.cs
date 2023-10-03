@@ -30,3 +30,6 @@ Console.WriteLine(DailyLeetcode.WinnerOfGame("AA"));
 
 Console.WriteLine("Octobe 03,2023 - 1512. Number of Good Pairs");
 Console.WriteLine(DailyLeetcode.NumIdenticalPairs(new int[] { 1, 2, 3, 1, 1, 3 }));
+
+Console.WriteLine("88. Merge Sorted Array");
+TopInterview150.Merge(new int[] { 4, 5, 6, 0, 0, 0 }, 3, new int[] { 1, 2, 3 }, 3);
