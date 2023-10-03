@@ -196,9 +196,11 @@ public static class DailyLeetcode
 
   internal static bool WinnerOfGame(string colors)
   {
-    var tracker = new Dictionary<char, int>();
-    tracker.Add('A', 0);
-    tracker.Add('B', 0);
+    var tracker = new Dictionary<char, int>
+    {
+        { 'A', 0 },
+        { 'B', 0 }
+    };
     for (int i = 1; i < colors.Length - 1; i++)
     {
       if (colors[i] == colors[i - 1] && colors[i] == colors[i + 1])
@@ -221,7 +223,7 @@ public static class DailyLeetcode
     int result = 0;
     for (int i = 0; i < nums.Length; i++)
     {
-      for (int search = i+1; search < nums.Length && search != i; search++)
+      for (int search = i + 1; search < nums.Length && search != i; search++)
       {
         if (nums[i] == nums[search])
         {
