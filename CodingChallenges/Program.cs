@@ -33,3 +33,9 @@ Console.WriteLine(DailyLeetcode.NumIdenticalPairs(new int[] { 1, 2, 3, 1, 1, 3 }
 
 Console.WriteLine("88. Merge Sorted Array");
 TopInterview150.Merge(new int[] { 4, 5, 6, 0, 0, 0 }, 3, new int[] { 1, 2, 3 }, 3);
+
+Console.WriteLine("27.Remove Element");
+Console.WriteLine(TopInterview150.RemoveElement(new int[] { 3, 2, 2, 3 }, 3));
+
+Console.WriteLine("26. Remove Duplicates from Sorted Array");
+Console.WriteLine(TopInterview150.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }));

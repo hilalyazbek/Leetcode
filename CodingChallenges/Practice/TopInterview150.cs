@@ -1,4 +1,5 @@
 
+using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.VisualBasic;
@@ -29,5 +30,38 @@ public static class TopInterview150
         }
       }
     }
+  }
+
+  internal static int RemoveElement(int[] nums, int val)
+  {
+    int index = 0;
+    int result = 0;
+    for (int i = 0; i < nums.Length; i++)
+    {
+      if (nums[i] != val)
+      {
+        nums[index] = nums[i];
+        result++;
+        index++;
+      }
+    }
+    return result;
+  }
+
+  internal static int RemoveDuplicates(int[] nums)
+  {
+    int result = 1;
+    int index = 1;
+    for (int i = 0; i < nums.Length - 1; i++)
+    {
+      if (nums[i] != nums[i + 1])
+      {
+        result++;
+        nums[index] = nums[i + 1];
+        index++;
+      }
+    }
+
+    return result;
   }
 }
