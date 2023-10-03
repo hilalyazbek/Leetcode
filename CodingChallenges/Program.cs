@@ -27,3 +27,6 @@ Console.WriteLine(DailyLeetcode.ReverseWords("Let's take LeetCode contest"));
 
 Console.WriteLine("October 02,2023 - 2038. Remove Colored Pieces if Both Neighbors are the Same Color");
 Console.WriteLine(DailyLeetcode.WinnerOfGame("AA"));
+
+Console.WriteLine("Octobe 03,2023 - 1512. Number of Good Pairs");
+Console.WriteLine(DailyLeetcode.NumIdenticalPairs(new int[]{1,2,3,1,1,3}));

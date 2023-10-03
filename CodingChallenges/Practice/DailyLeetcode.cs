@@ -111,89 +111,124 @@ public static class DailyLeetcode
   internal static string DecodeAtIndex(string s, int k)
   {
     long length = 0;
-        int i = 0;
+    int i = 0;
 
-        while (length < k) {
-            if (char.IsDigit(s[i])) {
-                length *= s[i] - '0';
-            } else {
-                length++;
-            }
-            i++;
+    while (length < k)
+    {
+      if (char.IsDigit(s[i]))
+      {
+        length *= s[i] - '0';
+      }
+      else
+      {
+        length++;
+      }
+      i++;
+    }
+
+    for (int j = i - 1; j >= 0; j--)
+    {
+      if (char.IsDigit(s[j]))
+      {
+        length /= s[j] - '0';
+        k %= (int)length;
+      }
+      else
+      {
+        if (k == 0 || k == length)
+        {
+          return s[j].ToString();
         }
+        length--;
+      }
+    }
 
-        for (int j = i - 1; j >= 0; j--) {
-            if (char.IsDigit(s[j])) {
-                length /= s[j] - '0';
-                k %= (int)length;
-            } else {
-                if (k == 0 || k == length) {
-                    return s[j].ToString();
-                }
-                length--;
-            }
-        }
-
-        return "";
+    return "";
   }
 
-  public static bool IsMonotonic(int[] nums) {
-      var tracker = new List<string>();
-        
-        for(int i=1; i< nums.Length ; i++){
-            if(nums[i] > nums[i-1]){
-              tracker.Add("true");
-          }
-          else if(nums[i] < nums[i-1]){
-              tracker.Add("false");
-          }
-        }
-        return tracker.Contains("true") && tracker.Contains("false")? false:true;
+  public static bool IsMonotonic(int[] nums)
+  {
+    var tracker = new List<string>();
+
+    for (int i = 1; i < nums.Length; i++)
+    {
+      if (nums[i] > nums[i - 1])
+      {
+        tracker.Add("true");
+      }
+      else if (nums[i] < nums[i - 1])
+      {
+        tracker.Add("false");
+      }
+    }
+    return tracker.Contains("true") && tracker.Contains("false") ? false : true;
   }
 
-    internal static string ReverseWords(string s)
+  internal static string ReverseWords(string s)
+  {
+    var arr = s.Split(" ");
+    var sb = new StringBuilder();
+
+    foreach (var str in arr)
     {
-        var arr = s.Split(" ");
-        var sb = new StringBuilder();
-
-        foreach(var str in arr){
-          sb.Append(Reverse(str)+" ");
-        }
-
-        return sb.ToString().TrimEnd();
+      sb.Append(Reverse(str) + " ");
     }
 
-    private static string Reverse(string str)
-    {
-      var word = str.ToCharArray();
-        int left = 0;
-        int right = word.Length-1;
-        while(left<right){
-          var temp = word[left];
-          word[left] = word[right];
-          word[right]= temp;
-          left++;
-          right--;
-        }
+    return sb.ToString().TrimEnd();
+  }
 
-        return new string(word);
+  private static string Reverse(string str)
+  {
+    var word = str.ToCharArray();
+    int left = 0;
+    int right = word.Length - 1;
+    while (left < right)
+    {
+      var temp = word[left];
+      word[left] = word[right];
+      word[right] = temp;
+      left++;
+      right--;
     }
 
-    internal static bool WinnerOfGame(string colors)
+    return new string(word);
+  }
+
+  internal static bool WinnerOfGame(string colors)
+  {
+    var tracker = new Dictionary<char, int>();
+    tracker.Add('A', 0);
+    tracker.Add('B', 0);
+    for (int i = 1; i < colors.Length - 1; i++)
     {
-        var tracker = new Dictionary<char,int>();
-        tracker.Add('A',0);
-        tracker.Add('B',0);
-        for(int i=1 ; i<colors.Length -1 ; i++){
-          if(colors[i] == colors[i-1] && colors[i] == colors[i+1]){
-            tracker[colors[i]]++;
-          }
-        }
-        if(tracker['B']>=tracker['A']){
-          return false;
-        }
-        else{
-          return true;
-        }
+      if (colors[i] == colors[i - 1] && colors[i] == colors[i + 1])
+      {
+        tracker[colors[i]]++;
+      }
     }
+    if (tracker['B'] >= tracker['A'])
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
+  internal static int NumIdenticalPairs(int[] nums)
+  {
+    int result = 0;
+    for (int i = 0; i < nums.Length; i++)
+    {
+      for (int search = i+1; search < nums.Length && search != i; search++)
+      {
+        if (nums[i] == nums[search])
+        {
+          result++;
+        }
+      }
+    }
+    return result;
+  }
 }
