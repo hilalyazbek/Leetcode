@@ -62,3 +62,6 @@ Console.WriteLine(TopInterview150.MaxProfit(new int[] { 1, 2 }));
 
 Console.WriteLine("122. Best Time to Buy and Sell Stock II");
 Console.WriteLine(TopInterview150.MaxProfitII(new int[] { 7, 1, 5, 3, 6, 4 }));
+
+Console.WriteLine("55. Jump Game");
+Console.WriteLine(TopInterview150.CanJump(new int[] { 2, 3, 1, 1, 4 }));

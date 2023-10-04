@@ -171,4 +171,10 @@ public static class TopInterview150
     }
     return maxProfit;
   }
+
+  internal static bool CanJump(int[] nums)
+  {
+    var lastIndex = nums.Length - 1;
+
+  }
 }
