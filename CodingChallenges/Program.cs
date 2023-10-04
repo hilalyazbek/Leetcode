@@ -42,3 +42,13 @@ Console.WriteLine(TopInterview150.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2,
 
 Console.WriteLine("26. Remove Duplicates from Sorted Array II");
 Console.WriteLine(TopInterview150.RemoveDuplicatesII(new int[] { 0, 0, 1, 1, 1, 1, 2, 3, 3 }));
+
+Console.WriteLine("Octobe 04,2023 - 706. Design HashMap");
+var x = new MyHashMap();
+x.Put(1, 10);
+x.Put(1, 11);
+x.Put(2, 2);
+x.Get(1);
+x.Remove(1);
+
+#pragma warning restore format

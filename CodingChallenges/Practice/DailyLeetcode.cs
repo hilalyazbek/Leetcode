@@ -234,3 +234,49 @@ public static class DailyLeetcode
     return result;
   }
 }
+
+public class MyHashMap
+{
+  public List<int> Keys;
+  public List<int> Values;
+  public MyHashMap()
+  {
+    Keys = new List<int>();
+    Values = new List<int>();
+  }
+
+  public void Put(int key, int value)
+  {
+    var keyIndex = Keys.IndexOf(key);
+    if (keyIndex == -1)
+    {
+      Keys.Add(key);
+      Values.Add(value);
+    }
+    else
+    {
+      Values[keyIndex] = value;
+    }
+  }
+
+  public int Get(int key)
+  {
+    var value = -1;
+    var index = Keys.IndexOf(key);
+    if (index != -1)
+    {
+      value = Values[index];
+    }
+    return value;
+  }
+
+  public void Remove(int key)
+  {
+    var index = Keys.IndexOf(key);
+    if (index != -1)
+    {
+      Keys.RemoveAt(index);
+      Values.RemoveAt(index);
+    }
+  }
+}
