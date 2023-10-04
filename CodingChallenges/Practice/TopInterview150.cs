@@ -1,5 +1,6 @@
 
 using System.Diagnostics;
+using System.Globalization;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -136,5 +137,23 @@ public static class TopInterview150
 
     Array.Copy(_, nums, nums.Length);
 
+  }
+
+  internal static int MaxProfit(int[] prices)
+  {
+    int minValue = int.MaxValue;
+    int maxProfit = 0;
+    for (int i = 0; i < prices.Length; i++)
+    {
+      if (prices[i] < minValue)
+      {
+        minValue = prices[i];
+      }
+      else
+      {
+        maxProfit = Math.Max(prices[i] - minValue, maxProfit);
+      }
+    }
+    return maxProfit;
   }
 }

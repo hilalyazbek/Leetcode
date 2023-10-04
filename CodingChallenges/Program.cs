@@ -56,3 +56,6 @@ Console.WriteLine(TopInterview150.MajorityElement(new int[] { 0, 0, 1, 1, 1, 1, 
 
 Console.WriteLine("189. Rotate Array");
 TopInterview150.RotateArray(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+
+Console.WriteLine("121. Best Time to Buy and Sell Stock");
+Console.WriteLine(TopInterview150.MaxProfit(new int[] { 1, 2 }));
