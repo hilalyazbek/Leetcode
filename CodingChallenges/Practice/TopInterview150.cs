@@ -1,4 +1,5 @@
 
+using System.Diagnostics;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -67,34 +68,73 @@ public static class TopInterview150
 
   internal static int RemoveDuplicatesII(int[] nums)
   {
-    var tracker = new Dictionary<int, int>();
-    int index = 0;
-    for (int i = 0; i < nums.Length - 1; i++)
-    {
-      if (!tracker.ContainsKey(nums[i]))
-      {
-        tracker.Add(nums[i], 0);
-      }
-      tracker[nums[i]]++;
 
-      if (nums[i] == nums[i + 1])
+    if (nums.Length <= 2)
+      return nums.Length;
+
+    int k = 2; // Maximum allowed duplicates
+    int count = 1; // Count of the current element
+    int index = 1; // Index to update in the input array
+
+    for (int i = 1; i < nums.Length; i++)
+    {
+      if (nums[i] == nums[i - 1])
       {
-        if (tracker[nums[i]] >= 2)
-        {
-          index = i;
-        }
-        else
-        {
-          continue;
-        }
+        count++;
       }
       else
+      {
+        count = 1;
+      }
+
+      if (count <= k)
       {
         nums[index] = nums[i];
         index++;
       }
-
     }
+
     return index;
+
+  }
+
+  internal static int MajorityElement(int[] nums)
+  {
+    int max = 0;
+    int result = 0;
+    var tracker = new Dictionary<int, int>();
+    foreach (int item in nums)
+    {
+      if (!tracker.ContainsKey(item))
+      {
+        tracker.Add(item, 0);
+      }
+      tracker[item]++;
+
+      if (tracker[item] > max)
+      {
+        max = tracker[item];
+        result = item;
+      }
+    }
+
+    return result;
+
+
+  }
+
+  internal static void RotateArray(int[] nums, int k)
+  {
+    var lastIndex = nums.Length - 1;
+    var _ = new int[nums.Length];
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+      var newIdx = (i + k) % nums.Length; // Corrected calculation of new index
+      _[newIdx] = nums[i];
+    }
+
+    Array.Copy(_, nums, nums.Length);
+
   }
 }

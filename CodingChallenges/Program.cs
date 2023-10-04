@@ -51,4 +51,8 @@ x.Put(2, 2);
 x.Get(1);
 x.Remove(1);
 
-#pragma warning restore format
+Console.WriteLine("169. Majority Element");
+Console.WriteLine(TopInterview150.MajorityElement(new int[] { 0, 0, 1, 1, 1, 1, 2, 3, 3 }));
+
+Console.WriteLine("189. Rotate Array");
+TopInterview150.RotateArray(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
