@@ -175,6 +175,6 @@ public static class TopInterview150
   internal static bool CanJump(int[] nums)
   {
     var lastIndex = nums.Length - 1;
-
+    return true;
   }
 }

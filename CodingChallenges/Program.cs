@@ -43,7 +43,7 @@ Console.WriteLine(TopInterview150.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2,
 Console.WriteLine("26. Remove Duplicates from Sorted Array II");
 Console.WriteLine(TopInterview150.RemoveDuplicatesII(new int[] { 0, 0, 1, 1, 1, 1, 2, 3, 3 }));
 
-Console.WriteLine("Octobe 04,2023 - 706. Design HashMap");
+Console.WriteLine("October 04,2023 - 706. Design HashMap");
 var x = new MyHashMap();
 x.Put(1, 10);
 x.Put(1, 11);
@@ -65,3 +65,6 @@ Console.WriteLine(TopInterview150.MaxProfitII(new int[] { 7, 1, 5, 3, 6, 4 }));
 
 Console.WriteLine("55. Jump Game");
 Console.WriteLine(TopInterview150.CanJump(new int[] { 2, 3, 1, 1, 4 }));
+
+Console.WriteLine("October 05,2023 - 169. Majority Element");
+Console.WriteLine(DailyLeetcode.MajorityElement(new int[] { 1, 2 }));

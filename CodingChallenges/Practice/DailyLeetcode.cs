@@ -2,6 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.VisualBasic;
+using System.Linq;
 
 public static class DailyLeetcode
 {
@@ -233,6 +234,24 @@ public static class DailyLeetcode
     }
     return result;
   }
+
+  internal static IList<int> MajorityElement(int[] nums)
+  {
+    var result = new List<int>();
+    var tracker = new Dictionary<int, int>();
+
+    foreach (var item in nums)
+    {
+      if (!tracker.ContainsKey(item))
+      {
+        tracker.Add(item, 0);
+      }
+      tracker[item]++;
+    }
+
+    result = tracker.Where(itm => itm.Value > nums.Length / 3).Select(x => x.Key).ToList();
+    return result;
+  }
 }
 
 public class MyHashMap
@@ -279,4 +298,6 @@ public class MyHashMap
       Values.RemoveAt(index);
     }
   }
+
+
 }
