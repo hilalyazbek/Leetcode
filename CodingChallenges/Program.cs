@@ -64,7 +64,7 @@ Console.WriteLine("122. Best Time to Buy and Sell Stock II");
 Console.WriteLine(TopInterview150.MaxProfitII(new int[] { 7, 1, 5, 3, 6, 4 }));
 
 Console.WriteLine("55. Jump Game");
-Console.WriteLine(TopInterview150.CanJump(new int[] { 2, 3, 1, 1, 4 }));
+Console.WriteLine(TopInterview150.CanJump(new int[] { 3, 2, 1, 0, 4 }));
 
 Console.WriteLine("October 05,2023 - 169. Majority Element");
 Console.WriteLine(DailyLeetcode.MajorityElement(new int[] { 1, 2 }));

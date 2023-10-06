@@ -174,7 +174,14 @@ public static class TopInterview150
 
   internal static bool CanJump(int[] nums)
   {
-    var lastIndex = nums.Length - 1;
+    int reachable = 0;
+    for (int i = 0; i < nums.Length; i++)
+    {
+      if (i > reachable)
+        return false;
+
+      reachable = Math.Max(reachable, i + nums[i]);
+    }
     return true;
   }
 }
