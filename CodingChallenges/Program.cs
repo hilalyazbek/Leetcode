@@ -68,3 +68,6 @@ Console.WriteLine(TopInterview150.CanJump(new int[] { 3, 2, 1, 0, 4 }));
 
 Console.WriteLine("October 05,2023 - 169. Majority Element");
 Console.WriteLine(DailyLeetcode.MajorityElement(new int[] { 1, 2 }));
+
+Console.WriteLine("45. Jump Game II");
+Console.WriteLine(TopInterview150.Jump(new int[] { 3, 2, 1, 0, 4 }));

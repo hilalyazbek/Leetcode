@@ -184,4 +184,23 @@ public static class TopInterview150
     }
     return true;
   }
+
+  public static int Jump(int[] nums)
+  {
+    //2,3,1,1,4
+    int ans = 0, currEnd = 0, currFar = 0;
+
+    for (int i = 0; i < nums.Length - 1; i++)
+    {
+      currFar = Math.Max(currFar, i + nums[i]);
+
+      if (i == currEnd)
+      {
+        ans++;
+        currEnd = currFar;
+      }
+    }
+
+    return ans;
+  }
 }
