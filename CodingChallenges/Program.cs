@@ -71,3 +71,6 @@ Console.WriteLine(DailyLeetcode.MajorityElement(new int[] { 1, 2 }));
 
 Console.WriteLine("45. Jump Game II");
 Console.WriteLine(TopInterview150.Jump(new int[] { 3, 2, 1, 0, 4 }));
+
+Console.WriteLine("274. H-Index");
+Console.WriteLine(TopInterview150.HIndex(new int[] { 3, 0, 6, 1, 5 }));

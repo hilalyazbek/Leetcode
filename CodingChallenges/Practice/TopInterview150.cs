@@ -203,4 +203,17 @@ public static class TopInterview150
 
     return ans;
   }
+
+  public static int HIndex(int[] citations)
+  {
+    var idx = 0;
+    Array.Sort(citations);
+    var count = citations.Length;
+    for (int i = 0; i < count; i++)
+    {
+
+    }
+
+    return idx;
+  }
 }
