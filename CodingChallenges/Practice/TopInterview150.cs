@@ -222,4 +222,43 @@ public static class TopInterview150
 		}
 		return h;
 	}
+
+
+}
+
+public class RandomizedSet
+{
+
+	List<int> tracker;
+
+	public RandomizedSet()
+	{
+		tracker = new List<int>();
+	}
+
+	public bool Insert(int val)
+	{
+		if (!tracker.Contains(val))
+		{
+			tracker.Add(val);
+			return true;
+		}
+		return false;
+	}
+
+	public bool Remove(int val)
+	{
+		if (tracker.Contains(val))
+		{
+			tracker.Remove(val);
+			return true;
+		}
+		return false;
+	}
+
+	public int GetRandom()
+	{
+		int randIndex = new Random().Next(0, tracker.Count);
+		return tracker[randIndex];
+	}
 }
