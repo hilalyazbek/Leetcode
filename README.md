@@ -1,30 +1,12 @@
-# CodingChallenges
+### CodingChallenges
+
 Leetcode and hackerrank coding challenges
 
-[Study Plan](https://leetcode.com/study-plan/leetcode-75/)
-
-[Algo Practice](https://leetcode.com/study-plan/algorithm/)
-
-Each level has its own class file (Level1.cs, Level2.cs)
-```
-public static int[] RunningSum(int[] nums)
-{
-    int current = 0;
-    int[] result = nums.ToArray();
-    for (int i = 0; i < nums.Length; i++)
-    {
-        current = current + nums[i];
-        result[i] = current;
-    }
-
-    return result;
-}
-```
+Each problem is a seperate commit to the master branch.
 
 Program.cs calls the static functions with the appropriate arguments.
+
 ```
-Console.WriteLine("724.Find Pivot Index");
-Console.WriteLine("********************");
-Console.WriteLine(Level1.PivotIndex(new int[] { 1, 7, 3, 6, 5, 6 }));
+Console.WriteLine("380. Insert Delete GetRandom O(1)");
+Console.WriteLine(TopInterview150.HIndex(new int[] { 11, 15 }));
 ```
-The problem id and title can be found ontop of each function call.

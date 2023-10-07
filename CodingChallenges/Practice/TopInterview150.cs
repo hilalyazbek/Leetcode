@@ -223,7 +223,25 @@ public static class TopInterview150
 		return h;
 	}
 
+	public static int[] ProductExceptSelf(int[] nums)
+	{
+		int[] product = new int[nums.Length];
+		int left = 1;
+		for (int i = 0; i < nums.Length; i++)
+		{
+			product[i] = left;
+			left *= nums[i];
+		}
 
+		int right = 1;
+		for (int i = nums.Length - 1; i >= 0; i--)
+		{
+			product[i] *= right;
+			right *= nums[i];
+		}
+
+		return product;
+	}
 }
 
 public class RandomizedSet
