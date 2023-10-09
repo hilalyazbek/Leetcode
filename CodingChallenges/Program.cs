@@ -83,3 +83,6 @@ Console.WriteLine(TopInterview150.ProductExceptSelf(new int[] { 1, 2, 3, 4 }));
 
 Console.WriteLine("134. Gas Station");
 Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
+
+Console.WriteLine("34.Find First and Last Position of Element in Sorted Array");
+Console.WriteLine(TopInterview150.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8));

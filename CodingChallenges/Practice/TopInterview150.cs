@@ -261,6 +261,85 @@ public static class TopInterview150
 
 		return start;
 	}
+
+	internal static int[] SearchRange(int[] nums, int target)
+	{
+		var first = -1;
+		var last = -1;
+
+		//O(N)
+		// for (int i = 0; i < nums.Length; i++)
+		// {
+		// 	if (nums[i] == target && first == -1)
+		// 		first = i;
+
+		// 	if (nums[i] == target)
+		// 		last = i;
+		// }
+
+		// O(Log N)
+		first = findFirst(nums, target);  // Find the first occurrence of the target.
+		last = findLast(nums, target);    // Find the last occurrence of the target.
+		return new int[] { first, last };        // Return the result as an array.
+	}
+
+	// Helper function to find the first occurrence of the target.
+	private static int findFirst(int[] nums, int target)
+	{
+		int left = 0;              // Initialize the left pointer to the beginning of the array.
+		int right = nums.Length - 1; // Initialize the right pointer to the end of the array.
+		int first = -1;            // Initialize the variable to store the first occurrence.
+
+		while (left <= right)
+		{
+			int mid = left + (right - left) / 2;  // Calculate the middle index.
+
+			if (nums[mid] == target)
+			{
+				first = mid;           // Update first occurrence.
+				right = mid - 1;       // Move the right pointer to the left to search in the left half.
+			}
+			else if (nums[mid] < target)
+			{
+				left = mid + 1;        // If mid element is less than target, move the left pointer to the right.
+			}
+			else
+			{
+				right = mid - 1;       // If mid element is greater than target, move the right pointer to the left.
+			}
+		}
+
+		return first;  // Return the index of the first occurrence.
+	}
+
+	// Helper function to find the last occurrence of the target.
+	private static int findLast(int[] nums, int target)
+	{
+		int left = 0;              // Initialize the left pointer to the beginning of the array.
+		int right = nums.Length - 1; // Initialize the right pointer to the end of the array.
+		int last = -1;             // Initialize the variable to store the last occurrence.
+
+		while (left <= right)
+		{
+			int mid = left + (right - left) / 2;  // Calculate the middle index.
+
+			if (nums[mid] == target)
+			{
+				last = mid;            // Update last occurrence.
+				left = mid + 1;        // Move the left pointer to the right to search in the right half.
+			}
+			else if (nums[mid] < target)
+			{
+				left = mid + 1;        // If mid element is less than target, move the left pointer to the right.
+			}
+			else
+			{
+				right = mid - 1;       // If mid element is greater than target, move the right pointer to the left.
+			}
+		}
+
+		return last;  // Return the index of the last occurrence.
+	}
 }
 
 public class RandomizedSet
