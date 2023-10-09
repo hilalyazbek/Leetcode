@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using CodingChallenges;
 using Microsoft.VisualBasic;
 
 public static class TopInterview150
@@ -340,41 +341,66 @@ public static class TopInterview150
 
 		return last;  // Return the index of the last occurrence.
 	}
-}
 
-public class RandomizedSet
-{
-
-	List<int> tracker;
-
-	public RandomizedSet()
+	internal static int RomanToInt(string s)
 	{
-		tracker = new List<int>();
-	}
+		var tracker = new Dictionary<char, int>{
+			{'I',1},
+			{'V',5},
+			{'X',10},
+			{'L',50},
+			{'C',100},
+			{'D',500},
+			{'M',1000},
+		};
 
-	public bool Insert(int val)
-	{
-		if (!tracker.Contains(val))
+		var ans = 0;
+		for (int i = 0; i < s.Length; i++)
 		{
-			tracker.Add(val);
-			return true;
+			if (i != s.Length - 1 && tracker[s[i]] < tracker[s[i + 1]])
+				ans -= tracker[s[i]];
+			else
+			{
+				ans += tracker[s[i]];
+			}
 		}
-		return false;
+		return ans;
 	}
 
-	public bool Remove(int val)
+	public class RandomizedSet
 	{
-		if (tracker.Contains(val))
+
+		List<int> tracker;
+
+		public RandomizedSet()
 		{
-			tracker.Remove(val);
-			return true;
+			tracker = new List<int>();
 		}
-		return false;
-	}
 
-	public int GetRandom()
-	{
-		int randIndex = new Random().Next(0, tracker.Count);
-		return tracker[randIndex];
+		public bool Insert(int val)
+		{
+			if (!tracker.Contains(val))
+			{
+				tracker.Add(val);
+				return true;
+			}
+			return false;
+		}
+
+		public bool Remove(int val)
+		{
+			if (tracker.Contains(val))
+			{
+				tracker.Remove(val);
+				return true;
+			}
+			return false;
+		}
+
+		public int GetRandom()
+		{
+			int randIndex = new Random().Next(0, tracker.Count);
+			return tracker[randIndex];
+		}
 	}
 }

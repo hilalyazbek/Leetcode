@@ -86,3 +86,6 @@ Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }
 
 Console.WriteLine("34.Find First and Last Position of Element in Sorted Array");
 Console.WriteLine(TopInterview150.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8));
+
+Console.WriteLine("13.Roman to Integer");
+Console.WriteLine(TopInterview150.RomanToInt("LVIII"));
