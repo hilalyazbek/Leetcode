@@ -367,6 +367,28 @@ public static class TopInterview150
 		return ans;
 	}
 
+	public static int MinOperations(int[] nums)
+	{
+		Array.Sort(nums);
+		List<int> list = nums.ToHashSet().ToList();
+
+		int max = 0;
+
+		for (int i = 0; i < list.Count; i++)
+		{
+			int target = list[i] + nums.Length - 1;
+			int index = list.BinarySearch(target);
+
+			if (index < 0)
+				index = (~index) - 1;
+
+			max = Math.Max(max, index - i + 1);
+		}
+
+		return nums.Length - max;
+
+	}
+
 	public class RandomizedSet
 	{
 

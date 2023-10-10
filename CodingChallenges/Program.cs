@@ -89,3 +89,6 @@ Console.WriteLine(TopInterview150.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8
 
 Console.WriteLine("13.Roman to Integer");
 Console.WriteLine(TopInterview150.RomanToInt("LVIII"));
+
+Console.WriteLine("2009. Minimum Number of Operations to Make Array Continuous");
+Console.WriteLine(TopInterview150.MinOperations(new int[] { 41, 33, 29, 33, 35, 26, 47, 24, 18, 28 }));
