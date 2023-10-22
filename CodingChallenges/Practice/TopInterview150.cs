@@ -389,6 +389,10 @@ public static class TopInterview150
 
 	}
 
+	public static int LengthOfLastWord(string s)
+	{
+		return s.TrimEnd().Split(' ').Last().Length;
+	}
 	public class RandomizedSet
 	{
 

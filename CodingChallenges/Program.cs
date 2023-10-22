@@ -92,3 +92,9 @@ Console.WriteLine(TopInterview150.RomanToInt("LVIII"));
 
 Console.WriteLine("2009. Minimum Number of Operations to Make Array Continuous");
 Console.WriteLine(TopInterview150.MinOperations(new int[] { 41, 33, 29, 33, 35, 26, 47, 24, 18, 28 }));
+
+Console.WriteLine("1793. Maximum Score of a Good Subarray");
+Console.WriteLine(DailyLeetcode.MaximumScore(new int[] { 1, 4, 3, 7, 4, 5 }, 3));
+
+Console.WriteLine("58.Length of Last Word");
+Console.WriteLine(TopInterview150.LengthOfLastWord("hello world"));
