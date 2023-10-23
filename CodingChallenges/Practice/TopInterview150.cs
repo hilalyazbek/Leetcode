@@ -433,6 +433,11 @@ public static class TopInterview150
 		return sb.ToString().Trim();
 	}
 
+	public static int StrStr(string haystack, string needle)
+	{
+		return haystack.IndexOf(needle);
+	}
+
 	public class RandomizedSet
 	{
 

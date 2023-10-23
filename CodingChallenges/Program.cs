@@ -107,3 +107,6 @@ Console.WriteLine(DailyLeetcode.IsPowerOfFour(16));
 
 Console.WriteLine("151.Reverse Words in a String");
 Console.WriteLine(TopInterview150.ReverseWords(" a good   example "));
+
+Console.WriteLine("28.Find the Index of the First Occurrence in a String");
+Console.WriteLine(TopInterview150.StrStr("leetcode", "leeto"));
