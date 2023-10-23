@@ -98,3 +98,9 @@ Console.WriteLine(DailyLeetcode.MaximumScore(new int[] { 1, 4, 3, 7, 4, 5 }, 3))
 
 Console.WriteLine("58.Length of Last Word");
 Console.WriteLine(TopInterview150.LengthOfLastWord("hello world"));
+
+Console.WriteLine("14.Longest Common Prefix");
+Console.WriteLine(TopInterview150.LongestCommonPrefix(new string[] { "dog", "racecar", "car" }));
+
+Console.WriteLine("342.Power of Four");
+Console.WriteLine(DailyLeetcode.IsPowerOfFour(16));

@@ -275,6 +275,17 @@ public static class DailyLeetcode
 
         return max_score;
     }
+
+    public static bool IsPowerOfFour(int n)
+    {
+        int i = 0;
+        while (n != Math.Pow(4, i))
+        {
+            if (n < Math.Pow(4, i)) return false;
+            i++;
+        }
+        return true;
+    }
 }
 
 public class MyHashMap

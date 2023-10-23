@@ -393,6 +393,27 @@ public static class TopInterview150
 	{
 		return s.TrimEnd().Split(' ').Last().Length;
 	}
+
+	public static string LongestCommonPrefix(string[] strs)
+	{
+		Array.Sort(strs);
+		String s1 = strs[0];
+		String s2 = strs[strs.Length - 1];
+		int idx = 0;
+		while (idx < s1.Length && idx < s2.Length)
+		{
+			if (s1[idx] == s2[idx])
+			{
+				idx++;
+			}
+			else
+			{
+				break;
+			}
+		}
+		return s1.Substring(0, idx);
+
+	}
 	public class RandomizedSet
 	{
 
