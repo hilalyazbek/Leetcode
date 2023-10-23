@@ -1,4 +1,5 @@
 
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Globalization;
 using System.Security.AccessControl;
@@ -414,6 +415,24 @@ public static class TopInterview150
 		return s1.Substring(0, idx);
 
 	}
+
+	public static string ReverseWords(string s)
+	{
+		var sb = new StringBuilder();
+		s = s.Trim();
+		var splitString = s.Split(' ').ToList();
+		for (int i = splitString.Count - 1; i >= 0; i--)
+		{
+			if (splitString[i] != string.Empty)
+			{
+				sb.Append(splitString[i]);
+				sb.Append(' ');
+			}
+
+		}
+		return sb.ToString().Trim();
+	}
+
 	public class RandomizedSet
 	{
 
