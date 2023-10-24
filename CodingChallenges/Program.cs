@@ -110,3 +110,5 @@ Console.WriteLine(TopInterview150.ReverseWords(" a good   example "));
 
 Console.WriteLine("28.Find the Index of the First Occurrence in a String");
 Console.WriteLine(TopInterview150.StrStr("abc", "c"));
+
+Console.WriteLine(AlgoI.processLogs());
