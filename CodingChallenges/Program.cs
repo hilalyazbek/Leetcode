@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections.Generic;
+using System.Globalization;
 
 Console.WriteLine("LEETCODE CODING CHALLENGES");
 Console.WriteLine("__________________________");
@@ -83,3 +84,8 @@ Console.WriteLine(TopInterview150.ProductExceptSelf(new int[] { 1, 2, 3, 4 }));
 
 Console.WriteLine("134. Gas Station");
 Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
+
+var lst = new List<String>{
+    "99 88 200", "99 88 300", "99 32 222", "15 15 222"
+};
+Console.WriteLine(TopInterview150.processLogs(lst, 2));

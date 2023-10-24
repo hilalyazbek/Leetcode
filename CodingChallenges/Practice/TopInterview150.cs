@@ -1,4 +1,5 @@
 
+using System.Data;
 using System.Diagnostics;
 using System.Globalization;
 using System.Security.AccessControl;
@@ -249,6 +250,7 @@ public static class TopInterview150
 
 		var start = 0;
 		var fuel = 0;
+
 		for (int i = 0; i < gas.Length; i++)
 		{
 			fuel += (gas[i] - cost[i]);
@@ -261,41 +263,92 @@ public static class TopInterview150
 
 		return start;
 	}
-}
 
-public class RandomizedSet
-{
-
-	List<int> tracker;
-
-	public RandomizedSet()
+	public static List<string> processLogs(List<string> Logs, int threshold)
 	{
-		tracker = new List<int>();
-	}
-
-	public bool Insert(int val)
-	{
-		if (!tracker.Contains(val))
+		var result = new List<string>();
+		var tracker = new Dictionary<int, int>();
+		foreach (var log in Logs)
 		{
-			tracker.Add(val);
-			return true;
-		}
-		return false;
-	}
+			var details = log.Split(' ');
+			if (details.Length != 3)
+			{
+				continue;
+			}
+			var sender = int.Parse(details[0]);
+			var receiver = int.Parse(details[1]);
 
-	public bool Remove(int val)
-	{
-		if (tracker.Contains(val))
+			if (!tracker.ContainsKey(sender))
+			{
+				tracker[sender] = 0;
+			}
+			tracker[sender]++;
+
+			if (sender == receiver)
+			{
+				continue;
+			}
+			if (!tracker.ContainsKey(receiver) && sender != receiver)
+			{
+				tracker[receiver] = 0;
+			}
+			tracker[receiver]++;
+
+
+		}
+
+		var list = new List<int>();
+		foreach (var kvp in tracker)
 		{
-			tracker.Remove(val);
-			return true;
+			if (kvp.Value >= threshold)
+			{
+				list.Add(kvp.Key);
+			}
 		}
-		return false;
+		list = list.OrderBy(itm => itm).ToList();
+
+		foreach (var s in list)
+		{
+			result.Add(s.ToString());
+		}
+		return result;
 	}
 
-	public int GetRandom()
+
+	public class RandomizedSet
 	{
-		int randIndex = new Random().Next(0, tracker.Count);
-		return tracker[randIndex];
+
+		List<int> tracker;
+
+		public RandomizedSet()
+		{
+			tracker = new List<int>();
+		}
+
+		public bool Insert(int val)
+		{
+			if (!tracker.Contains(val))
+			{
+				tracker.Add(val);
+				return true;
+			}
+			return false;
+		}
+
+		public bool Remove(int val)
+		{
+			if (tracker.Contains(val))
+			{
+				tracker.Remove(val);
+				return true;
+			}
+			return false;
+		}
+
+		public int GetRandom()
+		{
+			int randIndex = new Random().Next(0, tracker.Count);
+			return tracker[randIndex];
+		}
 	}
 }
