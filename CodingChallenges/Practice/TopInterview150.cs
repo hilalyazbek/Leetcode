@@ -1,5 +1,4 @@
 
-using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Globalization;
 using System.Security.AccessControl;
@@ -251,6 +250,7 @@ public static class TopInterview150
 
 		var start = 0;
 		var fuel = 0;
+
 		for (int i = 0; i < gas.Length; i++)
 		{
 			fuel += (gas[i] - cost[i]);
@@ -380,6 +380,39 @@ public static class TopInterview150
 			int target = list[i] + nums.Length - 1;
 			int index = list.BinarySearch(target);
 
+			if (sender == receiver)
+			{
+				continue;
+			}
+			if (!tracker.ContainsKey(receiver) && sender != receiver)
+			{
+				tracker[receiver] = 0;
+			}
+			tracker[receiver]++;
+
+
+		}
+
+		var list = new List<int>();
+		foreach (var kvp in tracker)
+		{
+			if (kvp.Value >= threshold)
+			{
+				list.Add(kvp.Key);
+			}
+		}
+		list = list.OrderBy(itm => itm).ToList();
+
+		foreach (var s in list)
+		{
+			result.Add(s.ToString());
+		}
+		return result;
+	}
+
+
+	public class RandomizedSet
+	{
 			if (index < 0)
 				index = (~index) - 1;
 
