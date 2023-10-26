@@ -475,6 +475,34 @@ public static class TopInterview150
 
     }
 
+    public static int Trap(int[] height)
+    {
+		int result = 0;
+		int left = 0;
+		int right = height.Length-1;
+		int leftMax = 0;
+		int rightMax = 0;
+
+		while(left <= right)
+		{
+			leftMax = Math.Max(leftMax, height[left]);
+			rightMax = Math.Max(rightMax, height[right]);
+
+			if (leftMax < right)
+			{
+				result += (leftMax - height[left]);
+				left++;
+			}
+			else
+			{
+				result += (rightMax - height[right]);
+				right--;
+			}
+		}
+
+		return result;
+    }
+
 
     public class RandomizedSet
 	{

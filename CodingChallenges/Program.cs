@@ -116,3 +116,7 @@ Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }
 
 Console.WriteLine("12. Integer to Roman");
 Console.WriteLine(TopInterview150.IntToRoman(58));
+
+
+Console.WriteLine("42. Trapping Rain Water");
+Console.WriteLine(TopInterview150.Trap(new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }));
