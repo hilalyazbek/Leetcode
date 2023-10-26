@@ -113,3 +113,6 @@ Console.WriteLine("28.Find the Index of the First Occurrence in a String");
 Console.WriteLine(TopInterview150.StrStr("abc", "c"));
 
 Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
+
+Console.WriteLine("12. Integer to Roman");
+Console.WriteLine(TopInterview150.IntToRoman(58));

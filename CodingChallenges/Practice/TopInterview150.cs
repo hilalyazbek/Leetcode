@@ -442,7 +442,41 @@ public static class TopInterview150
 		return -1;
 	}
 
-	public class RandomizedSet
+    public static string IntToRoman(int num)
+	{
+        var result = new StringBuilder();
+        var map = new Dictionary<int, string>
+        {
+            { 1000, "M" },
+            { 900, "CM" },
+            { 500, "D" },
+            { 400, "CD" },
+            { 100, "C" },
+            { 90, "XC" },
+            { 50, "L" },
+            { 40, "XL" },
+            { 10, "X" },
+            { 9, "IX" },
+            { 5, "V" },
+            { 4, "IV" },
+            { 1, "I" },
+        };
+
+        foreach (var kv in map)
+        {
+            while (num >= kv.Key)
+            {
+                num -= kv.Key;
+                result.Append(kv.Value);
+            }
+        }
+
+        return result.ToString();
+
+    }
+
+
+    public class RandomizedSet
 	{
 
 		List<int> tracker;
