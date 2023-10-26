@@ -76,23 +76,5 @@ public static class AlgoI
         return high + 1;
     }
 
-    public static List<string> processLogs(List<string> logs, int threshold)
-    {
-        var tracker = new Dictionary<int,int>();
-        
-        foreach(var log in logs){
-            var details = log.Split(' ');
-            
-            if(details.Length != 3){
-                continue;
-            }
-            
-            var sender = details[0];
-            var receiver = details[1];
-            
-            if(!tracker.ContainsKey(sender) || !tracker.ContainsKey(receiver)){
-                tracker.Add(sender)
-            }
-        }
-    }
+    
 }

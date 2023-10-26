@@ -380,47 +380,8 @@ public static class TopInterview150
 			int target = list[i] + nums.Length - 1;
 			int index = list.BinarySearch(target);
 
-			if (sender == receiver)
-			{
-				continue;
-			}
-			if (!tracker.ContainsKey(receiver) && sender != receiver)
-			{
-				tracker[receiver] = 0;
-			}
-			tracker[receiver]++;
-
-
 		}
-
-		var list = new List<int>();
-		foreach (var kvp in tracker)
-		{
-			if (kvp.Value >= threshold)
-			{
-				list.Add(kvp.Key);
-			}
-		}
-		list = list.OrderBy(itm => itm).ToList();
-
-		foreach (var s in list)
-		{
-			result.Add(s.ToString());
-		}
-		return result;
-	}
-
-
-	public class RandomizedSet
-	{
-			if (index < 0)
-				index = (~index) - 1;
-
-			max = Math.Max(max, index - i + 1);
-		}
-
-		return nums.Length - max;
-
+		return 0;
 	}
 
 	public static int LengthOfLastWord(string s)
