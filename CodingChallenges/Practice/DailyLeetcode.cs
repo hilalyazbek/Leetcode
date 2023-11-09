@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.VisualBasic;
 using System.Linq;
+using System.Data;
 
 public static class DailyLeetcode
 {
@@ -285,6 +286,50 @@ public static class DailyLeetcode
             i++;
         }
         return true;
+    }
+
+    public static int CountHomogenous(string s)
+    {
+        var mod = (int)Math.Pow(10, 9) + 7;
+        var result = 0;
+        var right = 0;
+        var left = 0;
+        var currentCount = 1;
+        while (left < s.Length)
+        {
+            if (left == s.Length - 1)
+            {
+                result += CountPossibilities(currentCount);
+                left++;
+            }
+            else
+            {
+                right = left + 1;
+                if (s[left] == s[right])
+                {
+                    currentCount++;
+                    right++;
+                    left++;
+                }
+                else
+                {
+                    result += CountPossibilities(currentCount);
+                    currentCount = 1;
+                    left = right;
+                }
+            }
+        }
+        return result % mod;
+    }
+
+    private static int CountPossibilities(int currentCount)
+    {
+        var result = 0;
+        for (; currentCount > 0; currentCount--)
+        {
+            result += currentCount;
+        }
+        return result;
     }
 }
 
