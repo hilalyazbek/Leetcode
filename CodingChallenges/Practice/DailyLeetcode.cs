@@ -290,17 +290,17 @@ public static class DailyLeetcode
     public static string SortVowels(string s)
     {
         var vowels = "aeiouAEIOU";
-        var currentVowels = "";
+        var currentVowels = new List<char>();
         char[] result = new char[s.Length];
 
         for (int i = 0; i < s.Length; i++)
         {
             if (vowels.Contains(s[i]))
             {
-                currentVowels += s[i];
+                currentVowels.Add(s[i]);
             }
         }
-        Array.Sort(currentVowels.ToCharArray());
+        currentVowels.Sort();
         var idx = 0;
         for (int i = 0; i < s.Length; i++)
         {
