@@ -97,28 +97,8 @@ Console.WriteLine("2009. Minimum Number of Operations to Make Array Continuous")
 Console.WriteLine("1793. Maximum Score of a Good Subarray");
 Console.WriteLine(DailyLeetcode.MaximumScore(new int[] { 1, 4, 3, 7, 4, 5 }, 3));
 
-// Console.WriteLine("58.Length of Last Word");
-// Console.WriteLine(TopInterview150.LengthOfLastWord("hello world"));
 
-// Console.WriteLine("14.Longest Common Prefix");
-// Console.WriteLine(TopInterview150.LongestCommonPrefix(new string[] { "dog", "racecar", "car" }));
-
-// Console.WriteLine("342.Power of Four");
-// Console.WriteLine(DailyLeetcode.IsPowerOfFour(16));
-
-// Console.WriteLine("151.Reverse Words in a String");
-// Console.WriteLine(TopInterview150.ReverseWords(" a good   example "));
-
-// Console.WriteLine("28.Find the Index of the First Occurrence in a String");
-// Console.WriteLine(TopInterview150.StrStr("abc", "c"));
-
-// Console.WriteLine(AlgoI.processLogs());
-// Console.WriteLine(TopInterview150.CanCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
-
-// var lst = new List<String>{
-//     "99 88 200", "99 88 300", "99 32 222", "15 15 222"
-// };
-// Console.WriteLine(TopInterview150.processLogs(lst, 2));
-
-//Console.WriteLine(TopInterview150.CountNumWays("ababa", 2));
 TopInterview150.GetPrioritiesAfterExecution(new List<int> { 4, 4, 4, 2, 1 });
+
+Console.WriteLine("2785. Sort Vowels in a String");
+Console.WriteLine(DailyLeetcode.SortVowels("lEetcOde"));

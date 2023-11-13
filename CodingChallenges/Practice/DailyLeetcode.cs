@@ -286,6 +286,37 @@ public static class DailyLeetcode
         }
         return true;
     }
+
+    public static string SortVowels(string s)
+    {
+        var vowels = "aeiouAEIOU";
+        var currentVowels = "";
+        char[] result = new char[s.Length];
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (vowels.Contains(s[i]))
+            {
+                currentVowels += s[i];
+            }
+        }
+        Array.Sort(currentVowels.ToCharArray());
+        var idx = 0;
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (vowels.Contains(s[i]))
+            {
+                result[i] = currentVowels[idx];
+                idx++;
+            }
+            else
+            {
+                result[i] = s[i];
+            }
+        }
+
+        return new string(result);
+    }
 }
 
 public class MyHashMap
