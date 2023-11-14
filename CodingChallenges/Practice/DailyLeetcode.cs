@@ -331,6 +331,37 @@ public static class DailyLeetcode
         }
         return result;
     }
+    public static string SortVowels(string s)
+    {
+        var vowels = "aeiouAEIOU";
+        var currentVowels = new List<char>();
+        char[] result = new char[s.Length];
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (vowels.Contains(s[i]))
+            {
+                currentVowels.Add(s[i]);
+            }
+        }
+        currentVowels.Sort();
+        var idx = 0;
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (vowels.Contains(s[i]))
+            {
+                result[i] = currentVowels[idx];
+                idx++;
+            }
+            else
+            {
+                result[i] = s[i];
+            }
+        }
+
+        return new string(result);
+
+    }
 }
 
 public class MyHashMap

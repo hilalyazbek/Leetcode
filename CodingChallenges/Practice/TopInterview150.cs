@@ -368,20 +368,59 @@ public static class TopInterview150
 		return ans;
 	}
 
-	public static int MinOperations(int[] nums)
+	// public static int MinOperations(int[] nums)
+	// {
+	// 	Array.Sort(nums);
+	// 	List<int> list = nums.ToHashSet().ToList();
+
+	// 	int max = 0;
+
+	// 	for (int i = 0; i < list.Count; i++)
+	// 	{
+	// 		int target = list[i] + nums.Length - 1;
+	// 		int index = list.BinarySearch(target);
+
+	// 		if (sender == receiver)
+	// 		{
+	// 			continue;
+	// 		}
+	// 		if (!tracker.ContainsKey(receiver) && sender != receiver)
+	// 		{
+	// 			tracker[receiver] = 0;
+	// 		}
+	// 		tracker[receiver]++;
+
+
+	// 	}
+
+	// 	var list = new List<int>();
+	// 	foreach (var kvp in tracker)
+	// 	{
+	// 		if (kvp.Value >= threshold)
+	// 		{
+	// 			list.Add(kvp.Key);
+	// 		}
+	// 	}
+	// 	list = list.OrderBy(itm => itm).ToList();
+
+	// 	foreach (var s in list)
+	// 	{
+	// 		result.Add(s.ToString());
+	// 	}
+	// 	return result;
+	// }
+
+
+	public class RandomizedSet
 	{
-		Array.Sort(nums);
-		List<int> list = nums.ToHashSet().ToList();
+		// 		if (index< 0)
+		// 			index = (~index) - 1;
+		// }
+		// 		max = Math.Max(max, index - i + 1);
+		// 	}
 
-		int max = 0;
+		// 	return nums.Length - max;
 
-		for (int i = 0; i < list.Count; i++)
-		{
-			int target = list[i] + nums.Length - 1;
-			int index = list.BinarySearch(target);
-
-		}
-		return 0;
 	}
 
 	public static int LengthOfLastWord(string s)
@@ -442,48 +481,48 @@ public static class TopInterview150
 		return -1;
 	}
 
-    public static string IntToRoman(int num)
+	public static string IntToRoman(int num)
 	{
-        var result = new StringBuilder();
-        var map = new Dictionary<int, string>
-        {
-            { 1000, "M" },
-            { 900, "CM" },
-            { 500, "D" },
-            { 400, "CD" },
-            { 100, "C" },
-            { 90, "XC" },
-            { 50, "L" },
-            { 40, "XL" },
-            { 10, "X" },
-            { 9, "IX" },
-            { 5, "V" },
-            { 4, "IV" },
-            { 1, "I" },
-        };
+		var result = new StringBuilder();
+		var map = new Dictionary<int, string>
+		{
+			{ 1000, "M" },
+			{ 900, "CM" },
+			{ 500, "D" },
+			{ 400, "CD" },
+			{ 100, "C" },
+			{ 90, "XC" },
+			{ 50, "L" },
+			{ 40, "XL" },
+			{ 10, "X" },
+			{ 9, "IX" },
+			{ 5, "V" },
+			{ 4, "IV" },
+			{ 1, "I" },
+		};
 
-        foreach (var kv in map)
-        {
-            while (num >= kv.Key)
-            {
-                num -= kv.Key;
-                result.Append(kv.Value);
-            }
-        }
+		foreach (var kv in map)
+		{
+			while (num >= kv.Key)
+			{
+				num -= kv.Key;
+				result.Append(kv.Value);
+			}
+		}
 
-        return result.ToString();
+		return result.ToString();
 
-    }
+	}
 
-    public static int Trap(int[] height)
-    {
+	public static int Trap(int[] height)
+	{
 		int result = 0;
 		int left = 0;
-		int right = height.Length-1;
+		int right = height.Length - 1;
 		int leftMax = 0;
 		int rightMax = 0;
 
-		while(left <= right)
+		while (left <= right)
 		{
 			leftMax = Math.Max(leftMax, height[left]);
 			rightMax = Math.Max(rightMax, height[right]);
@@ -501,15 +540,87 @@ public static class TopInterview150
 		}
 
 		return result;
-    }
+	}
 
 
-    public class RandomizedSet
+
+	public static int CountNumWays(string s, int k)
+	{
+		int n = s.Length;
+		int count = 0;
+
+		for (int i = 0; i <= n - k; i++)
+		{
+			string substring = s.Substring(i, k);
+			char[] reversedChars = substring.ToCharArray();
+			Array.Reverse(reversedChars);
+			string reversedSubstring = new string(reversedChars);
+
+			if (string.Compare(reversedSubstring, s) < 0)
+			{
+				count++;
+			}
+		}
+
+		return count;
+	}
+
+	public static List<int> GetPrioritiesAfterExecution(List<int> priority)
+	{
+
+		int n = priority.Count;
+
+		PriorityQueue<int, int> queue = new PriorityQueue<int, int>();
+
+
+		for (int i = 0; i < n; i++)
+		{
+			queue.Enqueue(i, -priority[i]); // Negate priorities to make it a min-heap.
+		}
+
+		while (true)
+		{
+			int process1 = queue.Dequeue();
+			int process2 = queue.Dequeue();
+
+			if (priority[process1] == 0 || priority[process1] != priority[process2])
+			{
+				// If no matching priorities, or priority is 0, terminate.
+				break;
+			}
+
+			// Execute process1 and remove it from the queue.
+			priority[process1] = 0;
+
+			// Reduce the priority of process2 to half.
+			priority[process2] /= 2;
+
+			// Reinsert the processes into the queue with their updated priorities.
+			queue.Enqueue(process1, -priority[process1]);
+			queue.Enqueue(process2, -priority[process2]);
+		}
+
+		// Create a list of remaining priorities
+		List<int> result = new List<int>();
+		foreach (int p in priority)
+		{
+			if (p != -1)
+			{
+				result.Add(p);
+			}
+		}
+
+		return result;
+	}
+
+
+
+	public class RandomizedSet1
 	{
 
 		List<int> tracker;
 
-		public RandomizedSet()
+		public RandomizedSet1()
 		{
 			tracker = new List<int>();
 		}
