@@ -4,6 +4,8 @@ using System.Text;
 using Microsoft.VisualBasic;
 using System.Linq;
 using System.Data;
+using CodingChallenges;
+using System.Runtime.CompilerServices;
 
 public static class DailyLeetcode
 {
@@ -331,6 +333,7 @@ public static class DailyLeetcode
         }
         return result;
     }
+
     public static string SortVowels(string s)
     {
         var vowels = "aeiouAEIOU";
@@ -360,6 +363,37 @@ public static class DailyLeetcode
         }
 
         return new string(result);
+    }
+
+    public static int CountPalindromicSubsequence(string s)
+    {
+        var uniqueChars = s.ToHashSet();
+        var firstOccurance = new Dictionary<char, int>();
+        var lastOccurance = new Dictionary<char, int>();
+        var result = 0;
+
+        foreach (var c in uniqueChars)
+        {
+            if (s.Count(itm => itm == c) > 1)
+            {
+                firstOccurance.Add(c, s.IndexOf(c));
+                lastOccurance.Add(c, s.LastIndexOf(c));
+            }
+        }
+
+        foreach (var kvp in firstOccurance)
+        {
+
+            var count = GetDistinct(s, kvp.Value, lastOccurance[kvp.Key]);
+            result += count;
+        }
+        return result;
+    }
+
+    private static int GetDistinct(string s, int start, int end)
+    {
+        var substring = s.Substring(start + 1, end - start - 1);
+        return substring.ToHashSet().Count();
 
     }
 }
